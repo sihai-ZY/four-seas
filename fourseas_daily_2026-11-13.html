@@ -2629,7 +2629,15 @@
     function paint() {
         el.textContent = src[idx].text;
         au.textContent = src[idx].author;
-        if (dt && src[idx].date) { dt.textContent = src[idx].date; }
+        var dstr = (src[idx].date || "");
+    if (dt && dstr) {
+        var md = dstr.match(/^(\d{4}-\d{2}-\d{2})/);
+        if (md) {
+            dt.innerHTML = '<a href="fourseas_daily_' + md[1] + '.html" target="_blank" rel="noopener" style="color:#0369A1;font-weight:600;text-decoration:none;">' + md[1] + '<i class="fas fa-arrow-right" style="font-size:10px;margin-left:2px;"></i></a>';
+        } else {
+            dt.textContent = dstr;
+        }
+    }
     }
     paint();
     if (src.length < 2) return;
