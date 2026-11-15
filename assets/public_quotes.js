@@ -2306,7 +2306,7 @@ window.PUBLIC_QUOTES = [
   },
   {
     "text": "你不能既喜欢进游乐场里玩游戏，又不喜欢买游乐场的门票",
-    "author": "西西",
+    "author": "AA昍",
     "date": "2026-11-14",
     "section": "每日精选"
   },
