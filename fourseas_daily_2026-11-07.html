@@ -2720,7 +2720,8 @@
     }
     </script>
 
-<!-- === 金句换一句：候选池由AI从当日聊天记录挑选（10条，首条为默认展示句） === -->
+<!-- === 金句换一句：全库精选随机（assets/public_quotes.js），无库时回退当日候选池 === -->
+<script src="assets/public_quotes.js"></script>
 <script>
 (function () {
     var pool = [
@@ -2775,19 +2776,27 @@
                 "date": "2026-11-07 · 热点话题"
         }
 ];
+    var allQ = window.PUBLIC_QUOTES || [];
     var el = document.getElementById("fortune-text");
     var au = document.getElementById("fortune-author");
     var dt = document.getElementById("fortune-date");
     var btn = document.getElementById("fortune-shuffle");
-    if (!el || !au || !btn || !pool || pool.length < 2) return;
-    var idx = 0;
+    if (!el || !au || !btn) return;
+    var src = allQ.length > 1 ? allQ : pool;
+    if (!src || src.length < 1) return;
+    var idx = Math.floor(Math.random() * src.length);
+    function paint() {
+        el.textContent = src[idx].text;
+        au.textContent = src[idx].author;
+        if (dt && src[idx].date) { dt.textContent = src[idx].date; }
+    }
+    paint();
+    if (src.length < 2) return;
     btn.addEventListener("click", function () {
         var next = idx;
-        if (pool.length > 1) { while (next === idx) { next = Math.floor(Math.random() * pool.length); } }
+        while (next === idx) { next = Math.floor(Math.random() * src.length); }
         idx = next;
-        el.textContent = pool[idx].text;
-        au.textContent = pool[idx].author;
-        if (dt && pool[idx].date) { dt.textContent = pool[idx].date; }
+        paint();
     });
 })();
 </script>
