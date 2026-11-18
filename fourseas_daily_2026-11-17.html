@@ -689,8 +689,7 @@
 .report-calendar-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;text-align:center}.report-calendar-week{font-size:12px;color:#9ca3af;padding:7px 0}
 .report-calendar-day{height:38px;border:0;border-radius:10px;background:transparent;color:#374151;cursor:pointer}.report-calendar-day:not(:disabled):not([aria-disabled="true"]):hover{background:color-mix(in srgb,#0ea5e9 12%,white);color:#0ea5e9}.report-calendar-day.current{background:#0ea5e9;color:white;font-weight:700}.report-calendar-day.today:not(.current){box-shadow:inset 0 0 0 1.5px #0ea5e9;color:#0ea5e9}.report-calendar-day:disabled,.report-calendar-day[aria-disabled="true"]{color:#cbd5e1;cursor:not-allowed}.report-calendar-day[aria-disabled="true"]{position:relative}.report-calendar-day[aria-disabled="true"][data-tip]:hover::after,.report-calendar-day[aria-disabled="true"][data-tip]:focus-visible::after{content:attr(data-tip);position:absolute;z-index:2;bottom:calc(100% + 5px);left:50%;transform:translateX(-50%);width:max-content;max-width:200px;padding:5px 8px;border-radius:6px;background:#1f2937;color:#fff;font-size:12px;font-weight:400;line-height:1.4;white-space:normal;pointer-events:none}
 .report-calendar button:focus-visible,.report-calendar select:focus-visible{outline:2px solid #0ea5e9;outline-offset:2px}@media(max-width:400px){.report-calendar{padding:18px}.report-calendar-day{height:36px}}
-</style>
-</head>
+</style></head>
 <body class="bg-white text-black min-h-screen">
     <!-- HTML注释: 整体宽度通过 max-w-4xl 控制，实现日报宽度调小并保持响应式。-->
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -718,13 +717,13 @@
                         </div>
                         <div class="flex items-center text-gray-700">
                             <i class="fas fa-clock mr-2 text-[#0EA5E9]"></i>
-                            <span>02:00 - 02:00（次日）</span>
+                            <span>18:44 - 22:40</span>
                         </div>
                     </div>
                     <!-- HTML注释: 新增历史日报链接，位置合理且样式协调 -->
                     <div class="flex justify-center">
                         <a id="history-link" href="archive.html" class="history-link">
-                            <i class="fas fa-history"></i>
+                            <i class="fas fa-search"></i>
                             四海历史日报
                         </a>
                     </div>
@@ -772,16 +771,20 @@
                             <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#CFE9F9]/80 text-[#0369A1] text-xs font-bold mb-3">
                                 <i class="fas fa-quote-left text-[10px]"></i> 每日金句
                             </div>
-                            <p class="text-base sm:text-lg font-bold text-slate-800 leading-relaxed mb-2" id="fortune-text" style="font-family: 'LXGW WenKai', serif;">我觉得，学会说话，比学会送礼有用得多。</p>
+                            <!-- HTML注释: 每日金句为"今日金句"模式，由AI从当日群聊记录中直接选取，并同时生成8~10条候选填入页面底部 pool（见「金句换一句」脚本注释）。选取标准与"金句时刻"一致：必须基于群成员真实发言，让人获得"啊哈"或恍然大悟的启发；金句不允许负向描述（如骂人、侮辱人等话语）；金句内容本身不包含群成员昵称。 -->
+                            <p class="text-base sm:text-lg font-bold text-slate-800 leading-relaxed mb-2" id="fortune-text" style="font-family: 'LXGW WenKai', serif;">一代人有一代人的长征，一代人有一代人的路要走。</p>
                             <p class="text-xs text-slate-400 mb-4" id="fortune-meta">
-                                <span id="fortune-author" class="font-medium text-slate-500">AA昍</span>
+                                <span id="fortune-author" class="font-medium text-slate-500"><b>吉山偷猪</b></span>
                                 <span id="fortune-date" class="ml-2">2026-11-17 · 热点话题</span>
                             </p>
                             <div class="flex items-center gap-3">
+                                <!-- HTML注释: "换一句"按钮 + 金句候选池：AI 生成日报时，必须从当日聊天记录中挑选 8~10 条带署名的真实金句（首条即页面默认展示句，与 #fortune-text 一致），以 JS 数组形式填入页面底部「金句换一句」脚本的 pool（每条格式 {"text": 金句文本, "author": 群成员昵称, "date": "YYYY-MM-DD · 热点话题"}）。金句文本不含昵称；禁止从转发/引用内容中取句；禁止负向描述。浪花集按钮指向 waves.html（浪花集案例页），截图分享图会自动裁掉此按钮行，不影响截图。 -->
                                 <button id="fortune-shuffle" type="button" class="px-4 py-2 rounded-lg bg-[#E6F4FC] hover:bg-[#CFE9F9] text-[#0369A1] text-sm font-bold border border-[#B5E0F4] hover:border-[#7FC2E8] transition-all flex items-center gap-1.5 shadow-sm cursor-pointer">
                                     <i class="fas fa-sync-alt"></i> 换一句
                                 </button>
-                                <a href="waves.html" class="px-4 py-2 rounded-lg bg-[#E6F4FC] hover:bg-[#CFE9F9] text-[#0369A1] text-sm font-bold border border-[#B5E0F4] hover:border-[#7FC2E8] transition-all flex items-center gap-1.5 shadow-sm"><i class="fas fa-water"></i> 浪花集</a>
+                                <a href="waves.html" class="px-4 py-2 rounded-lg bg-[#E6F4FC] hover:bg-[#CFE9F9] text-[#0369A1] text-sm font-bold border border-[#B5E0F4] hover:border-[#7FC2E8] transition-all flex items-center gap-1.5 shadow-sm">
+                                    <i class="fas fa-water"></i> 浪花集
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -803,30 +806,55 @@
         <!-- === 模块一：总消息概览 结束 === -->
 
         <!-- === 模块二：火花碰撞时刻・热点话题 开始 === -->
+        <!-- HTML注释: 此模块作为单独一行，占据整行宽度。用于展示群内讨论的热点话题。 -->
+        <!-- HTML注释: 模块二内容结构说明: -->
+        <!-- 1. 话题: 作为卡片的主标题 -->
+        <!-- 2. 关键结论: 每个话题下可以包含多个关键结论 (模板结构示例展示支持最多3个关键结论，如需更多可复制结构)；关键结论应按照话题讨论的时间线来编写。 -->
+        <!-- 3. <b>金句时刻</b>: 每个关键结论下对应约3个<b>金句时刻</b>。 -->
+        <!-- HTML注释: "爬楼关键词"说明: 每个话题卡片中包含爬楼关键词区域，用于用户快速定位到群聊记录中的对应讨论位置，为话题起始句。填写时需要包含相关用户的昵称，格式示例：[用户昵称]：[关键词内容]，但不要包含微信ID。为便于定位，请勿引用图片、视频、链接、语音等非文本消息作为起始句，应顺延至其后的第一条有效文本消息。为便于定位，请勿引用图片、视频、链接、语音等非文本消息作为起始句，应顺延至其后的第一条有效文本消息。 -->
         <section id="section-hot-topics" class="w-full mb-12 anchor-target">
             <h2 class="section-title">火花碰撞时刻・热点话题</h2>
+            <!-- 列表容器: 讨论话题 -->
             <div class="space-y-8">
-<!-- 热点话题卡片 1 -->
+
+                <!-- 热点话题卡片 开始：复制以下 <div class="bento-card p-6 rounded-xl">...</div> 结构以添加更多热点话题 -->
                 <div class="bento-card p-6 rounded-xl"> <!-- 其他模块（如热点话题）的卡片边框颜色和样式不得更改 -->
                     <div class="flex flex-col sm:flex-row items-start justify-between mb-4">
-                        <h4 class="text-xl font-bold text-black flex-1 mb-2 sm:mb-0">送礼是不是第一生产力：一场辩论、一堂方法课与两次道歉</h4>
+                        <h4 class="text-xl font-bold text-black flex-1 mb-2 sm:mb-0">
+                            《伟大的长征》与"你敢不敢牺牲"的话术解构
+                        </h4>
                         <span class="text-sm text-gray-600 ml-0 sm:ml-4 whitespace-nowrap bg-gray-100 px-3 py-1.5 rounded-md">
-                            <i class="fas fa-clock mr-1.5 text-gray-500"></i>11:07 - 16:15
+                            <i class="fas fa-clock mr-1.5 text-gray-500"></i>
+                             - 
                         </span>
                     </div>
+
+                    <!-- HTML注释: 爬楼关键词区域 - 话题讨论的起始句，用于快速定位群聊记录中的对应讨论。填写时需要包含相关用户的昵称，格式示例：[用户昵称]：[关键词内容]，但不要包含微信ID。为便于定位，请勿引用图片、视频、链接、语音等非文本消息作为起始句，应顺延至其后的第一条有效文本消息。 -->
                     <div class="mb-4 bg-[#EEF2FF] border border-[#C7D2FE] rounded-md p-3">
                         <p class="text-sm font-medium text-[#4338CA] mb-1">爬楼关键词</p>
-                        <p class="text-sm text-[#4F46E5] italic">"【Y】YHJ：送礼才是职场进步的第一生产力"</p>
+                        <p class="text-sm text-[#4F46E5] italic">
+                            "【Z】西西：这篇文章的角度很稀有哎"
+                        </p>
                     </div>
+
                     <div class="mb-5">
                         <p class="text-sm font-semibold text-gray-800 mb-2">相关关键词</p>
-                        <div class="flex flex-wrap gap-2"><span class="tag-item">送礼边界</span><span class="tag-item">一二三阶</span><span class="tag-item">时代默认值</span></div>
+                        <!-- 列表容器: 相关关键词 -->
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag-item">伟大的长征</span>
+                            <span class="tag-item">解构话术</span>
+                            <span class="tag-item">牺牲叙事</span>
+                        </div>
+                        <!-- 列表容器结束: 相关关键词 -->
                     </div>
+
                     <div class="mb-5">
                         <p class="text-sm font-semibold text-gray-800 mb-2">详细内容</p>
                         <div class="text-gray-700 text-base leading-relaxed bg-slate-50 p-4 rounded-md prose prose-sm max-w-none">
                             <div class="expandable-content" data-char-limit="200">
-                                <div class="content-preview"><b>一、导火索</b><br>上午一位群友聊到职场表达，<b>YHJ</b>直接给出暴论：表达啥啊，直接送礼——送礼才是职场进步的第一生产力；体制内才要用啊，不然领导哪里知道你是真投靠还是嘴炮；不掏钱的陪伴，都是无用功。<b>深圳-创业者-向宁</b>当场反对：体制内慎用；需要送礼来进步的，大概率送不好礼；真投靠是投其所好。被追问你送过礼吗、什么岗位的领导，<b>YHJ</b>转而质问一说话就针对？随后退场，把话题留给了全群。<br><br><b>二、正反方账本</b><br><b>转念</b>给风险判断：现在还敢收贵重礼品的体制内领导，总有一天要出事，不如不送。<b>Cheems</b>给出定位：送礼顶多是泡面里的鸡蛋这种辅助维系感情作用，不能当成晋升敲门砖。<b>XY</b>给实操版：体制内日常奶茶、旅行伴手礼就够了，记得雨露均沾，有领导的也得有同事的，大大方方送；去喝茶时某年某月某日喝某人一瓶茅台是要写上的，冰箱贴奶茶不用写。<b>Deng</b>把《中国共产党纪律处分条例》第九十八条原文贴进群——向从事公务的人员赠送明显超出正常礼尚往来的财物，情节严重的撤职留察——并表态：针对这个观点，我反对。<b>会计王小全</b>给出群规口径：具体问题具体分析，虚空辩经和人身攻击没有意义，有的中层明确只看工作能力，有的靠人情往来拉近关系，说到底都要看目的。<b>一学呀</b>补充明暗两套规则的现实：不信任的人送一瓶水都不收，投诉一次收现金的当场停职。<br><br><b>三、「阴阳怪气」罗生门</b><br>辩论中<b>可</b>对送礼论回了一句你都这样想了，那纪委同志应该挺欢迎的，被<b>美丽心情123（拒接微信通话）</b>提示你这样说话有可能会激化矛盾，随后两人围绕阴阳怪气各自表述——可多次要求正面回应，对方表示只是顺着话题聊几句、有人对号入座。<b>胡小窝</b>劝停：空对空讲都是徒劳，讨论要在具体的场景、具体的事情中进行。<b>兽</b>、<b>米欧</b>等围观者核对记录后认定可并没有阴阳怪气，建议该道歉就道歉。<br><br><b>四、群主的方法课：一二三阶</b><br>风波暂歇后，<b>AA昍</b>借这个话题完整讲了一遍思维层级：一阶，就事论事；二阶，换位思考；三阶，实事求是，做好引导。用送礼当例题：一阶收获是体制内尤其不要乱送礼——很辩证；二阶要看见猜疑链，哪怕你目的是真心为领导好，领导无法确认这一点他也不敢收，但跟领导熟了之后送一副两百块的新球拍就没问题——送礼是表象，人际交往是本质；三阶是为什么要发在群里讲而不是私聊：让两百人都能看见这个群不容忍错误的送礼观、也不会抱团排挤人，这就是做好引导。<b>Ricky 知风</b>把群主微博上发过的一二三阶短文整理成文档分享进群。顺着送礼再往下推一层：为什么领导不敢收礼？一是技术进步，处处天眼，线上交易条条可查；二是刀刃向内大力反腐——从不敢腐（想收但怕被发现），到不能腐（流程上钱不从自己手里过、两人互相监督），再到不想腐（主动或被动地压根不想要了），被动进步一旦形成风气，制度优势就沉淀成了文化优势。<br><br><b>五、风波中场的另一课：N 个我</b><br>风波中场，<b>美丽心情123</b>请教图里「N个我向最强的我靠拢」是什么意思。<b>AA昍</b>解释：你在公司里是一个样子，在家和父母又是一个样子，和同学出去玩又是一个样子，在这个群里又是一个样子——人是有不同侧面的，这是客观规律。用好这个规律的办法是：在每个场景里都努力做好自己，能力可以融会贯通、跨场景迁移；在单位锻炼冷静思考，做情绪的主导，在群里练习有理有据的沟通，将来回到职场就能用上。<br><br><b>六、裁决与闭环</b><br>回到这场风波的处理上，<b>AA昍</b>给出三层裁决：对乱入接话的同志宽大处理；对美丽心情指出两点错误——观点可以讨论，但对方多次解释并要求回应后一直不回应不合适；对始作俑者给出选项：发个红包给同志们道个歉，或者退群。<b>YHJ</b>选择退群。<b>AA昍</b>随后输出本场判词：时代的默认值变了——以前送礼是默认值，你不送礼很多事儿办不成；现在反腐常态化，不送礼才是默认制，谁送礼才是傻子。围绕目的去做事有的是办法：平时经常沟通谈心，对方家里有急事帮着出主意，不比送礼管用吗？并对美丽心情说：我觉得，学会说话，比学会送礼有用得多。下午<b>美丽心情123</b>公开致谢致歉：谢谢日日老师的解答，给各位造成的困扰和不开心，我表示歉意，事情闭环。</div>
+                                <div class="content-preview">
+                                    <b>一、话题背景与起因</b><br><b>西西</b> 转发一张公众号文章的截图，说"这篇文章的角度很稀有哎"。<b>班超 | Chad Ben</b> 读后说："不同的时代，牺牲的内含可能是不同的"，又补充："文中的时代，可能是生命的牺牲。"<b>Cynthia</b> 接话："生命的牺牲已经大于一切了吧。"<br><br><b>AA昍</b> 提醒："这个账号很怪，谨慎关注吧。"<b>鱼皮</b> 看完原文后指出："全文没提伟大复兴，也不提cpc，有种写命题作文的勉强感。"肥发灰 读出潜台词："反正我做不到。"<b>维生素D3伯爵💎🌊</b> 感觉"像在引导不要梧桐一样"。<br><br><b>二、主要观点与讨论详情</b><br><b>AA昍</b> 先把问题抬高一层："生命是短暂的。对于有历史的民族而言，重要人物的历史生命才是永恒的。所以比牺牲短暂的生命更大的牺牲，就是牺牲自己的历史生命——比如说替组织背黑锅，一背就是100年甚至1000年，敢不敢？"<br><br><b>班超</b> 指出文章的问题："这篇文章可能是把战术和战略混淆了，把具体的战术层面的东西，认为是战略。"他说红军"知道目的在哪里""保留革命的火种"，战略是清晰的，只是战术层面有变动。<br><br>针对"换成自己不一定能这么牺牲"的读感，<b>AA昍</b> 发长文拆解这段话术。他举例：冷静的时候问"有个不认识的小孩掉水里你去不去救"，人只要一想，"你想到这个动作就会提醒你自己，原来我没有那么高尚"；但"人的情绪是有温度的，事情真正发生的一瞬间，你看到有一个孩子掉进了水里，这个时候你根本什么都顾不上想，你就已经做出反应了"。他接着说："理性情况下优先自保是真的，遇到事情本能的去帮助别人，也是真的……人类的高贵不就在于每一个普通人都有可能突然变成一个高贵的人，愿意为了别人而牺牲吗？"他认为反复这样问的人"在解构人类的高贵，解构人类的伟大"，想告诉读者的是"先烈确实了不起，但你不是他们，你也做不到"。<br><br><b>AA昍</b> 接着说，"不怕牺牲"是让步状语——"哪怕要牺牲，只要能够救活更多的战友，那我可以。而不是说我就是要牺牲。"他指出文章隐含的前提是"中央就指望着这些人去送死了"，"这不就是把'我拒绝出列'换了个更隐秘的语气在说吗……自己是个怂逼都怂到不敢承认了，还要让别人说唉其实我也怂"。<br><br><b>三、争议焦点（若有）</b><br>焦点在于：这篇文章是在客观讨论"牺牲"，还是在用提问的方式解构牺牲。<b>鱼皮</b> 从创作者视角说："长时间写东西的人不可能感受不到这种感觉。"他又从读者视角补充："这类账号往往喜欢扯五四运动、鲁迅、红军的大旗伪装自己，再往后说就露馅了。"<b>AA昍</b> 建议："先毛传、毛选、党史打底，再看这些似是而非的所谓时评。"<br><br><b>Cynthia</b> 想通了其中的机关："原文预设了人都怕死，如非必要尽量不牺牲，人不知不觉就接受了这种假设；但如果他反过来写——当年为了理想不怕流血敢于牺牲的人，如果生在今天的年代，也许就是生活在我们周围跟我们一样的平平凡凡的打工人——就会让人也想继承这种使命感，为身边的人尽可能多的做点什么。"肥发灰 评价："这个叙事方向就很赞了。"<br><br><b>四、结论与启发</b><br>讨论以"如何识别这类话术"收尾：读原著打底、感受味道对不对、看提问里预设了什么。话题还延伸到另一条线：<b>AA昍</b> 此前推荐电视剧《伟大的长征》，称其"超越了现有的所有主旋律作品"；<b>努力引体向上</b> 分享了自家三代人收养弃婴的事，说"普通人身上就能看到这种很善良美好的生命力"；<b>吉山偷猪</b> 感慨："一代人有一代人的长征，一代人有一代人的路要走。"
+                                </div>
                                 <button class="expand-btn text-[#0369A1] hover:text-[#075985] text-sm font-medium mt-2 flex items-center" style="display: none;">
                                     <span class="expand-text">展开全文</span>
                                     <i class="fas fa-chevron-down ml-1 expand-icon"></i>
@@ -834,337 +862,500 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- HTML注释: 关键结论和<b>金句时刻</b>区域 -->
                     <div>
                         <p class="text-sm font-semibold text-gray-800 mb-3">关键结论与金句时刻</p>
+
+                        <!-- 列表容器: 关键结论列表 -->
                         <div class="space-y-6">
-                            <!-- 关键结论 -->
+                            <!-- 关键结论 1 开始 -->
                             <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
                                 <div class="mb-4">
                                     <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
                                     <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
-                                        <p class="text-black text-base">时代默认值反转：以前送礼是默认值，现在不送礼才是默认制，谁送礼才是傻子。</p>
+                                        <p class="text-black text-base">
+                                            "你敢不敢牺牲"式提问的套路：先预设"人都怕死"，再引导读者自我怀疑，解构的是普通人变高贵的可能。
+                                        </p>
                                     </div>
                                 </div>
+
                                 <div>
                                     <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
-                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">送礼也是一样的，以前各种不正之风，送礼是默认值，你不送礼，很多事儿办不成，不送礼的是傻子。</p>
+                                    <div class="space-y-2">
+                                        <!-- 金句卡片 1 -->
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "理性情况下优先自保是真的，遇到事情本能的去帮助别人也是真的。人类的高贵不就在于每一个普通人都有可能突然变成一个高贵的人吗？"
+                                            </p>
                                             <p class="text-gray-600 text-xs mt-1 self-end">
                                                 - <b>AA昍</b>
                                             </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">但现在在18之后，反腐越来越严，而且是常态化，说明现在不送礼才是默认制，谁送礼才是傻子，</p>
+                                        </div>
+                                        <!-- 金句卡片 2 -->
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "不怕牺牲是让步状语——哪怕要牺牲，只要能够救活更多的战友，那我可以。而不是说我就是要牺牲。"
+                                            </p>
                                             <p class="text-gray-600 text-xs mt-1 self-end">
                                                 - <b>AA昍</b>
                                             </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">现在还敢收贵重礼品的体制内领导，总有一天要出事。不如不送。</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>转念</b>
+                                        </div>
+                                        <!-- 金句卡片 3 -->
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "原文预设了人都怕死……如果反过来写，当年敢于牺牲的人如果生在今天，也许就是我们身边平平凡凡的打工人，会让人也想继承这种使命感。"
                                             </p>
-                                        </div></div>
-                                </div>
-                            </div>
-                            <!-- 关键结论 -->
-                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
-                                <div class="mb-4">
-                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
-                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
-                                        <p class="text-black text-base">围绕目的选手段：沟通谈心、帮着出主意，都比送礼管用；大大方方的小心意是上限。</p>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
-                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">为了实现目的，就应该采用更合适的手段，比如平时经常沟通谈心，谈工作，之外呢，可能对方家里边遇到什么急事，也能帮着出点儿主意，这不比送礼管用吗？</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>AA昍</b>
-                                            </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">体制内日常奶茶，出去旅行带回冰箱贴什么的伴手礼就可以了，另外记得雨露均沾，有领导的也得有同事的，大大方方送</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>XY</b>
-                                            </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">我是觉得思想还是要正的，不能把送礼输送当成主要甚至唯一的晋升或者办事的敲门砖</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>Cheems</b>
-                                            </p>
-                                        </div></div>
-                                </div>
-                            </div>
-                            <!-- 关键结论 -->
-                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
-                                <div class="mb-4">
-                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
-                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
-                                        <p class="text-black text-base">一二三阶：一阶就事论事，二阶换位思考，三阶实事求是做好引导——送礼是表象，人际交往是本质。</p>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
-                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">一阶，就事论事
-二阶，换位思考
-三阶，实事求是，做好引导</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>AA昍</b>
-                                            </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">这就是换位思考。送礼是表象，人际交往是本质。</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>AA昍</b>
-                                            </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">这样，你就锻炼了自己冷静思考的能力，做情绪的主导，而不是被情绪主导。</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>AA昍</b>
-                                            </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">人是有不同侧面的，这是客观规律</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>AA昍</b>
-                                            </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">日日的这个关于一阶二阶三阶的讲解非常好，我也分享一下平日里总结的文稿</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>Ricky 知风</b>
-                                            </p>
-                                        </div></div>
-                                </div>
-                            </div>
-                            <!-- 关键结论 -->
-                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
-                                <div class="mb-4">
-                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
-                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
-                                        <p class="text-black text-base">反腐三段：不敢腐、不能腐、不想腐——被动进步形成风气，制度优势变文化优势。</p>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
-                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">从不敢腐，到不能腐，到不想腐。</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>AA昍</b>
-                                            </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">而且被动进步一旦形成风气，上层建筑反作用于经济基础之后。行贿的习惯消失了，官员也就省得被围猎了。</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>AA昍</b>
-                                            </p>
-                                        </div></div>
-                                </div>
-                            </div>
-                            <!-- 关键结论 -->
-                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
-                                <div class="mb-4">
-                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
-                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
-                                        <p class="text-black text-base">学会说话比学会送礼有用：句句像刀戳人，送多少礼也救不回来；当事人道歉，事情闭环。</p>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
-                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">我觉得，学会说话，比学会送礼有用得多。</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>AA昍</b>
-                                            </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">因为总像你这样说话，句句像刀在戳人，送多少礼也救不回来。何况这样说话的人送别人礼，别人敢收吗？</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>AA昍</b>
-                                            </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">起码我认为送礼不能作为进步的工具，顶多是关系润滑剂</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>深圳-创业者-向宁</b>
-                                            </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">给各位造成的困扰和不开心，我表示歉意[抱拳]</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>美丽心情123（拒接微信通话）</b>
-                                            </p>
-                                        </div></div>
-                                </div>
-                            </div></div>
-                    </div>
-                </div>
-<!-- 热点话题卡片 2 -->
-                <div class="bento-card p-6 rounded-xl"> <!-- 其他模块（如热点话题）的卡片边框颜色和样式不得更改 -->
-                    <div class="flex flex-col sm:flex-row items-start justify-between mb-4">
-                        <h4 class="text-xl font-bold text-black flex-1 mb-2 sm:mb-0">《伟大的长征》与「你敢不敢牺牲」：一堂解构课的反面教材</h4>
-                        <span class="text-sm text-gray-600 ml-0 sm:ml-4 whitespace-nowrap bg-gray-100 px-3 py-1.5 rounded-md">
-                            <i class="fas fa-clock mr-1.5 text-gray-500"></i>18:44 - 22:40
-                        </span>
-                    </div>
-                    <div class="mb-4 bg-[#EEF2FF] border border-[#C7D2FE] rounded-md p-3">
-                        <p class="text-sm font-medium text-[#4338CA] mb-1">爬楼关键词</p>
-                        <p class="text-sm text-[#4F46E5] italic">"【Z】AA昍：看没看《伟大的长征》"</p>
-                    </div>
-                    <div class="mb-5">
-                        <p class="text-sm font-semibold text-gray-800 mb-2">相关关键词</p>
-                        <div class="flex flex-wrap gap-2"><span class="tag-item">伟大的长征</span><span class="tag-item">解构与高贵</span><span class="tag-item">互助本能</span></div>
-                    </div>
-                    <div class="mb-5">
-                        <p class="text-sm font-semibold text-gray-800 mb-2">详细内容</p>
-                        <div class="text-gray-700 text-base leading-relaxed bg-slate-50 p-4 rounded-md prose prose-sm max-w-none">
-                            <div class="expandable-content" data-char-limit="200">
-                                <div class="content-preview"><b>一、全群追剧</b><br><b>MOON</b>报进度：刚开始看第一集，那个小孩说「毛主席？不认识」，接地气，人情味，于和伟这个神态也太像了。<b>AA昍</b>把旧聊天记录转进群安利：《伟大的长征》是近几年以及可能未来十年里程碑式的政治作品，个人觉得超越了现有的所有主旋律作品，反正得看看，要不然把握不到时代脉搏。当晚好几位群友跟着表态今晚就看，<b>正源</b>说看这部剧，第一次感觉60集原来有点短；<b>行之</b>说每集都会哭。<br><br><b>二、「你敢不敢牺牲」的扣子</b><br><b>西西</b>转来一篇文章，说角度很稀有，核心句是「我们不妨扪心自问，能不能承受这样的牺牲」。<b>AA昍</b>当场拆穿这个话术：它里边就是埋了一个扣，人性的幽微——冷静时问你小孩掉水里救不救，你只要想了，就会提醒自己原来我没有那么高尚；可事情真正发生的一瞬间，你根本什么都顾不上想就已经做出反应了。一个人不停地这么问，他在干什么？他在解构人类的高贵——告诉你先烈确实了不起，但你不是他们，你也做不到。<b>班超 | Chad Ben</b>从战略战术层面补充：红军知道目的在哪里，保留革命的火种，这一战略是清晰的，文章是把战术当成了战略。<br><br><b>三、不怕牺牲是个让步状语从句</b><br><b>AA昍</b>再进一步：这些牺牲的战士是为了保护大部队前进，不是奔着牺牲去的；「不怕牺牲」是让步状语从句——哪怕要牺牲，只要能救活更多战友，那我可以，而不是说我要牺牲。<b>Cynthia</b>给出反向叙事：如果反过来写，当年不怕流血敢于牺牲的人生在今天就是身边的打工人，就会让人想继承这种使命感。<b>AA昍</b>认可：先辈付出生命换来和平岁月，我们更没有理由内耗躺平，这么一对比，原文有多阴湿就更明显了。<br><br><b>四、互助的本能</b><br>讨论转向人为什么本能地互助。<b>AA昍</b>给出考古学典故：人类能走到今天，靠的不是理性，而是靠几万年前那根断裂的大腿骨——愈合的股骨意味着有人照顾伤者，互助是天生的，镜像神经元在脑子里，物质决定意识。<b>吉山偷猪</b>交出亲历：平时嘴上说先保全自己，那天从地铁站出来，有个老奶奶直接往后倒，我也没多想，直接上去撑着她后背，然后我从电梯上滚下去了。<b>四只小猫没偷猪</b>接力：遇到滑滑板突然摔倒的小孩，我想都没想，就把他提溜起来了。<b>努力引体向上</b>讲了爷爷奶奶在去粮厂杠大米的路上收养两个女婴的往事：普通人身上就能看到这种很善良美好的生命力。<b>和灯</b>说父亲每年资助两个小孩上学，搬家时收出来一大堆手写信，平时很少提。<b>MOON</b>回忆父亲扶贫，那家人每年拿两只土鸭来送，家里都坚持按市场价把钱给回去——以前觉得扶贫是形式主义，经历过才知道苦的人真苦，行善的人也会得到善意的回报。<b>AA昍</b>收尾：受国之垢是谓社稷主，受国不祥是为天下王，教员是真的做到了。</div>
-                                <button class="expand-btn text-[#0369A1] hover:text-[#075985] text-sm font-medium mt-2 flex items-center" style="display: none;">
-                                    <span class="expand-text">展开全文</span>
-                                    <i class="fas fa-chevron-down ml-1 expand-icon"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="text-sm font-semibold text-gray-800 mb-3">关键结论与金句时刻</p>
-                        <div class="space-y-6">
-                            <!-- 关键结论 -->
-                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
-                                <div class="mb-4">
-                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
-                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
-                                        <p class="text-black text-base">解构术拆解：不停地问「你敢不敢」，是在解构人类的高贵——你不是先烈，你也做不到。</p>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
-                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">人类的高贵不就在于每一个普通人都有可能突然变成一个高贵的人愿意为了别人而牺牲吗？这才是人类的伟大之处啊。</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>AA昍</b>
-                                            </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">他想告诉你，先烈确实了不起，但你不是他们，你也做不到。所以你也没有必要成为他们。然后，他笑一笑：你看，还是我懂你吧。</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>AA昍</b>
-                                            </p>
-                                        </div></div>
-                                </div>
-                            </div>
-                            <!-- 关键结论 -->
-                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
-                                <div class="mb-4">
-                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
-                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
-                                        <p class="text-black text-base">不怕牺牲是让步状语从句：哪怕要牺牲，只要能救活更多战友，那我可以。</p>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
-                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">「不怕牺牲」这是一个让步状语从句——就是哪怕要牺牲，只要能够救活更多的战友，那我可以。而不是说我就是要牺牲。</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>AA昍</b>
-                                            </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">人都怕死，但是人更怕死的不值得。</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>AA昍</b>
-                                            </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">当年为了理想不怕流血敢于牺牲的人，如果生在今天的年代，也许就是生活在我们周围跟我们一样的平平凡凡的打工人，就会让人也想继承这种使命感</p>
                                             <p class="text-gray-600 text-xs mt-1 self-end">
                                                 - <b>Cynthia</b>
                                             </p>
-                                        </div></div>
+                                        </div>
+                                        <!-- 金句卡片 4 -->
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "这篇文章，可能是把战术和战略混淆了，把具体的战术层面的东西，认为是战略"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>班超 | Chad Ben</b>
+                                            </p>
+                                        </div>
+                                        <!-- 金句卡片 5 -->
+                                        
+                                        <!-- 金句卡片 6 -->
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "先不断夯实基础，读中央给的。打磨好基础才是关键。"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>姗姗来迟</b>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <!-- 关键结论 -->
+                            <!-- 关键结论 1 结束 -->
+
+                            <!-- 关键结论 2 开始 -->
                             <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
                                 <div class="mb-4">
                                     <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
                                     <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
-                                        <p class="text-black text-base">互助是本能：几万年前那根断裂的大腿骨，就是人类文明的起点。</p>
+                                        <p class="text-black text-base">
+                                            辨别时评号的方法：用毛选、毛传、党史打底，感觉味道和中央定调不一样，就是错了。
+                                        </p>
                                     </div>
                                 </div>
+
                                 <div>
                                     <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
-                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">人类能走到今天，靠的不是理性，而是靠几万年前那根断裂的大腿骨。</p>
+                                    <div class="space-y-2">
+                                        <!-- 金句卡片 1 -->
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "和中央定调的东西味道不一样的，就是错了。"
+                                            </p>
                                             <p class="text-gray-600 text-xs mt-1 self-end">
                                                 - <b>AA昍</b>
                                             </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">我也没多想，直接上去撑着她后背，然后我从电梯上滚下去了。</p>
+                                        </div>
+                                        <!-- 金句卡片 2 -->
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "全文没提伟大复兴，也不提cpc，有种写命题作文的勉强感。"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>鱼皮</b>
+                                            </p>
+                                        </div>
+                                        <!-- 金句卡片 3 -->
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "潜台词：反正我做不到。"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>肥发灰（请同志们热烈批判版）</b>
+                                            </p>
+                                        </div>
+                                        <!-- 金句卡片 4 -->
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "一代人有一代人的长征，一代人有一代人的路要走。"
+                                            </p>
                                             <p class="text-gray-600 text-xs mt-1 self-end">
                                                 - <b>吉山偷猪</b>
                                             </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">普通人身上就能看到这种很善良美好的生命力。❤️</p>
+                                        </div>
+                                        <!-- 金句卡片 5 -->
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "普通人身上就能看到这种很善良美好的生命力。"
+                                            </p>
                                             <p class="text-gray-600 text-xs mt-1 self-end">
                                                 - <b>努力引体向上</b>
                                             </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">以前觉得所谓的扶贫都是形式主义，但是经历过之后才体会到苦的人真苦，行善的人也会得到善意的回报（精神上的回报也让人感到幸福）</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>MOON</b>
+                                        </div>
+                                        <!-- 金句卡片 6 -->
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "听起来感动，实际上屁也不是，又很具有迷惑性。"
                                             </p>
-                                        </div></div>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>姗姗来迟</b>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <!-- 关键结论 -->
+                            <!-- 关键结论 2 结束 -->
+                        </div>
+                        <!-- 列表容器结束: 关键结论列表 -->
+                    </div>
+                </div>
+                <!-- 热点话题卡片 结束 -->
+
+                <!-- 热点话题卡片 开始 -->
+                <div class="bento-card p-6 rounded-xl"> <!-- 其他模块（如热点话题）的卡片边框颜色和样式不得更改 -->
+                    <div class="flex flex-col sm:flex-row items-start justify-between mb-4">
+                        <h4 class="text-xl font-bold text-black flex-1 mb-2 sm:mb-0">
+                            从"外聘讲师水平差"聊起：格物致知，跟着钱走
+                        </h4>
+                        <span class="text-sm text-gray-600 ml-0 sm:ml-4 whitespace-nowrap bg-gray-100 px-3 py-1.5 rounded-md">
+                            <i class="fas fa-clock mr-1.5 text-gray-500"></i>
+                             - 
+                        </span>
+                    </div>
+
+                    <!-- HTML注释: 爬楼关键词区域 -->
+                    <div class="mb-4 bg-[#EEF2FF] border border-[#C7D2FE] rounded-md p-3">
+                        <p class="text-sm font-medium text-[#4338CA] mb-1">爬楼关键词</p>
+                        <p class="text-sm text-[#4F46E5] italic">
+                            "【Z】<b>泡泡🌈</b>：以前我以为能把管理做好需要很高的情商……我们公司请的某联外聘老师的水平也太一般了"
+                        </p>
+                    </div>
+
+                    <div class="mb-5">
+                        <p class="text-sm font-semibold text-gray-800 mb-2">相关关键词</p>
+                        <!-- 列表容器: 相关关键词 -->
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag-item">格物致知</span>
+                            <span class="tag-item">跟着钱走</span>
+                                                    </div>
+                        <!-- 列表容器结束: 相关关键词 -->
+                    </div>
+
+                    <div class="mb-5">
+                        <p class="text-sm font-semibold text-gray-800 mb-2">详细内容</p>
+                        <div class="text-gray-700 text-base leading-relaxed bg-slate-50 p-4 rounded-md prose prose-sm max-w-none">
+                            <div class="expandable-content" data-char-limit="200">
+                                <div class="content-preview">
+                                    <b>一、话题背景与起因</b><br><b>AA昍</b> 转发微博「漫道」职场群的金句合集。<b>泡泡🌈</b> 读后说："以前我以为能把管理做好需要很高的情商，以及超高的向上和向下管理能力。看过的书，甚至公司给我们外聘的管理老师讲的课，都难以吸收，很难应用于实际场景中。现在看日日发的这些，真觉得这里面学问太深了，以及我们公司请的某联外聘老师的水平也太一般了。"<br><br><b>二、主要观点与讨论详情</b><br><b>AA昍</b> 让她"深想一步"，连问三层："外聘老师的水平真的一般吗？如果是，为什么会一般？这里是行业人才的流动。既然水平真的一般，难道领导看不出来吗？为什么还要请他来？这里就涉及到公司的钱的流动。肯定不止自己一个人看出来，为什么这样的行业还能存在？这里就涉及到行业的钱的流动。"他总结："跟着钱走，钱不骗人。"<br><br><b>AA昍</b> 以代言人报价打比方：市面报价一个亿，实际到账一千万，渠道分掉一千万，"剩下8,000万可能就是市场部的老大和董事长在分"，所以"市场部往往是大老板的自己人"。讲课同理："课时费对外报的是一小时1万，抬高自己的身价。实际到手可能5000没关系的，已经很赚了。另外5k就是负责安排讲课的这个人赚了。"<br><br><b>吉山偷猪</b> 回应："学到了。我一直知道要多问【为什么】，但是 只是知道。"<b>泡泡🌈</b> 反思："我总是贸然下结论，真该改这种思维方式。"<br><br><b>Marina</b> 结合自己公司的人才盘点补充三点：预算有限、钱花不完但必须花；可能存在资源互换；做培训计划的是中台部门，没有做过业务部门的需求调研。<b>AA昍</b> 再补充："除了必须要花钱，还有一些是为了kpi里的多元化之类的，比如必须要5个领域各请1人。"<b>Decade</b> 总结："外聘老师跟劳务派遣一个意思[旺柴]随用随取，不要就丢。背锅也好用"<br><br><b>三、争议焦点（圈子话题延伸）</b><br>讨论顺势转向"讲课的人是什么来路"。<b>AA昍</b> 提到曾有央企和党校的人找他去讲课，"幸亏我没去"；又说"很多党校，怎么说呢，事实上就是理论层面反党的贼窝了""大象公会的黄z晋还想要发展我，当时我没意识到，幸好我讨厌一切社交，所以安全"。<b>点灯</b> 当晚回应："今天有个党校的人来讲课，感觉有些话都有点不对劲。群主一说，好像还真有点这个意思。"<b>鱼皮</b> 总结："扛红反红的真多。不能迷信身份。"<br><br><b>四、结论与启发</b><br>这场从"外聘老师水平差"开始的讨论，沉淀成一个方法论：遇到看不懂的现象，连续追问为什么，跟着钱走；判断一个内容圈子，别看它说什么，看它站什么生态位、筛选什么样的人。
+                                </div>
+                                <button class="expand-btn text-[#0369A1] hover:text-[#075985] text-sm font-medium mt-2 flex items-center" style="display: none;">
+                                    <span class="expand-text">展开全文</span>
+                                    <i class="fas fa-chevron-down ml-1 expand-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="text-sm font-semibold text-gray-800 mb-3">关键结论与金句时刻</p>
+
+                        <!-- 列表容器: 关键结论列表 -->
+                        <div class="space-y-6">
+                            <!-- 关键结论 1 开始 -->
                             <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
                                 <div class="mb-4">
                                     <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
                                     <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
-                                        <p class="text-black text-base">追剧实况：超越所有主旋律作品，60集有点短，每集都会哭。</p>
+                                        <p class="text-black text-base">
+                                            看不懂的行业现象，沿着"人才流动—公司钱的流动—行业钱的流动"连问三层，能看到人才流动与利益链的全貌，而不是停留在吐槽"水平低"。
+                                        </p>
                                     </div>
                                 </div>
+
                                 <div>
                                     <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
-                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">看这部剧，第一次感觉 60 集原来有点短</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>正源</b>
+                                    <div class="space-y-2">
+                                        <!-- 金句卡片 1 -->
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "跟着钱走，钱不骗人。"
                                             </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">每集都会哭</p>
                                             <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>行之</b>
+                                                - <b>AA昍</b>
                                             </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">是的，一代人有一代人的长征，一代人有一代人的路要走。</p>
+                                        </div>
+                                        <!-- 金句卡片 2 -->
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "我一直知道要多问【为什么】，但是 只是知道。"
+                                            </p>
                                             <p class="text-gray-600 text-xs mt-1 self-end">
                                                 - <b>吉山偷猪</b>
                                             </p>
-                                        </div></div>
+                                        </div>
+                                        <!-- 金句卡片 3 -->
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "我总是贸然下结论，真该改这种思维方式。"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>泡泡🌈</b>
+                                            </p>
+                                        </div>
+                                        <!-- 金句卡片 4 -->
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "我看到的水平一般——公司预算有限——钱花不完但必须花；可能存在资源互换；中台部门没做过业务部门的需求调研。"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>Marina</b>
+                                            </p>
+                                        </div>
+                                        <!-- 金句卡片 5 -->
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "外聘老师跟劳务派遣一个意思[旺柴]随用随取，不要就丢。背锅也好用"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>Decade</b>
+                                            </p>
+                                        </div>
+                                        <!-- 金句卡片 6 -->
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "扛红反红的真多。不能迷信身份。"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>鱼皮</b>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div></div>
+                            </div>
+                            <!-- 关键结论 1 结束 -->
+
+                            <!-- 关键结论 2 开始 -->
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                                <div class="mb-4">
+                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
+                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
+                                        <p class="text-black text-base">
+                                            圈子会定向筛选立场，虚无感的解药是做事和劳动。
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
+                                    <div class="space-y-2">
+                                        <!-- 金句卡片 1 -->
+                                        
+                                        <!-- 金句卡片 2 -->
+                                        
+                                        <!-- 金句卡片 3 -->
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "但，劳动，是实打实的。"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>吉山偷猪</b>
+                                            </p>
+                                        </div>
+                                        <!-- 金句卡片 4 -->
+                                        
+                                        <!-- 金句卡片 5 -->
+                                        
+                                        <!-- 金句卡片 6 -->
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "他们的圈子筛选可比我们严多了。"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>何安基</b>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 关键结论 2 结束 -->
+                        </div>
+                        <!-- 列表容器结束: 关键结论列表 -->
                     </div>
                 </div>
+                <!-- 热点话题卡片 结束 -->
+
+                <!-- 热点话题卡片 开始 -->
+                <div class="bento-card p-6 rounded-xl"> <!-- 其他模块（如热点话题）的卡片边框颜色和样式不得更改 -->
+                    <div class="flex flex-col sm:flex-row items-start justify-between mb-4">
+                        <h4 class="text-xl font-bold text-black flex-1 mb-2 sm:mb-0">
+                            抽塔罗没事、抽毛选被封：一个小程序引发的双标讨论
+                        </h4>
+                        <span class="text-sm text-gray-600 ml-0 sm:ml-4 whitespace-nowrap bg-gray-100 px-3 py-1.5 rounded-md">
+                            <i class="fas fa-clock mr-1.5 text-gray-500"></i>
+                             - 
+                        </span>
+                    </div>
+
+                    <!-- HTML注释: 爬楼关键词区域 -->
+                    <div class="mb-4 bg-[#EEF2FF] border border-[#C7D2FE] rounded-md p-3">
+                        <p class="text-sm font-medium text-[#4338CA] mb-1">爬楼关键词</p>
+                        <p class="text-sm text-[#4F46E5] italic">
+                            "【Z】MOON：这个小程序是日日弄的吗？时间太久我忘了……刚刚点进去发现没了"
+                        </p>
+                    </div>
+
+                    <div class="mb-5">
+                        <p class="text-sm font-semibold text-gray-800 mb-2">相关关键词</p>
+                        <!-- 列表容器: 相关关键词 -->
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag-item">平台审核</span>
+                            <span class="tag-item">微信生态</span>
+                            <span class="tag-item">白区生存</span>
+                        </div>
+                        <!-- 列表容器结束: 相关关键词 -->
+                    </div>
+
+                    <div class="mb-5">
+                        <p class="text-sm font-semibold text-gray-800 mb-2">详细内容</p>
+                        <div class="text-gray-700 text-base leading-relaxed bg-slate-50 p-4 rounded-md prose prose-sm max-w-none">
+                            <div class="expandable-content" data-char-limit="200">
+                                <div class="content-preview">
+                                    <b>一、话题背景与起因</b><br><b>MOON</b> 问："这个小程序是日日弄的吗？时间太久我忘了……刚刚点进去发现没了。"<br><br><b>二、主要观点与讨论详情</b><br><b>AA昍</b> 解释了被封的经过："wx是白区，找理由封了，说'抽卡形式'属于堵博，用在'毛选'上是侮辱先烈。绝不绝。"<b>四只小猫没偷猪</b> 回了一个"裂开"。<br><br><b>AA昍</b> 接着对比："所以抽塔罗牌宣传封建迷信没事。但宣传毛选不行。"又补了一句："好人就是要被人拿枪指着。"<br><br><b>Dang</b> 反问："他自己都知道抽卡是堵博，哈哈，游戏里都是堵博。"<b>阿戒</b> 说："我知道封了，但是不知道理由这么奇葩。"<b>Mintaka</b> 直接吐槽"xx的张小龙"，<b>黄璐</b> 连发两个[发怒]。<br><br>类似的吐槽白天也出现过一次：<b>胡小窝</b> 多次引用的聊天记录在手机上点不开，<b>🌅</b> 连发两句"xx张小龙"，<b>鱼蛋</b> 排查后认为是鸿蒙适配问题。群友对微信产品体验的积怨由此可见一斑。<br><br><b>三、争议焦点与结论</b><br>这场小讨论没有形成什么行动方案，但留下一个群友共识：同类"抽卡"形式，塔罗没事、毛选被封——平台审核存在选择性。结合群里长期说的"wx是白区、政治人物用代称"的规矩，在白区说话，尺度得自己把握。
+                                </div>
+                                <button class="expand-btn text-[#0369A1] hover:text-[#075985] text-sm font-medium mt-2 flex items-center" style="display: none;">
+                                    <span class="expand-text">展开全文</span>
+                                    <i class="fas fa-chevron-down ml-1 expand-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="text-sm font-semibold text-gray-800 mb-3">关键结论与金句时刻</p>
+
+                        <!-- 列表容器: 关键结论列表 -->
+                        <div class="space-y-6">
+                            <!-- 关键结论 1 开始 -->
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                                <div class="mb-4">
+                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
+                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
+                                        <p class="text-black text-base">
+                                            同类"抽卡"形式，塔罗没事、毛选被封——群友认为平台审核存在双标；在白区说话，尺度只能自己把握。
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
+                                    <div class="space-y-2">
+                                        <!-- 金句卡片 1 -->
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "抽塔罗牌宣传封建迷信没事，但宣传毛选不行。"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div>
+                                        <!-- 金句卡片 2 -->
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "好人就是要被人拿枪指着。"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div>
+                                        <!-- 金句卡片 3 -->
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "他自己都知道抽卡是堵博，哈哈，游戏里都是堵博"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>Dang</b>
+                                            </p>
+                                        </div>
+                                        <!-- 金句卡片 4 -->
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "我知道封了，但是不知道理由这么奇葩。"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>阿戒</b>
+                                            </p>
+                                        </div>
+                                        <!-- 金句卡片 5 -->
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "太抽象了"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>四只小猫没偷猪</b>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 关键结论 1 结束 -->
+                        </div>
+                        <!-- 列表容器结束: 关键结论列表 -->
+                    </div>
+                </div>
+                <!-- 热点话题卡片 结束 -->
+
             </div>
+            <!-- 列表容器结束: 讨论话题 -->
         </section>
         <!-- === 模块二：火花碰撞时刻・热点话题 结束 === -->
 
-        <!-- === 模块四：解惑一点通・有问必答 开始 === -->
+        <!-- === 模块三：秉烛共谈录・小会精粹 开始 === -->
+        <!-- HTML注释: 此模块作为单独一行，占据整行宽度。用于展示群内定期小会的讨论内容。 -->
         <section id="section-meeting" class="w-full mb-12 anchor-target">
             <h2 class="section-title">秉烛共谈录・小会精粹</h2>
+            <!-- 列表容器: 小会问题 -->
             <div class="space-y-8">
-<!-- 小会问题卡片 1 -->
+
+                <!-- 小会问题卡片 开始 -->
                 <div class="bento-card p-6 rounded-xl">
                     <div class="flex flex-col sm:flex-row items-start justify-between mb-4">
-                        <h4 class="text-xl font-bold text-black flex-1 mb-2 sm:mb-0">被误会了，要不要主动去解释？</h4>
+                        <h4 class="text-xl font-bold text-black flex-1 mb-2 sm:mb-0">
+                            "送礼是第一生产力"之争：一场持续五小时的群内冲突与三阶拆解
+                        </h4>
                         <span class="text-sm text-gray-600 ml-0 sm:ml-4 whitespace-nowrap bg-gray-100 px-3 py-1.5 rounded-md">
-                            <i class="fas fa-users mr-1.5 text-gray-500"></i>18:35 - 19:06
+                            <i class="fas fa-users mr-1.5 text-gray-500"></i>
+                             - 
                         </span>
                     </div>
+
+                    <!-- HTML注释: 爬楼关键词区域 -->
                     <div class="mb-4 bg-[#EEF2FF] border border-[#C7D2FE] rounded-md p-3">
                         <p class="text-sm font-medium text-[#4338CA] mb-1">爬楼关键词</p>
-                        <p class="text-sm text-[#4F46E5] italic">"【Y】犬八：你说的话或者做的事让你朋友误会了"</p>
+                        <p class="text-sm text-[#4F46E5] italic">
+                            "【Y】YHJ：送礼才是职场进步的第一生产力"
+                        </p>
                     </div>
+
                     <div class="mb-5">
                         <p class="text-sm font-semibold text-gray-800 mb-2">相关关键词</p>
-                        <div class="flex flex-wrap gap-2"><span class="tag-item">误会处理</span><span class="tag-item">边界感</span><span class="tag-item">课题分离</span></div>
+                        <!-- 列表容器: 相关关键词 -->
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag-item">职场送礼</span>
+                            <span class="tag-item">体制内纪律</span>
+                            <span class="tag-item">一阶二阶三阶</span>
+                        </div>
+                        <!-- 列表容器结束: 相关关键词 -->
                     </div>
+
                     <div class="mb-5">
                         <p class="text-sm font-semibold text-gray-800 mb-2">详细内容</p>
                         <div class="text-gray-700 text-base leading-relaxed bg-slate-50 p-4 rounded-md prose prose-sm max-w-none">
                             <div class="expandable-content" data-char-limit="200">
-                                <div class="content-preview"><b>一、一个好问题</b><br>白天风波散场后，<b>犬八</b>把问题拉回现实：如果你的话或事让朋友误会了，但你其实没有那个意思，对方又没来找你对峙，你刻意去找他又显得奇怪——你们会怎么操作？<br><br><b>二、答案光谱</b><br><b>犬八</b>自己的做法是：管他呢，以后有机会聊起来就澄清一下，没有就算求，没有义务去解释。<b>云野</b>选课题分离：干脆忽视，对方不说那就是对方的课题，但我会反思自己的言行，注意以后不出现类似情况。<b>倚桐</b>按关系远近分档：关系近、在乎他就主动解释，不在乎就不管了。<b>太室云水</b>提醒一个例外：普通熟人的事过去就过去了，但假如对方是亲人、爱人，误会不澄清的话潜在矛盾会积累，很多家庭就是这样破裂的。<b>南山漫竹</b>更看重平时做人：说话没用，你做的才有用——你本身诚信，做事直说别人就信；本人不诚信，借口再多也没人信。<b>深圳-创业者-向宁</b>把场景拉回职场：对待别人阴阳怪气的最好办法就是直面，只要他越过了你的线，就得立马表态——你不画好线，线就会离你越来越近。<br><br><b>三、群主的判据</b><br><b>AA昍</b>给出决策框架：对错没有那么重要，要看你的目的——你想走多远，站多高，团结多少人，做多大的事，决定了你要不要解释自己。<b>可</b>当场做了自我反思：如果目的是批评错误观念，那更应该团结同志、争取大家的支持，而不是把对方视作对立方——目的错了，手段也就会出问题，自然也就得不到想要的结果。<b>AA昍</b>还补了一个史例：打谷新场开会时教员的战略不被理解、会上通过了错误决议，但教员晚上还是提着灯去找周恩来，再一次努力争取支持，最后成功挽回——不是争吵，是争取。</div>
+                                <div class="content-preview">
+                                    <b>一、问题提出与背景补充</b><br><b>YHJ</b> 在四海Y群丢下一句话："表达啥啊，直接送礼""送礼才是职场进步的第一生产力"。有人提醒"体制内慎用"，他回应："体制内才要用啊，不然领导哪里知道你是真投靠还是嘴炮。"<b>美丽心情123</b> 接茬："想听送礼的学问，和话术。"一场从中午持续到下午的争论就此开始。<br><br><b>二、核心焦点与深层议题挖掘</b><br>表面争的是"送不送礼"，底下有三层：一是送礼的定位——是"第一生产力"，还是人情往来的润滑剂；二是体制内纪律边界——八项规定之后什么能送、什么不能送；三是文字沟通的特性——没有语气，一句话怎么被读成"阴阳怪气"，误读又如何滚成情绪螺旋。<br><br><b>三、多方观点流派与方案探讨</b><br>反对派首先成型。<b>深圳-创业者-向宁</b> 说："需要送礼来进步的，大概率送不好礼""现在谁差那点物质条件，送少了看不上你那三瓜俩枣的，送多了怕是想拉领导下水吧"。<b>可</b> 直接回<b>YHJ</b>："你都这样想了，那纪委同志应该挺欢迎的。"<br><br><b>Cheems</b> 给出定位："我是觉得思想还是要正的，不能把送礼输送当成主要甚至唯一的晋升或者办事的敲门砖，更不是什么'第一生产力'……顶多是像'泡面里的鸡蛋'这种辅助维系感情作用，正常同事之间来往的小调剂。"<b>唤我李英俊就好</b> 说："可以经营工作，不可以经营腐败。可以凝聚人心，不可以收买人心。可以争取组织领导的认可，但不能把组织的认可异化成一场世俗的资本商业化利益交易。"<br><br><b>XY</b> 给了可操作的边界："体制内日常奶茶，出去旅行带回冰箱贴什么的伴手礼就可以了，另外记得雨露均沾，有领导的也得有同事的，大大方方送。"<b>一学呀</b> 用长消息讲"手段的限制条件"：同样的手段，有人用没事，有人用就锒铛入狱；老师收家长红包，一投诉一举报当场停职；同样是获得好处，有人是贪污受贿被人瞧不起，有人"真的让公司发展得更好了"被大家尊敬。<b>刘龙</b> 总结："送礼只是人情世故的润滑剂，上升到利益交换的时候叫行贿受贿。"<b>呆喵没睡醒</b> 补了一句："把自己炼成桥接给领导，何尝不是一种'送礼'。"<br><br>争论中途，<b>可</b> 那句"纪委欢迎"被<b>美丽心情123</b> 读成了阴阳怪气。<b>美丽心情123</b> 与随后加入的<b>怯（开）俊豪</b> 讨论起"阴阳怪气的人"的特征。<b>可</b> 多次@二人要求正面回应，二人长时间没有正面回应，<b>可</b> 表示"如果你继续回避，那我只能去联系群主了"，并整理了转发记录。<br><br><b>怯（开）俊豪</b> 后来解释，自己是没看上下文"随口插入"的，"没有调查就没有发言权"，并多次道歉、发红包。<b>美丽心情123</b> 则坚持"我没有说任何人阴阳怪气""是有人对号入座"。<br><br><b>四、群主（AA昍）引导与方案点评</b><br>前后，<b>AA昍</b> 引用教员《反对自由主义》："不要为了一团和气就把想法藏在心里不说，很多矛盾就是这么种下的。"他同时说，"批评别人的同时，也可以做一些自我批评，这样你对别人的批评，别人也更容易接受。"<br><br><b>AA昍</b> 逐一点评：<b>怯（开）俊豪</b>"没看上下文，开口就讨论'阴阳怪气'，被人当枪使了"；<b>美丽心情123</b> 的错误有二——"一是你似乎觉得送礼是好事……这个群里我肯定反对你的这个观点，可以讨论；二是对方多次解释并且要求你回应后，你一直不回应，还顾左右而言他，我个人觉得这样不合适"；对始作俑者<b>YHJ</b>他给出两个选项："发个红包给同志们道个歉吧，承认一下自己的错误。或者不愿意的话，直接退群也行。"<b>YHJ</b> 随后退群。<br><br>借着<b>美丽心情123</b> 问"N个我向最强的我靠拢"，<b>AA昍</b> 讲了一段跨场景能力迁移：人在公司、在家、在群里是不同侧面，"如果你在不同的场景里，都能努力做好自己，那么整体的你就会更强，因为不同场景里虽然是不同的样子，都本质上都是你，你的能力可以融会贯通，跨场景迁移"。他以<b>美丽心情123</b> 两次群内表现为例——看不惯同事想曝光、沟通两句就转阴阳怪气——指出"这两个你，都是不对的，因为结果都对你自己不利"。<br><br><b>AA昍</b> 借题完整讲了"一阶二阶三阶"的话术区别：一阶就事论事，二阶换位思考，三阶实事求是、做好引导。他用这场争论本身当案例：一阶是"大家针对的是'送礼就对了'这样的错误观点"；二阶是"别人和她没有利益冲突，干嘛要霸凌她"；三阶是他为什么不私下说而是发在群里——"群里还有另外将近200人，其中一定有人可以通过这件事，进一步相信我们这个群……于是更用心地维护这个群，让群里的所有人都能受益"。<br><br>他又顺着"为什么领导不敢收礼"展开：一是技术进步、处处天眼，线上交易条条可查；二是刀刃向内的反腐。不敢腐，还是想收钱，只是技术进步藏不住而不敢收；不能腐，想收也收不到，流程上钱不从自己手里过，或每笔钱至少两个人互相监督，这是制度在客观层面的优势；不想腐，压根不想收钱了，主动的是想明白自己是为人民服务的，被动的是意识到有命拿钱也没命花钱，收了也要没收判自己10年，何必呢。<b>AA昍</b> 总结说，被动进步一旦形成风气，上层建筑反作用于经济基础，行贿的习惯消失了，官员也省得被围猎，制度优势就提升变成了文化优势乃至文明优势，"说是旷古绝今也不为过"。<br><br><b>美丽心情123</b> 道歉："谢谢今天日日老师的解答，也感谢各位亲爱的同志们对我的指导，一并收下。给各位造成的困扰和不开心，我表示歉意。"当晚她又私信复盘，说自己"迈出不熟悉的一步，确实很难……内心过了好几个关"。<br><br><b>五、讨论共识与分歧总结</b><br>争论没有留下"送礼对不对"的悬念——群内的共识是：送礼不是生产力，最多是润滑剂；体制内乱送礼既违纪也适得其反。真正沉淀下来的是沟通过程中的教训：误会产生后要正面回应，回避只会让情绪升级；批评与自我批评才走得通，阴阳怪气走不通。<b>可</b> 事后反思："如果我想要批评错误观念，那更应该团结同志，争取大家的支持，而不是把对方视作对立方。目的错了，手段也就会出问题。"<br><br><b>六、宏观影响与价值提炼</b><br>这场持续约五小时的冲突，被群里当成一次"社会化练习"。<b>AA昍</b> 说："这个群的目的就是帮助我们所有人一起加深社会化程度，回到社会上去做事。"对旁观者而言，可以带走的东西包括：文字沟通要默认对方读不到语气，重要的话当面说清；管理者处理冲突时，一阶摆事实、二阶换位置、三阶看全局；以及一个朴素的提醒——先学会说话，再学别的。
+                                </div>
                                 <button class="expand-btn text-[#0369A1] hover:text-[#075985] text-sm font-medium mt-2 flex items-center" style="display: none;">
                                     <span class="expand-text">展开全文</span>
                                     <i class="fas fa-chevron-down ml-1 expand-icon"></i>
@@ -1172,291 +1363,368 @@
                             </div>
                         </div>
                     </div>
+
                     <div>
                         <p class="text-sm font-semibold text-gray-800 mb-3">关键结论与金句时刻</p>
                         <div class="space-y-6">
-                            <!-- 关键结论 -->
+                            <!-- 关键结论 1 开始 -->
                             <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
                                 <div class="mb-4">
                                     <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
                                     <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
-                                        <p class="text-black text-base">判据：对错其次，看目的——想走多远、团结多少人，决定要不要解释自己。</p>
+                                        <p class="text-black text-base">
+                                            "送礼是第一生产力"是错误观点——体制内乱送礼既违反纪律也适得其反；送礼是表象，人际交往才是本质。
+                                        </p>
                                     </div>
                                 </div>
                                 <div>
                                     <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
-                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">对错没有那么重要，要看你的目的。你想走多远，站多高，团结多少人，做多大的事，决定了你要不要解释自己。</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>AA昍</b>
+                                    <div class="space-y-2">
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "需要送礼来进步的，大概率送不好礼。"
                                             </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">受国之垢是谓社稷主，受国不祥是为天下王。
-
-教员是真的做到了</p>
                                             <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>AA昍</b>
+                                                - <b>深圳-创业者-向宁</b>
                                             </p>
-                                        </div></div>
+                                        </div>
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "对于错误的观点采取包庇的态度，才是真的害人。"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>可</b>
+                                            </p>
+                                        </div>
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "不能把送礼输送当成主要甚至唯一的晋升或者办事的敲门砖，更不是什么“第一生产力”"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>Cheems</b>
+                                            </p>
+                                        </div>
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "可以经营工作，不可以经营腐败。可以凝聚人心，不可以收买人心。"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>唤我李英俊就好</b>
+                                            </p>
+                                        </div>
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "送礼只是人情世故的润滑剂，上升到利益交换的时候叫行贿受贿。"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>刘龙</b>
+                                            </p>
+                                        </div>
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "回避不解决问题，只解决人。"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>呆喵没睡醒</b>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <!-- 关键结论 -->
+                            <!-- 关键结论 1 结束 -->
+
+                            <!-- 关键结论 2 开始 -->
                             <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
                                 <div class="mb-4">
                                     <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
                                     <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
-                                        <p class="text-black text-base">答案光谱：没义务解释／对方的课题／亲人必须澄清／诚信本身就是解释。</p>
+                                        <p class="text-black text-base">
+                                            文字群聊冲突的处置方法：当面回应、不阴阳怪气、换位思考；管理者可用一阶二阶三阶拆解冲突。
+                                        </p>
                                     </div>
                                 </div>
                                 <div>
                                     <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
-                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">是啊，我就想算球了，你要怎么想是你的事，我反正没那意思，有缘分的话聊到再澄清吧</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>犬八</b>
+                                    <div class="space-y-2">
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "空对空讲都是徒劳，讨论要在具体的场景、具体的事情中进行。"
                                             </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">干脆忽视，对方不说那就是对方的课题，但是我会反思自己的言行让自己注意以后不出现类似的情况。</p>
                                             <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>云野</b>
+                                                - <b>胡小窝</b>
                                             </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">假如说对方是你的亲人、爱人，各种误会不去澄清的话，潜在矛盾会积累，很多家庭就是这样破裂的</p>
+                                        </div>
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "错了道歉改正就行，改进自己不是一句口号，错都不敢认谈什么进步呢"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>兽</b>
+                                            </p>
+                                        </div>
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "有疑问，先心态平和问清楚，确认对方是不是在针对自己。"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>Alan</b>
+                                            </p>
+                                        </div>
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "不回应才会越来越激烈"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>深圳-创业者-向宁</b>
+                                            </p>
+                                        </div>
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "如果我想要批评错误观念，那更应该团结同志，争取大家的支持，而不是把对方视作对立方。"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>可</b>
+                                            </p>
+                                        </div>
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "不要为了一团和气就把想法藏在心里不说，很多矛盾就是这么种下的。"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 关键结论 2 结束 -->
+                        </div>
+                    </div>
+                </div>
+                <!-- 小会问题卡片 结束 -->
+
+                <!-- 小会问题卡片 开始 -->
+                <div class="bento-card p-6 rounded-xl">
+                    <div class="flex flex-col sm:flex-row items-start justify-between mb-4">
+                        <h4 class="text-xl font-bold text-black flex-1 mb-2 sm:mb-0">
+                            被误解了要不要解释？——玩笑、抠字眼与课题分离
+                        </h4>
+                        <span class="text-sm text-gray-600 ml-0 sm:ml-4 whitespace-nowrap bg-gray-100 px-3 py-1.5 rounded-md">
+                            <i class="fas fa-users mr-1.5 text-gray-500"></i>
+                             - 
+                        </span>
+                    </div>
+
+                    <!-- HTML注释: 爬楼关键词区域 -->
+                    <div class="mb-4 bg-[#EEF2FF] border border-[#C7D2FE] rounded-md p-3">
+                        <p class="text-sm font-medium text-[#4338CA] mb-1">爬楼关键词</p>
+                        <p class="text-sm text-[#4F46E5] italic">
+                            "【Y】犬八：你说的话或者做的事让你朋友误会了……你们会怎么操作"
+                        </p>
+                    </div>
+
+                    <div class="mb-5">
+                        <p class="text-sm font-semibold text-gray-800 mb-2">相关关键词</p>
+                        <!-- 列表容器: 相关关键词 -->
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag-item">课题分离</span>
+                            <span class="tag-item">内耗</span>
+                            <span class="tag-item">沟通</span>
+                        </div>
+                        <!-- 列表容器结束: 相关关键词 -->
+                    </div>
+
+                    <div class="mb-5">
+                        <p class="text-sm font-semibold text-gray-800 mb-2">详细内容</p>
+                        <div class="text-gray-700 text-base leading-relaxed bg-slate-50 p-4 rounded-md prose prose-sm max-w-none">
+                            <div class="expandable-content" data-char-limit="200">
+                                <div class="content-preview">
+                                    <b>一、问题提出与背景补充</b><br>这场讨论有两条线索。第一条前后：<b>美丽心情123</b> 退群前私信提到，<b>犬八</b> 发的一个表情包让她觉得"不依不饶"；而<b>犬八</b> 本意只是撤回消息后的随手一发。<b>犬八</b> 把问题抛给群里："你说的话或者做的事让你朋友误会了，但你其实没有那样的意思，那位朋友也没有过来找你对峙，你如果刻意去找他又显得太奇怪，你们会怎么操作？"<br><br>第二条：<b>知白</b> 提问，说自己对玩笑和抠字眼敏感——"我认为很多玩笑都带着试探和真心话的意思"，舍友当面说"我嫉妒你了，好嫉妒啊"，让他内耗很久。<br><br><b>二、核心焦点与深层议题挖掘</b><br>表面是"要不要解释""要不要较真"，底下是四件事：关系分级（谁值得解释）、目的导向（解释是为了什么）、课题分离（对方的误会是对方的课题）、以及敏感者如何给自己的"读心"降噪。<br><br><b>三、多方观点流派与方案探讨</b><br>对"被误会要不要解释"，<b>云野</b> 的方案是直接跳过："我直接不理……对方不说那就是对方的课题，但是我会反思自己的言行，让自己注意以后不出现类似的情况。"<b>太室云水</b> 主张分情况："没多少关系的普通熟人，事儿过去就过去了；假如说是亲人、爱人，各种误会不去澄清的话，潜在矛盾会积累，很多家庭就是这样破裂的。"<b>倚桐</b> 按关系远近："关系近、在乎他就主动解释，不在乎就不管了。"<b>犬八</b> 本人是随缘派："你要怎么想是你的事，我反正没那意思，有缘分的话聊到再澄清吧"<b>大京</b> 多问一层："也可以想一下传达的这个人，他是什么目的。"<br><br><b>AA昍</b> 把问题抬到目的层面："对错没有那么重要，要看你的目的。你想走多远，站多高，团结多少人，做多大的事，决定了你要不要解释自己。"<b>可</b> 补了《伟大的长征》里的对应情节：打谷新场会议上教员的战略不被理解、决议照过，"但教员晚上还是去找了总理，再一次去努力争取对方的支持"——"不是争吵，是争取"。<br><br>对<b>知白</b>的"玩笑敏感"，<b>南山漫竹</b> 给了一个记录法："以第三人称写你的经历……写细一点，细到最后发现，其实啥也不是。"<b>Ricky 知风</b> 从信念层面拆："事件都是中性客观的，是你头脑中的信念让中性的事件过滤成了积极或消极的情绪。"<b>Ansen</b> 分享了自己的转折点："领导上台介绍团队成员的时候把我给忘了，我躲到厕所里哭。第二天我突然冒出一个念头：既然我做什么都没有人在意，那我是不是做什么都可以？"<b>AA昍</b> 的点评很简短："那就是贷款吃屎嘛。"<b>张q</b> 的原则是："没直接说出来的意思就是没表达的意思"<b>小企鹅造屋</b> 压缩成一句："只看重不重要，少管高不高兴"<br><br>也有人分享反面经验。<b>鱼蛋</b> 说："我当场会说……说完对方不理解，认为你太敏感了；然后下次以牙还牙，对方就会说我翻旧账。"<b>云野</b> 的方式是"模仿对方的言语行为，等机会还回去"，让对方自己意识到不舒服。<b>乐之行之</b> 提醒："如果别人的一些表达影响到了你去实现目标，那就研究一下这个问题，如果不影响目标，绕过去就行"<br><br><b>四、群主（AA昍）引导与方案点评</b><br>面对<b>知白</b>"虚空"的提问，<b>AA昍</b> 先纠偏："可以聊具体的事儿……讨论具体的事情，不要聊虚空讨论，没什么意义。"等<b>知白</b>给出具体场景后，讨论才展开。当晚他还把剧里"相忍为党"的情节和群里的误会之争互相印证："慢慢就会明白，对错本身并不那么重要。想和错误的东西作斗争，立场其实是其次，手段是否正确、有效，才是更重要的。"<br><br><b>五、讨论共识与分歧总结</b><br>没有唯一答案，但达成了几条共识：解释与否取决于关系分量和目的，不取决于对错；亲密关系的误会有必要当场说清，陌生关系不必追；敏感者内耗的根源往往是"替别人读心"，解法是记录、课题分离和抓主要矛盾。<br><br><b>六、宏观影响与价值提炼</b><br>对普通群友来说，这套讨论可以直接搬回生活：被朋友误会时先问自己"这段关系值不值得我花口舌"；被人开玩笑刺到，先判断"有没有实际损失"，没有就过去；总是反复咀嚼一句话时，写下来，写到"其实啥也不是"为止。如<b>AA昍</b> 所说，这些道理"不好理解，只能在实践中体会"。
+                                </div>
+                                <button class="expand-btn text-[#0369A1] hover:text-[#075985] text-sm font-medium mt-2 flex items-center" style="display: none;">
+                                    <span class="expand-text">展开全文</span>
+                                    <i class="fas fa-chevron-down ml-1 expand-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="text-sm font-semibold text-gray-800 mb-3">关键结论与金句时刻</p>
+                        <div class="space-y-6">
+                            <!-- 关键结论 1 开始 -->
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                                <div class="mb-4">
+                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
+                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
+                                        <p class="text-black text-base">
+                                            要不要解释取决于关系的分量与目的，而不是对错；重要关系当面说清，无关紧要的关系不必追。
+                                        </p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
+                                    <div class="space-y-2">
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "对错没有那么重要，要看你的目的。你想走多远，站多高，团结多少人，做多大的事，决定了你要不要解释自己。"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div>
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "不是争吵，是争取。"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>可</b>
+                                            </p>
+                                        </div>
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "没多少关系的普通熟人，事儿过去就过去了，假如说对方是你的亲人、爱人，各种误会不去澄清的话，潜在矛盾会积累，很多家庭就是这样破裂的"
+                                            </p>
                                             <p class="text-gray-600 text-xs mt-1 self-end">
                                                 - <b>太室云水</b>
                                             </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">我觉得说话没用，你做的才有用，就好比你本身就很诚信，你做啥事你就直说，别人会信，要是本人不诚信，借口再多也没人信</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>南山漫竹</b>
+                                        </div>
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "你要怎么想是你的事，我反正没那意思，有缘分的话聊到再澄清吧"
                                             </p>
-                                        </div></div>
-                                </div>
-                            </div>
-                            <!-- 关键结论 -->
-                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
-                                <div class="mb-4">
-                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
-                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
-                                        <p class="text-black text-base">职场版：阴阳怪气最好的办法是直面，越线就立马表态——不画好线，线就离你越来越近。</p>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
-                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">在职场上也是一样，对待别人阴阳怪气的最好办法就是直面，只要他越过了你的线，就得立马表态。</p>
                                             <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>深圳-创业者-向宁</b>
+                                                - <b>犬八</b>
                                             </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">你不画好线，线就会离你越来越近</p>
+                                        </div>
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "对方不说，那就是对方的课题。"
+                                            </p>
                                             <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>深圳-创业者-向宁</b>
+                                                - <b>云野</b>
                                             </p>
-                                        </div></div>
-                                </div>
-                            </div>
-                            <!-- 关键结论 -->
-                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
-                                <div class="mb-4">
-                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
-                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
-                                        <p class="text-black text-base">当事人反思：目的是团结而不是对立——目的错了，手段也会跟着出问题。</p>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
-                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">但现在想来，如果我想要批评错误观念，那更应该团结同志，争取大家的支持，而不是把对方视作对立方。</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>可</b>
+                                        </div>
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "没直接说出来的意思就是没表达的意思"
                                             </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">目的错了，手段也就会出问题，自然也就得不到想要的结果。</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>可</b>
-                                            </p>
-                                        </div></div>
-                                </div>
-                            </div></div>
-                    </div>
-                </div>
-<!-- 小会问题卡片 2 -->
-                <div class="bento-card p-6 rounded-xl">
-                    <div class="flex flex-col sm:flex-row items-start justify-between mb-4">
-                        <h4 class="text-xl font-bold text-black flex-1 mb-2 sm:mb-0">玩笑和字眼里的内耗，怎么破？</h4>
-                        <span class="text-sm text-gray-600 ml-0 sm:ml-4 whitespace-nowrap bg-gray-100 px-3 py-1.5 rounded-md">
-                            <i class="fas fa-users mr-1.5 text-gray-500"></i>21:09 - 22:05
-                        </span>
-                    </div>
-                    <div class="mb-4 bg-[#EEF2FF] border border-[#C7D2FE] rounded-md p-3">
-                        <p class="text-sm font-medium text-[#4338CA] mb-1">爬楼关键词</p>
-                        <p class="text-sm text-[#4F46E5] italic">"【Y】知白：我比较在意自己和别人的语气和用词"</p>
-                    </div>
-                    <div class="mb-5">
-                        <p class="text-sm font-semibold text-gray-800 mb-2">相关关键词</p>
-                        <div class="flex flex-wrap gap-2"><span class="tag-item">内耗自救</span><span class="tag-item">课题分离</span><span class="tag-item">抓主要矛盾</span></div>
-                    </div>
-                    <div class="mb-5">
-                        <p class="text-sm font-semibold text-gray-800 mb-2">详细内容</p>
-                        <div class="text-gray-700 text-base leading-relaxed bg-slate-50 p-4 rounded-md prose prose-sm max-w-none">
-                            <div class="expandable-content" data-char-limit="200">
-                                <div class="content-preview"><b>一、求助</b><br>晚上<b>知白</b>发红包求教：自己对语气和用词很在意，认为很多玩笑都带着试探和真心话，所以从来不敢开玩笑，对别人的玩笑也难以直视——大多数玩笑是真心还是没过脑？这种在意是对还是不对？舍友当面说我嫉妒你了，我啥也没炫耀，嫉妒我什么？后续其实没有后果，纯内耗了。<br><br><b>二、群友的解法</b><br><b>AA昍</b>先定规矩：可以聊具体的事儿，讨论具体的事情，不要聊虚空讨论，没什么意义。<b>Ansen</b>交出内耗自救史：以前对同事领导的每个字都在意，某次部门改组领导介绍团队成员把他忘了，他躲进厕所哭；第二天突然冒出一个念头——既然我做什么都没有人在意，那我是不是做什么都可以？就在那一刻，公司的空气变得无比的香甜，内耗值逐渐降低。<b>张q</b>给认知解法：要想别人「没直接说出来的意思就是没表达的意思」，他都没说那么多，何必想那么多。<b>小企鹅造屋</b>两句口诀：只看重不重要，少管高不高兴；归根结底，是没想明白自己的事情，所以害怕风吹草动。<b>南山漫竹</b>给两个工具：一是第三人称记录法，把让你不舒服的事写细，写到细处发现其实啥也不是；二是腻歪法——不管谁阴阳怪气，你只需要回一句真是可爱呢。他对嫉妒本身给出判断：人性善妒，只是有人响有人不响，嫉妒你不是你的错，是他的功课。<b>Ricky 知风</b>从情绪机制给出解释：事件都是中性客观的，是你头脑中的信念把中性事件过滤成了积极或消极的情绪，不喜欢这种情绪就改信念。<b>鱼蛋</b>的判断标准最省事：看这事有没有实际损失，没有就过去了，内耗太多对乳腺不好。<b>AA昍</b>总结：那就是贷款吃屎嘛，别吃了。</div>
-                                <button class="expand-btn text-[#0369A1] hover:text-[#075985] text-sm font-medium mt-2 flex items-center" style="display: none;">
-                                    <span class="expand-text">展开全文</span>
-                                    <i class="fas fa-chevron-down ml-1 expand-icon"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="text-sm font-semibold text-gray-800 mb-3">关键结论与金句时刻</p>
-                        <div class="space-y-6">
-                            <!-- 关键结论 -->
-                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
-                                <div class="mb-4">
-                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
-                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
-                                        <p class="text-black text-base">Ansen 自救：既然没人在意我做什么，那我做什么都可以——内耗值当场清零。</p>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
-                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">第二天回到公司，我突然就冒出了一个念头：既然我做什么都没有人在意，那我是不是做什么都可以？[破涕为笑]就在那一刻，公司的空气变得无比的香甜，内耗值逐渐降低。</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>Ansen</b>
-                                            </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">而且人只要活着就不可能让所有人都满意，只要不是伤筋动骨的，听一耳朵也就算了，抓住主要矛盾即可。</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>Ansen</b>
-                                            </p>
-                                        </div></div>
-                                </div>
-                            </div>
-                            <!-- 关键结论 -->
-                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
-                                <div class="mb-4">
-                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
-                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
-                                        <p class="text-black text-base">认知解法：没直接说出来的意思就是没表达的意思；只看重不重要，少管高不高兴。</p>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
-                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">针对这个看问题的习惯，我觉得一个解法是要想别人“没直接说出来的意思就是没表达的意思”。</p>
                                             <p class="text-gray-600 text-xs mt-1 self-end">
                                                 - <b>张q</b>
                                             </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">又不是什么重要的事，他都没说那么多，何必想那么多。想多真的是贷款吃屎了。</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>张q</b>
-                                            </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">只看重不重要
-少管高不高兴</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>小企鹅造屋</b>
-                                            </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">归根结底，是没想明白自己的事情，所以害怕风吹草动</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>小企鹅造屋</b>
-                                            </p>
-                                        </div></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <!-- 关键结论 -->
+                            <!-- 关键结论 1 结束 -->
+
+                            <!-- 关键结论 2 开始 -->
                             <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
                                 <div class="mb-4">
                                     <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
                                     <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
-                                        <p class="text-black text-base">工具箱：第三人称记录法写到啥也不是；腻歪法回一句真是可爱呢；嫉妒是对方的功课。</p>
+                                        <p class="text-black text-base">
+                                            对玩笑和字眼敏感导致的内耗，可以靠第三人称记录、课题分离、抓主要矛盾来降噪。
+                                        </p>
                                     </div>
                                 </div>
                                 <div>
                                     <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
-                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">你多记录一下，记录多了就不在乎了
-就以第三人称写你的经历</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>南山漫竹</b>
+                                    <div class="space-y-2">
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "那就是贷款吃屎嘛，哈哈哈哈哈哈，别吃了"
                                             </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">细到最后发现，其实啥也不是</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>南山漫竹</b>
-                                            </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">不管谁阴阳怪气或者让你不舒服，你只需要回一句，真是可爱呢，就行了</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>南山漫竹</b>
-                                            </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">其实人性善妒，只是有人响，有人不响。响在明面其实还好，嫉妒你不是你的错，是他的功课，课题分离一下，做好自己就行</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>南山漫竹</b>
-                                            </p>
-                                        </div></div>
-                                </div>
-                            </div>
-                            <!-- 关键结论 -->
-                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
-                                <div class="mb-4">
-                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
-                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
-                                        <p class="text-black text-base">机制层：事件是中性的，是信念把它过滤成情绪；没实际损失就翻篇。</p>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
-                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">事件都是中性客观的，是你头脑中的信念让中性的事件过滤成了积极或消极的情绪。</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>Ricky 知风</b>
-                                            </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">其实简单点可以看这事有没有对你产生实际损失，没有就过去了，内耗太多对乳腺不好</p>
-                                            <p class="text-gray-600 text-xs mt-1 self-end">
-                                                - <b>鱼蛋</b>
-                                            </p>
-                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
-                                            <p class="text-gray-800 italic text-sm">那就是贷款吃屎嘛，哈哈哈哈哈哈，别吃了</p>
                                             <p class="text-gray-600 text-xs mt-1 self-end">
                                                 - <b>AA昍</b>
                                             </p>
-                                        </div></div>
+                                        </div>
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "既然我做什么都没有人在意，那我是不是做什么都可以？"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>Ansen</b>
+                                            </p>
+                                        </div>
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "事件都是中性客观的，是你头脑中的信念让中性的事件过滤成了积极或消极的情绪。"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>Ricky 知风</b>
+                                            </p>
+                                        </div>
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "细到最后发现，其实啥也不是"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>南山漫竹</b>
+                                            </p>
+                                        </div>
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "只看重不重要，少管高不高兴"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>小企鹅造屋</b>
+                                            </p>
+                                        </div>
+                                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">
+                                                "如果别人的一些表达影响到了你去实现目标，那就研究一下这个问题，如果不影响目标，绕过去就行"
+                                            </p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>乐之行之</b>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div></div>
+                            </div>
+                            <!-- 关键结论 2 结束 -->
+                        </div>
                     </div>
                 </div>
+                <!-- 小会问题卡片 结束 -->
+
             </div>
         </section>
+        <!-- === 模块三：秉烛共谈录・小会精粹 结束 === -->
 
+        <!-- === 模块四：解惑一点通・有问必答 开始 === -->
         <section id="section-qa" class="w-full mb-12 anchor-target">
             <h2 class="section-title">解惑一点通・有问必答</h2>
+            <!-- 列表容器: 问题解答条目 -->
             <div class="space-y-8">
-<!-- 问答卡片 1 -->
+
+                <!-- 问答卡片 开始 -->
                 <div class="bento-card p-6 rounded-xl border-l-4 border-[#7FC2E8]"> <!-- 边框颜色修改为 border-[#7FC2E8] -->
                     <div class="mb-4">
                         <h4 class="text-xl font-semibold text-black flex items-center">
-                            <i class="fas fa-question-circle mr-2.5 text-[#0EA5E9] text-lg"></i>怎么给娃取名？开盒、谐音梗与「南」字象形大战
+                            <i class="fas fa-question-circle mr-2.5 text-[#0EA5E9] text-lg"></i>
+                            运动强度上去了心率飙到200，正常吗？运动手表怎么选？
                         </h4>
                     </div>
+
+                    <!-- HTML注释: 爬楼关键词区域 -->
                     <div class="mb-4 bg-[#EEF2FF] border border-[#C7D2FE] rounded-md p-3">
                         <p class="text-sm font-medium text-[#4338CA] mb-1">爬楼关键词</p>
-                        <p class="text-sm text-[#4F46E5] italic">"【Y】犬八：男宝宝，姓朱"</p>
+                        <p class="text-sm text-[#4F46E5] italic">
+                            "【Y】Lucien：运动手表有推荐吗"
+                        </p>
                     </div>
+
                     <div class="border-t border-gray-200 pt-4">
                         <h5 class="text-lg font-semibold text-green-700 flex items-center mb-2">
-                            <i class="fas fa-lightbulb mr-2.5 text-lg text-green-600"></i>解答
+                            <i class="fas fa-lightbulb mr-2.5 text-lg text-green-600"></i>
+                            解答
                         </h5>
                         <div class="text-gray-700 text-base leading-relaxed prose prose-sm max-w-none">
                             <div class="expandable-content" data-char-limit="200">
-                                <div class="content-preview"><b>一、喜报开场</b><br><b>深圳-创业者-向宁</b>晒出四维影像：社会主义接班人就快要来了，预产期12月24日左右，不过我很想延到12月26日出生——全群排队恭喜。<b>犬八</b>趁机求名：男宝宝，姓朱，名字已取好但还是想听听想法。<br><br><b>二、方法论</b><br><b>卡</b>给出安全视角：大数据时代，取个普通名字很好，即使别人开盒，难度也会增加——名字越普通，可识别度越低。<b>AA昍</b>附议并给出样例：取个自然词最好了——周一，吴迪，张伟。<b>阿灿</b>提醒避坑：一定要避免网络梗、谐音梗。<b>夏夏</b>的老公用的是笨办法：取名时用方言反复念叨，检查有没有问题。<b>卡</b>点出反向风险：嘉豪梗我感觉也是一种网络霸凌——流行梗会反过来伤害名字的主人。<b>🌅</b>的劝退式结论：给孩子起名真别想什么被打趣，汉字千变万化，你压根防不住，只有及时给孩子做心理建设、脱敏。<br><br><b>三、「南」字象形大战</b><br><b>南山漫竹</b>自曝：我单名一个南字，像不像用个罩子把rmb罩住了？<b>AA昍</b>接梗：难怪「送」字就是把rmb送走了；幸运就是在自己家后院的土里埋着￥；还造了个新字遖——这样挡上。<b>太室云水</b>建议改暔——让日日帮你守着；<b>南山漫竹</b>自己看中了楠——不断生长，生生不息。<b>呆喵没睡醒</b>总结：还得是南这个底子好，加啥都差不了。</div>
+                                <div class="content-preview">
+                                    <b>一、问题背景</b><br>早上，<b>愿生活没有二手烟</b> 说："周天去爬山，心率到了202""我心率一运动就升得很快，一休息就降得很快，每年体检都没啥问题，但是周围朋友看着都怕"。<b>Sophie妮</b> 回："202是好高……我180都有点怕。"<b>胡小窝</b> 建议："稍微降一些强度，安全第一。"<br><br><b>二、核心原因分析</b><br><b>胡小窝</b> 分享自己恢复运动的经历："好久没练，心率一下就上来了，以前心率稳如老狗。"<b>Sophie妮</b> 补充："这个数值应该是参考心率算出来的。我有氧的时候也会很高，纯力量训练就比较低。"<b>南山漫竹</b> 自嘲："我一打王者偷野或者和别人吵架心脏就跳得离谱。"<b>小叶-单身</b> 也说："我没测过，感觉运动强度一高心率也不低。"<br><br><b>三、解决方案与建议</b><br><b>Lucien</b> 问："运动手表有推荐吗"，<b>Infinite Horizon</b> 回答："纯运动手表就那几个牌子，佳明高驰啥的。或者省心点就按你自己手机牌子买个对应的就行。"<br><br><b>胡小窝</b> 还分享了自己的碎片运动法："每天吃饭后来3组深蹲或推墙，每小时起来活动2分钟。"<b>sujianhong030224</b> 补发走路打卡，并提醒："看看最近的赵本山，能复出，除了本领，是身体的支撑。同志们，好好保养身体是重中之重。"
+                                </div>
                                 <button class="expand-btn text-[#0369A1] hover:text-[#075985] text-sm font-medium mt-2 flex items-center" style="display: none;">
                                     <span class="expand-text">展开全文</span>
                                     <i class="fas fa-chevron-down ml-1 expand-icon"></i>
@@ -1464,28 +1732,44 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- 列表容器: 问题解答卡片标签 -->
                     <div class="mt-5 pt-4 border-t border-gray-200">
-                        <div class="flex flex-wrap gap-2"><span class="tag-item">取名</span><span class="tag-item">开盒防护</span><span class="tag-item">谐音梗</span></div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag-item">运动健康</span>
+                            <span class="tag-item">心率</span>
+                            <span class="tag-item">运动手表</span>
+                        </div>
                     </div>
+                    <!-- 列表容器结束: 问题解答卡片标签 -->
                 </div>
-<!-- 问答卡片 2 -->
+                <!-- 问答卡片 结束 -->
+
                 <div class="bento-card p-6 rounded-xl border-l-4 border-[#7FC2E8]"> <!-- 边框颜色修改为 border-[#7FC2E8] -->
                     <div class="mb-4">
                         <h4 class="text-xl font-semibold text-black flex items-center">
-                            <i class="fas fa-question-circle mr-2.5 text-[#0EA5E9] text-lg"></i>剧和书太多看不完，怎么办？
+                            <i class="fas fa-question-circle mr-2.5 text-[#0EA5E9] text-lg"></i>
+                            怎么给娃取名？开盒、谐音梗与「南」字象形大战
                         </h4>
                     </div>
+
                     <div class="mb-4 bg-[#EEF2FF] border border-[#C7D2FE] rounded-md p-3">
                         <p class="text-sm font-medium text-[#4338CA] mb-1">爬楼关键词</p>
-                        <p class="text-sm text-[#4F46E5] italic">"【Y】AA昍：可以循序渐进的练习加速观看"</p>
+                        <p class="text-sm text-[#4F46E5] italic">
+                            "【Y】犬八：男宝宝，姓朱"
+                        </p>
                     </div>
+
                     <div class="border-t border-gray-200 pt-4">
                         <h5 class="text-lg font-semibold text-green-700 flex items-center mb-2">
-                            <i class="fas fa-lightbulb mr-2.5 text-lg text-green-600"></i>解答
+                            <i class="fas fa-lightbulb mr-2.5 text-lg text-green-600"></i>
+                            解答
                         </h5>
                         <div class="text-gray-700 text-base leading-relaxed prose prose-sm max-w-none">
                             <div class="expandable-content" data-char-limit="200">
-                                <div class="content-preview"><b>一、倍速观看法</b><br>背景是全群追《伟大的长征》，<b>云野</b>感叹要看的东西好多，看都看不完。<b>AA昍</b>给倍速训练法：可以循序渐进的练习加速观看——默认1.5倍速，习惯了就开二倍速，最高拉到三倍速；现在主流人群都是倍速看剧，拍剧时刻意放慢节奏方便倍速观众听清，这种情况下你仍然按一倍速看，等于是被二倍速观影的人群无形中剥削了一部分生命。<b>希希</b>马上给出反例：看伟大的长征就是不舍得倍速。<br><br><b>二、读书法</b><br><b>南山漫竹</b>的版本：我现在看书基本用ai，叫它给我总结一下，然后我带目的去看，看的就快；很多书从头到尾就几个观点，跳着看、多看几本书，比把一本书从头看到尾好一些。<b>云野</b>提出保留意见：总结会遗漏很多东西，另一方面失去了锻炼逻辑思维的训练。<b>水煮鱼不翻身</b>引出群主荐书《如何阅读一本书》，并给出辩证收尾：实践出真知，不读书肯定错；但一天出版4000本，一辈子读不完——读书这种事唯多不破，唯多不破就相当于唯快不破，找到了条短的。</div>
+                                <div class="content-preview">
+                                    <b>一、问题背景</b><br><b>深圳-创业者-向宁</b>晒出四维影像说，“社会主义接班人就快要来了”，并说“预产期是12月24日左右，不过我很想延到12月26日出生。”全群随即排队恭喜。<b>犬八</b>趁着这个话题向群友征集意见，说“虽然我孩子的名字已经取好了”，“但我还是想问”，接着说明是“男宝宝，姓朱”，并问“你们有啥想法吗”。给孩子取名的讨论由此展开。<br><br><b>二、核心原因分析</b><br>群友的考量主要集中在两点：名字会不会被<b>开盒</b>名字会不会撞上<b>网络梗</b>。<br><br><b>卡</b>从防开盒的角度说，“大数据时代，取个普通名字很好”，又说“即使别人开盒，难度也会增加”。在他看来，名字越普通，越不容易被认出来。<br><br><b>阿灿</b>从避坑角度提醒说，“一定要避免网络梗 谐音梗”。<b>卡</b>进一步补充了流行梗反过来伤害名字主人的风险，说“嘉豪梗我感觉也是一种网络霸凌”。<br><br><b>🌅</b>则认为梗本身很难提前躲开，说“给孩子起名真别想什么被打趣，汉字千变万化，你压根防不住”。<br><br><b>三、解决方案与建议</b><br><b>1. 取普通名字或自然词。</b><b>AA昍</b>顺着卡的普通名字思路赞同说，“取个自然词最好了”，并举例“周一，吴迪，张伟，哈哈哈”。<br><br><b>2. 用方言反复念，检查读音。</b><b>夏夏</b>分享自家的做法，说“我闺女取名的时候我老公就用方言反复念叨”，目的是“查看有没有问题”。<br><br><b>3. 给孩子做心理建设。</b><b>🌅</b>劝大家不用在防梗上费劲，说“只有及时给孩子做心里建设，脱敏”。<br><br><b>4. 在现有字上加偏旁改字。</b>这一条由<b>南山漫竹</b>聊自己的名字引出。他说“我单名一个南字”，并发问“像不像用个罩子把rmb罩住了”。<b>AA昍</b>顺着罩住rmb的字形接话说，“难怪「送」字就是把rmb送走了”，又说“幸运就是在自己家后院的土里埋着￥”，还造了个新字说“遖，这样挡上”。<b>太室云水</b>跟着加偏旁建议说，“改叫暔，让日日帮你守着”。<b>南山漫竹</b>自己则看中了楠字，说“楠也可以，不断生长，生生不息”。<b>呆喵没睡醒</b>听完几个改字方案感叹说，“还得是南这个底子好，加啥都差不了”。
+                                </div>
                                 <button class="expand-btn text-[#0369A1] hover:text-[#075985] text-sm font-medium mt-2 flex items-center" style="display: none;">
                                     <span class="expand-text">展开全文</span>
                                     <i class="fas fa-chevron-down ml-1 expand-icon"></i>
@@ -1493,29 +1777,83 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="mt-5 pt-4 border-t border-gray-200">
-                        <div class="flex flex-wrap gap-2"><span class="tag-item">倍速观影</span><span class="tag-item">AI 总结</span><span class="tag-item">读书法</span></div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag-item">取名</span><span class="tag-item">开盒防护</span><span class="tag-item">谐音梗</span>
+                        </div>
                     </div>
                 </div>
+               
+
             </div>
+            <!-- 列表容器结束: 问题解答条目 -->
         </section>
         <!-- === 模块四：解惑一点通・有问必答 结束 === -->
 
         <!-- === 模块五：智慧火花匣・每日精选 开始 === -->
         <section id="section-daily-picks" class="w-full mb-12 anchor-target">
             <h2 class="section-title">智慧火花匣・每日精选</h2>
-            <!-- 每日精选条目 -->
+            <!-- 列表容器: 每日精选条目 -->
             <div class="space-y-8">
-<!-- 知识卡片 1 -->
-                <div class="bento-card p-6 rounded-xl border-l-4 border-[#7FC2E8]">
-                    <h4 class="text-xl font-semibold text-black mb-3">权责对等：这个群只能我说了算，职场版叫「不背锅」</h4>
+
+                <!-- 知识卡片 开始 -->
+                <div class="bento-card p-6 rounded-xl border-l-4 border-[#7FC2E8]"> <!-- 边框颜色修改为 border-[#7FC2E8] -->
+                    <h4 class="text-xl font-semibold text-black mb-3">
+                        走路锻炼与腰椎保养的土办法
+                    </h4>
+
+                    <!-- HTML注释: 爬楼关键词区域 -->
                     <div class="mb-4 bg-[#EEF2FF] border border-[#C7D2FE] rounded-md p-3">
                         <p class="text-sm font-medium text-[#4338CA] mb-1">爬楼关键词</p>
-                        <p class="text-sm text-[#4F46E5] italic">"【Y】AA昍：永远不会有这种所谓的「民主」"</p>
+                        <p class="text-sm text-[#4F46E5] italic">
+                            "【Y】十五：我个人十分推荐走路，走路的时候请注意，脚尖是要用力的"
+                        </p>
                     </div>
+
                     <div class="text-gray-700 text-base mb-4 leading-relaxed prose prose-sm max-w-none">
                         <div class="expandable-content" data-char-limit="200">
-                            <div class="content-preview"><b>一、起因</b><br><b>Alan</b>提了个脑洞：如果群里人多到发展出投票让人退群，算不算群内民主？<b>AA昍</b>的回答干脆：永远不会有这种所谓的「民主」，这个群就只能是我说了算——因为权责对等。这个群如果出事，群主第一个坐牢，群主和法官说这是大家投票决定的，刑法会搭理我吗？<br><br><b>二、职场版</b><br>他随即把这条原理翻译到职场：如果你没有权力决定一件事，那你就不应该为这件事情背锅；如果有人想让你变成这样的角色，那你要小心了，他有可能在害你。<br><br><b>三、延伸：去中心化是伪命题</b><br>有群友提到互联网治理是中心化的，<b>AA昍</b>顺势再推一层：去中心化本来就是伪命题——人的生命是聚集在一个肉体里的，不可能像伏地魔一样分成魂器四处乱藏；只要控制这个肉体，就可以控制它所能控制的一切资源，在这样的物理客观规律下，资源怎么去中心化？</div>
+                            <div class="content-preview">
+                                <b>一、推荐内容</b><br><b>十五</b> 引用<b>AA昍</b> 的腰椎保养图并补充："腰间盘突出，一是缺乏运动，二是缺钙，三是注意不要受寒。"她转述中医的建议："不要吃生冷，不要吃辛辣，不要吹空调……自己多带一件衣服，防止受凉。注意补充维生素D，注意补钙，不是每个小伙伴都有时间去炖排骨，平时吃点芝麻小零食就能补钙，牛奶偏寒凉，不推荐身体过敏的小伙伴去吃牛奶。"<br><br><b>二、核心价值与特点</b><br><b>十五</b> 给出自己的走路心法："走路的时候请注意，脚尖是要用力的，不是整个平平的脚掌去落地，是整个脚要形成一次有力弯曲，达到锻炼的效果。5个脚趾要像猫的爪爪一样，每走一次就用力抓一下地，谁走谁知道。"<br><br><b>三、适用场景或补充信息</b><br><b>kiki</b> 试过后反馈："这样子走脚心可酸了。"<b>萝卜头</b> 验证："试了一下确实不一样。"<b>Marina</b> 分享长距离经验："当年42km毅行，走到最后机械式了，jio已经没啥知觉。"
+                            </div>
+                            <button class="expand-btn text-[#0369A1] hover:text-[#075985] text-sm font-medium mt-2 flex items-center" style="display: none;">
+                                <span class="expand-text">展开全文</span>
+                                <i class="fas fa-chevron-down ml-1 expand-icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- 列表容器: 实用信息卡片标签 -->
+                    <div class="mt-5 pt-4 border-t border-gray-200">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag-item">健康</span>
+                            <span class="tag-item">走路锻炼</span>
+                            <span class="tag-item">腰椎保养</span>
+                        </div>
+                    </div>
+                    <!-- 列表容器结束: 实用信息卡片标签 -->
+                    <!-- HTML注释: 此条目无资源链接，因此不包含资源链接区域的HTML。 -->
+                </div>
+                <!-- 知识卡片 结束 -->
+
+                <!-- 知识卡片 开始 -->
+                <div class="bento-card p-6 rounded-xl border-l-4 border-[#7FC2E8]"> <!-- 边框颜色修改为 border-[#7FC2E8] -->
+                    <h4 class="text-xl font-semibold text-black mb-3">
+                        倍速看剧与读书：信息看不完时的取舍
+                    </h4>
+
+                    <!-- HTML注释: 爬楼关键词区域 -->
+                    <div class="mb-4 bg-[#EEF2FF] border border-[#C7D2FE] rounded-md p-3">
+                        <p class="text-sm font-medium text-[#4338CA] mb-1">爬楼关键词</p>
+                        <p class="text-sm text-[#4F46E5] italic">
+                            "【Y】云野：要看的东西好多啊，看都看不完，恨不得自己多长几个脑袋"
+                        </p>
+                    </div>
+
+                    <div class="text-gray-700 text-base mb-4 leading-relaxed prose prose-sm max-w-none">
+                        <div class="expandable-content" data-char-limit="200">
+                            <div class="content-preview">
+                                <b>一、推荐内容</b><br><b>云野</b> 感慨"要看的东西好多啊，看都看不完，恨不得自己多长几个脑袋"。<b>AA昍</b> 给了一个具体建议：循序渐进的练习加速观看，"默认1.5倍速，习惯了就开二倍速，最高拉到三倍速"。<br><br><b>二、核心价值与特点</b><br>他的理由是：现在主流人群都是1.5倍甚至二倍速在看剧，"很多人拍剧的时候，就会把剧的节奏刻意放慢，方便别人二倍速的时候也能听清。在这种情况下，如果你仍然按照一倍速来看，等于是被二倍速观影的人群无形中剥削了一部分生命"。<br><br><b>三、适用场景或补充信息</b><br>对读书，<b>水煮鱼不翻身</b> 转述日日的观点："不读书肯定是错。读书这种事，唯多不破。但人的生命有限，一天出版4000本，人一辈子都未必能读够4000本。所以唯多不破，就相当于唯快不破。"<b>南山漫竹</b> 分享AI辅助法："看书基本用AI，叫他给我总结一下，然后我带目的去看，看得就快。"<b>云野</b> 提醒："总结会遗漏很多东西，另一方面失去了锻炼逻辑思维的练习。"也有例外——<b>希希</b> 说："看《伟大的长征》就是不舍得倍速。"
+                            </div>
                             <button class="expand-btn text-[#0369A1] hover:text-[#075985] text-sm font-medium mt-2 flex items-center" style="display: none;">
                                 <span class="expand-text">展开全文</span>
                                 <i class="fas fa-chevron-down ml-1 expand-icon"></i>
@@ -1523,50 +1861,18 @@
                         </div>
                     </div>
                     <div class="mt-5 pt-4 border-t border-gray-200">
-                        <div class="flex flex-wrap gap-2"><span class="tag-item">权责对等</span><span class="tag-item">背锅判据</span><span class="tag-item">去中心化</span></div>
-                    </div>
-                </div>
-<!-- 知识卡片 2 -->
-                <div class="bento-card p-6 rounded-xl border-l-4 border-[#7FC2E8]">
-                    <h4 class="text-xl font-semibold text-black mb-3">外聘老师的水平为什么一般：深想三步，跟着钱走</h4>
-                    <div class="mb-4 bg-[#EEF2FF] border border-[#C7D2FE] rounded-md p-3">
-                        <p class="text-sm font-medium text-[#4338CA] mb-1">爬楼关键词</p>
-                        <p class="text-sm text-[#4F46E5] italic">"【Z】AA昍：外聘老师的水平真的一般吗"</p>
-                    </div>
-                    <div class="text-gray-700 text-base mb-4 leading-relaxed prose prose-sm max-w-none">
-                        <div class="expandable-content" data-char-limit="200">
-                            <div class="content-preview"><b>一、疑问</b><br><b>泡泡🌈</b>感叹：以前以为做好管理需要很高的情商，看过的书、公司外聘管理老师的课都难以吸收；现在看群里发的内容，才觉得这里面的学问太深，外聘老师的水平太一般了。<br><br><b>二、深想三步</b><br><b>AA昍</b>给出三连问：外聘老师的水平真的一般吗？如果是，为什么会一般？这里是行业人才的流动；再想一步，领导看不出来吗？为什么还要请他来？这里涉及到公司的钱的流动；再想一步，不止一个人看出来，为什么这样的行业还能存在？这里涉及到行业的钱的流动。他顺手把外聘讲课与企业请代言人放在同一结构里看——市面报价与实际到账之间的差价，就是各环节的钱在流动。<br><br><b>三、群友印证</b><br><b>泡泡🌈</b>感叹这种拆问题的思路太有启发，自己总是贸然下结论。<b>吉山偷猪</b>自省：我一直知道要多问为什么，但是只是知道。<b>Marina</b>从执行侧补了三条：看到的水平一般可能是预算必须花、可能存在资源互换、做培训计划的中台没做过业务部门的需求调研。<b>Decade</b>一句定性：外聘老师跟劳务派遣一个意思，随用随取，不要就丢，背锅也好用。</div>
-                            <button class="expand-btn text-[#0369A1] hover:text-[#075985] text-sm font-medium mt-2 flex items-center" style="display: none;">
-                                <span class="expand-text">展开全文</span>
-                                <i class="fas fa-chevron-down ml-1 expand-icon"></i>
-                            </button>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag-item">学习方法</span>
+                            <span class="tag-item">效率</span>
+                            <span class="tag-item">阅读</span>
                         </div>
                     </div>
-                    <div class="mt-5 pt-4 border-t border-gray-200">
-                        <div class="flex flex-wrap gap-2"><span class="tag-item">格物致知</span><span class="tag-item">跟着钱走</span><span class="tag-item">外聘培训</span></div>
-                    </div>
+                    <!-- HTML注释: 此条目无资源链接，因此不包含资源链接区域的HTML。 -->
                 </div>
-<!-- 知识卡片 3 -->
-                <div class="bento-card p-6 rounded-xl border-l-4 border-[#7FC2E8]">
-                    <h4 class="text-xl font-semibold text-black mb-3">当日花絮：群里公开讨论「明天的日报怎么写」</h4>
-                    <div class="mb-4 bg-[#EEF2FF] border border-[#C7D2FE] rounded-md p-3">
-                        <p class="text-sm font-medium text-[#4338CA] mb-1">爬楼关键词</p>
-                        <p class="text-sm text-[#4F46E5] italic">"【Y】呆喵没睡醒：不敢想明天的四海日报多劲爆"</p>
-                    </div>
-                    <div class="text-gray-700 text-base mb-4 leading-relaxed prose prose-sm max-w-none">
-                        <div class="expandable-content" data-char-limit="200">
-                            <div class="content-preview"><b>一、吃瓜群众预热</b><br>白天大戏连台，<b>呆喵没睡醒</b>说：不敢想明天的四海日报多劲爆。<b>AA昍</b>当场定调：日报有收录边界，某些话题不会进日报——还顺手修正了自己的表述：否定句里不能用所有，应该用任何。<br><br><b>二、生产过程被围观</b><br><b>犬八</b>好奇发问：日报是ai提取的吗，还是人工提炼，还是ai提取后人工提炼？<b>鱼蛋</b>感叹：原来日报还会经过人工筛选的吗。<b>AA昍</b>解释筛选逻辑：如果有人在群里面大量骂人，这些脏话难道也要收录吗？换位思考，很简单的道理。<br><br><b>三、读者用脚投票</b><br>深夜<b>小企鹅造屋</b>爬完两天的楼：把从16号到现在的聊天记录全部看完，花了一个小时，脑袋现在活像一个充电过头的充电宝——后面真的没有这个精力了，我得看日报去；末尾补了一句：群主真的好有耐心，而且公道。</div>
-                            <button class="expand-btn text-[#0369A1] hover:text-[#075985] text-sm font-medium mt-2 flex items-center" style="display: none;">
-                                <span class="expand-text">展开全文</span>
-                                <i class="fas fa-chevron-down ml-1 expand-icon"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="mt-5 pt-4 border-t border-gray-200">
-                        <div class="flex flex-wrap gap-2"><span class="tag-item">日报幕后</span><span class="tag-item">收录边界</span><span class="tag-item">人工筛选</span></div>
-                    </div>
-                </div>
+                <!-- 知识卡片 结束 -->
+
             </div>
+            <!-- 列表容器结束: 每日精选条目 -->
         </section>
         <!-- === 模块五：智慧火花匣・每日精选 结束 === -->
 
@@ -1592,6 +1898,7 @@
         </nav>
 
         <!-- === 文件底部 开始 === -->
+        <!-- HTML注释: 此模块作为文件底部，包含数据来源、报告生成时间及免责声明。 -->
         <footer class="w-full mt-16">
             <div class="bento-card p-8">
                 <div class="text-center text-gray-700 space-y-3">
@@ -1602,7 +1909,7 @@
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-robot mr-2 text-[#0EA5E9]"></i>
-                            <span>2026-11-17 02:00:00</span>
+                            <span>2026-11-18 :00</span>
                         </div>
                     </div>
                     <p class="text-sm text-gray-500 max-w-2xl mx-auto leading-relaxed">
@@ -1639,6 +1946,9 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Bento card hover effect is handled by CSS :hover pseudo-class
+
+            // Number animation effect
             const numberElements = document.querySelectorAll('.number-display');
             numberElements.forEach(element => {
                 const finalValueText = element.textContent.replace(/,/g, '');
@@ -1647,8 +1957,8 @@
                 if (isNaN(finalValue)) return;
 
                 let currentValue = 0;
-                const duration = 1500;
-                const frameRate = 1000 / 60;
+                const duration = 1500; // Animation duration in ms
+                const frameRate = 1000 / 60; // 60fps
                 const totalFrames = Math.round(duration / frameRate);
                 const increment = finalValue / totalFrames;
 
@@ -1661,30 +1971,42 @@
                         currentValue = finalValue;
                         clearInterval(timer);
                     }
+                    // Format number with commas for display
                     element.textContent = Math.floor(currentValue).toLocaleString('en-US');
                 }, frameRate);
             });
 
+            // HTML注释: 初始化日报导航功能
             initDailyNavigation();
 
+            // HTML注释: 初始化展开功能
             initExpandableContent();
 
+            // HTML注释: 初始化浮动按钮与目录互动
             initFloatingActions();
             
+            // HTML注释: 设置历史日报链接
             const historyLink = document.getElementById('history-link');
             if (historyLink) {
                 historyLink.href = 'archive.html';
             }
         });
 
+        // HTML注释: 这个函数实现了日报间的导航功能，包括：
+        // 1. 从当前页面URL或内容中提取日期
+        // 2. 检查前后日期的日报文件是否存在
+        // 3. 设置"上一天"和"下一天"按钮的状态和链接
+        // 4. 实现"下一天"按钮的动态显示逻辑
         async function initDailyNavigation() {
             try {
+                // HTML注释: 获取当前页面的日期
                 const currentDate = getCurrentDateFromPage();
                 if (!currentDate) {
                     console.warn('无法从页面中提取日期信息');
                     return;
                 }
 
+                // HTML注释: 设置导航按钮
                 await setupNavigationButtons(currentDate);
 
             } catch (error) {
@@ -1692,7 +2014,10 @@
             }
         }
 
+        // HTML注释: 从页面中提取当前日期
+        // HTML注释: 支持多种方式提取日期：优先从页面元素、URL文件名或页面标题
         function getCurrentDateFromPage() {
+            // HTML注释: 方法1：从报告日期元素中提取（优先级最高）
             const dateElement = document.getElementById('report-date');
             if (dateElement) {
                 const dateText = dateElement.textContent;
@@ -1705,12 +2030,14 @@
                 }
             }
 
+            // HTML注释: 方法2：从URL文件名中提取日期
             const pathname = window.location.pathname;
             const filenameMatch = pathname.match(/fourseas_daily_(\d{4}-\d{2}-\d{2})\.html/);
             if (filenameMatch) {
                 return filenameMatch[1];
             }
 
+            // HTML注释: 方法3：从页面标题中提取日期
             const titleMatch = document.title.match(/(\d{4}-\d{2}-\d{2})/);
             if (titleMatch) {
                 return titleMatch[1];
@@ -1719,6 +2046,8 @@
             return null;
         }
 
+        // HTML注释: 设置导航按钮的状态和链接
+         // HTML注释: 根据当前日期，检查前后日期的日报文件是否存在
          async function setupNavigationButtons(currentDate) {
              const prevButtons = document.querySelectorAll('.day-nav-prev');
              const nextButtons = document.querySelectorAll('.day-nav-next');
@@ -1728,6 +2057,7 @@
                  return;
              }
              
+             // HTML注释: 计算前一天和后一天的日期
              const currentDateObj = new Date(currentDate);
              const prevDateObj = new Date(currentDateObj);
              prevDateObj.setDate(prevDateObj.getDate() - 1);
@@ -1737,9 +2067,11 @@
              const prevDate = formatDate(prevDateObj);
              const nextDate = formatDate(nextDateObj);
              
+             // HTML注释: 检查前一天和后一天的日报是否存在
              const prevExists = await checkReportExists(prevDate);
              const nextExists = await checkReportExists(nextDate);
              
+             // HTML注释: 如果前后日期的日报都不存在，隐藏所有导航栏容器
              if (!prevExists && !nextExists) {
                  navContainers.forEach(container => {
                      container.style.display = 'none';
@@ -1747,10 +2079,12 @@
                  return;
              }
              
+             // HTML注释: 显示所有导航栏容器
              navContainers.forEach(container => {
                  container.style.display = 'block';
              });
              
+             // HTML注释: 设置前一天按钮
              prevButtons.forEach(button => {
                  if (prevExists) {
                      button.disabled = false;
@@ -1763,6 +2097,7 @@
                  }
              });
 
+             // HTML注释: 设置后一天按钮
              nextButtons.forEach(button => {
                  if (nextExists) {
                      button.disabled = false;
@@ -1776,6 +2111,7 @@
              });
          }
 
+        // HTML注释: 检查指定日期的日报文件是否存在
         async function checkReportExists(date) {
             try {
                 const response = await fetch(`fourseas_daily_${date}.html`, { method: 'HEAD' });
@@ -1785,6 +2121,7 @@
             }
         }
 
+        // HTML注释: 格式化日期为YYYY-MM-DD格式
         function formatDate(date) {
             const year = date.getFullYear();
             const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -1792,6 +2129,7 @@
             return `${year}-${month}-${day}`;
         }
 
+        // HTML注释: 初始化展开功能
         function initExpandableContent() {
             const expandableContents = document.querySelectorAll('.expandable-content');
             
@@ -1805,12 +2143,20 @@
                 const fullContent = contentPreview.innerHTML;
                 const fullText = contentPreview.textContent || contentPreview.innerText;
                 
+                // HTML注释: 如果内容长度超过限制，则显示展开按钮
                 if (fullText.length > charLimit) {
+                    // HTML注释: 创建一个临时元素来正确截取HTML内容
                     const tempDiv = document.createElement('div');
                     tempDiv.innerHTML = fullContent;
                     
+                    // HTML注释: 截取文本内容到指定长度
+                    const truncatedText = fullText.substring(0, charLimit);
+                    
+                    // HTML注释: 使用更简单可靠的方法截取内容
+                    let truncatedContent = '';
                     let charCount = 0;
                     
+                    // HTML注释: 逐字符遍历，保持简单的HTML结构
                     const walker = document.createTreeWalker(
                         tempDiv,
                         NodeFilter.SHOW_TEXT,
@@ -1824,6 +2170,7 @@
                         textNodes.push(node);
                     }
                     
+                    // HTML注释: 计算需要保留的文本内容
                     for (let textNode of textNodes) {
                         const text = textNode.textContent;
                         if (charCount + text.length <= charLimit) {
@@ -1833,6 +2180,7 @@
                             textNode.textContent = text.substring(0, remainingChars) + '...';
                             charCount = charLimit;
                             
+                            // HTML注释: 新的、更干净的移除后续所有节点的逻辑
                             let currentNodeToClearAfter = textNode;
                             while (currentNodeToClearAfter && currentNodeToClearAfter !== tempDiv) {
                                 let sibling = currentNodeToClearAfter.nextSibling;
@@ -1843,7 +2191,7 @@
                                 }
                                 currentNodeToClearAfter = currentNodeToClearAfter.parentElement;
                             }
-                            break;
+                            break; // 完成截断和清理，跳出 textNodes 循环
                         }
                     }
                     
@@ -1853,15 +2201,18 @@
                     contentPreview.classList.add('collapsed');
                     expandBtn.style.display = 'flex';
                     
+                    // HTML注释: 绑定展开/收起事件
                     expandBtn.addEventListener('click', function() {
                         const isExpanded = expandBtn.classList.contains('expanded');
                         
                         if (isExpanded) {
+                            // HTML注释: 收起内容
                             contentPreview.innerHTML = previewContent;
                             contentPreview.classList.add('collapsed');
                             expandBtn.querySelector('.expand-text').textContent = '展开全文';
                             expandBtn.classList.remove('expanded');
                         } else {
+                            // HTML注释: 展开内容
                             contentPreview.innerHTML = fullContent;
                             contentPreview.classList.remove('collapsed');
                             expandBtn.querySelector('.expand-text').textContent = '收起';
@@ -1869,11 +2220,13 @@
                         }
                     });
                 } else {
+                    // HTML注释: 内容较短，隐藏展开按钮
                     expandBtn.style.display = 'none';
                 }
             });
         }
 
+        // HTML注释: 构建目录数据，统一扫描主模块与子级卡片生成锚点
         function buildDirectory(panelElement) {
             const listElement = panelElement.querySelector('#directory-list');
             if (!listElement) {
@@ -1901,7 +2254,7 @@
 
                 const sectionTitleElement = sectionElement.querySelector('.section-title');
                 const sectionTitle = sectionTitleElement ? sectionTitleElement.textContent.trim() : config.id;
-                const titleWithNumber = `${chineseNumbers[sectionCounter] || sectionCounter + 1}、 ${sectionTitle}`;
+                const titleWithNumber = `${chineseNumbers[sectionCounter]}、 ${sectionTitle}`;
                 sectionCounter++;
 
                 const itemWrapper = document.createElement('div');
@@ -1948,6 +2301,7 @@
             });
         }
 
+        // HTML注释: 初始化浮动按钮与目录交互
         function initFloatingActions() {
             const scrollTopBtn = document.getElementById('scroll-top-btn');
             const directoryToggle = document.getElementById('directory-toggle');
@@ -2039,6 +2393,8 @@
         }
     </script>
     
+    <!-- HTML注释: 原每日金句外部脚本（从远程加载 public_quotes.js 历史金句池随机抽取）已整体移除，金句改为由AI生成时直接填写。日后若要恢复"历史金句回顾"功能：自建 public_quotes.js（内容格式：window.PUBLIC_QUOTES = [{ text: "金句", author: "昵称", date: "YYYY-MM-DD", section: "所属模块" }, ...]，每期从日报"金句时刻"追加积累），在此处重新引入该脚本并恢复随机抽取逻辑，同时把金句卡片处的占位填写说明改回为脚本填入。 -->
+
     <!-- === 截图功能脚本 === -->
     <script>
     function initScreenshotButtons() {
@@ -2174,6 +2530,7 @@
                 colorLight: '#ffffff',
                 correctLevel: QRCode.CorrectLevel.L
             });
+            // 等待 QRCode 渲染完成
             await new Promise(resolve => setTimeout(resolve, 200));
             const generated = target.querySelector('canvas') || target.querySelector('img');
             if (generated) {
@@ -2191,6 +2548,7 @@
         const oldMask = document.querySelector('.screenshot-fallback-mask');
         if (oldMask) oldMask.remove();
 
+        // 用 data URL 代替 blob URL，解决微信 WebView 长按保存失败的问题
         const reader = new FileReader();
         reader.onload = function() {
             const dataUrl = reader.result;
@@ -2233,17 +2591,19 @@
         const reportDateIso = isFortuneCard ? extractFortuneDateIso(card) : extractReportDateIso();
         const publicUrl = getReportPublicUrl(reportDateIso);
 
+        // 标记按钮为截取中状态
         btnElement.classList.add('capturing');
         const originalIcon = btnElement.innerHTML;
         btnElement.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
 
         try {
+            // 收集要截图的内容：从标题到关键结论与金句时刻的全部内容
             const allChildren = Array.from(card.children);
             const captureElements = [];
-
             const includeConclusions = !!section && ['section-hot-topics', 'section-meeting'].includes(section.id);
 
             for (const child of allChildren) {
+                // 跳过截图按钮本身
                 if (child.classList.contains('screenshot-btn')) continue;
                 if (!includeConclusions) {
                     const conclusionLabel = child.querySelector('p.text-sm.font-semibold');
@@ -2252,11 +2612,13 @@
                 captureElements.push(child);
             }
 
+            // 获取话题标题和日期
             const titleEl = isFortuneCard ? card.querySelector('#fortune-text') : card.querySelector('h4');
             const topicTitle = titleEl ? titleEl.textContent.trim().substring(0, 20) : (isFortuneCard ? '每日金句' : '话题');
             const reportDateEl = document.getElementById('report-date');
             const reportDate = formatReportDateCn(reportDateIso) || (reportDateEl ? reportDateEl.textContent.trim() : '');
 
+            // 如果内容是收起状态，临时展开
             const expandBtns = card.querySelectorAll('.expand-btn:not(.expanded)');
             const expandedBtns = [];
             expandBtns.forEach(btn => {
@@ -2269,6 +2631,7 @@
                 }
             });
 
+            // 创建临时截图容器（560px 宽度，配合 scale 2 保证手机端可读性和清晰度）
             const wrapper = document.createElement('div');
             wrapper.className = 'screenshot-wrapper';
             wrapper.style.position = 'absolute';
@@ -2281,6 +2644,7 @@
             wrapper.style.textSizeAdjust = '100%';
             wrapper.style.fontSize = '16px';
 
+            // 品牌头部
             const brand = document.createElement('div');
             brand.className = 'screenshot-brand';
             brand.innerHTML = `
@@ -2295,11 +2659,13 @@
             `;
             wrapper.appendChild(brand);
 
+            // 内容区域
             const contentArea = document.createElement('div');
             contentArea.style.cssText = isFortuneCard
                 ? 'background:linear-gradient(135deg, #F0FAFE 0%, #DCF0FC 50%, #FDF3D8 100%); border-radius:12px; padding:24px; border:1px solid #FDF3D8; box-sizing:border-box;'
                 : 'background:#ffffff; border-radius:12px; padding:24px; border:1px solid #e9e9eb; box-sizing:border-box;';
 
+            // 克隆要截图的元素
             captureElements.forEach(el => {
                 const clone = el.cloneNode(true);
                 if (isFortuneCard) {
@@ -2363,25 +2729,34 @@
                         }
                     }
                 }
-                const cloneBtns = clone.querySelectorAll('.expand-btn');
+                // 移除展开按钮
+                const cloneBtns = clone.querySelectorAll(includeConclusions ? '.expand-btn, .copy-btn' : '.expand-btn');
                 cloneBtns.forEach(b => b.remove());
+                // 移除 collapsed 样式
                 const collapsedEls = clone.querySelectorAll('.collapsed');
                 collapsedEls.forEach(c => c.classList.remove('collapsed'));
 
+                // 截图中移除问答模块的图标（问题图标 + 解答图标）
                 const qaIcons = clone.querySelectorAll('h4 > i.fa-question-circle, h5 > i.fa-lightbulb, h4 > i.fas.fa-question-circle, h5 > i.fas.fa-lightbulb');
                 qaIcons.forEach(icon => icon.remove());
 
+                // 截图中移除"阅读原文"等资源链接区域
+                // 如果 clone 本身就是资源链接容器（flex justify-end），直接跳过不添加
                 if (clone.classList && clone.classList.contains('justify-end') && clone.querySelector('a[target="_blank"]')) {
-                    return;
+                    return; // 跳过这个元素，不添加到 contentArea
                 }
+                // 如果资源链接在 clone 内部
                 const resourceLinks = clone.querySelectorAll('a[target="_blank"][rel*="noopener"]');
                 resourceLinks.forEach(link => {
                     const wrapper = link.closest('.flex.justify-end') || link.parentElement;
                     if (wrapper && wrapper !== clone) {
                         wrapper.remove();
+                    } else if (wrapper === clone) {
+                        // 不会走到这里了，上面已经 return
                     }
                 });
 
+                // html2canvas 对 flex 垂直居中支持不稳定，截图 DOM 使用固定像素布局。
                 const cloneClass = clone.className || '';
                 const isHeaderRow = cloneClass.indexOf('flex') !== -1 && cloneClass.indexOf('flex-col') !== -1;
                 const headerRow = isHeaderRow
@@ -2434,6 +2809,7 @@
                     icon.style.verticalAlign = 'top';
                 });
 
+                // 修复标签容器：固定高度和行高，避免标签底部参差不齐。
                 const tagContainers = clone.querySelectorAll('[class*="flex-wrap"]');
                 tagContainers.forEach(container => {
                     container.style.cssText = 'font-size:0; line-height:0;';
@@ -2470,6 +2846,7 @@
             await renderReportQr(footer.querySelector('.screenshot-footer-qr'), publicUrl);
             const qrTargetForDraw = footer.querySelector('.screenshot-footer-qr');
 
+            // 将 QR canvas 转换为 img，解决 html2canvas 无法渲染嵌套 canvas 的问题
             const qrCanvas = qrTargetForDraw ? qrTargetForDraw.querySelector('canvas') : null;
             if (qrCanvas) {
                 const qrImg = document.createElement('img');
@@ -2479,26 +2856,32 @@
                 qrImg.style.height = '94px';
                 qrImg.width = 94;
                 qrImg.height = 94;
+                // 等待 img 加载完成
                 await new Promise((resolve) => {
                     qrImg.onload = resolve;
                     qrImg.onerror = resolve;
                     qrImg.src = qrDataUrl;
                 });
+                // 清空容器后只放我们的 img（QRCode.js 会同时生成 canvas + img）
                 qrTargetForDraw.innerHTML = '';
                 qrTargetForDraw.appendChild(qrImg);
                 console.log('[截图] QR canvas 已转换为 img，src长度:', qrDataUrl.length);
             } else {
+                // 如果是 table 模式生成的 QR，尝试用 table 转 canvas 再转 img
                 const qrTable = qrTargetForDraw ? qrTargetForDraw.querySelector('table') : null;
                 if (qrTable) {
                     console.log('[截图] QR 为 table 模式，使用 html2canvas 转换');
                 }
             }
 
+            // 等待渲染
             await new Promise(resolve => setTimeout(resolve, 350));
 
+            // 检测环境
             const ua = navigator.userAgent;
             const isMobile = /iPhone|iPad|iPod|Android|Mobile/i.test(ua);
 
+            // 使用 html2canvas 生成图片
             const canvas = await html2canvas(wrapper, {
                 scale: 2,
                 useCORS: true,
@@ -2508,13 +2891,16 @@
                 windowWidth: 560
             });
 
+            // 清理临时容器
             document.body.removeChild(wrapper);
 
+            // 恢复收起状态
             expandedBtns.forEach(btn => btn.click());
 
             const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
             if (!blob) throw new Error('图片生成失败');
 
+            // 移动端（含微信）直接走浮层，桌面端尝试 clipboard
             let copied = false;
             if (!isMobile) {
                 try {
@@ -2530,6 +2916,7 @@
             }
 
             if (copied) {
+                // 成功：按钮变绿✓
                 btnElement.innerHTML = '<i class="fas fa-check"></i>';
                 btnElement.style.color = '#10b981';
                 setTimeout(() => {
@@ -2537,6 +2924,7 @@
                     btnElement.style.color = '';
                 }, 1500);
             } else {
+                // 移动端或 clipboard 失败：弹出图片浮层让用户长按保存
                 btnElement.innerHTML = originalIcon;
                 btnElement.style.color = '';
                 showFallbackOverlay(blob, topicTitle);
@@ -2548,11 +2936,44 @@
             btnElement.innerHTML = originalIcon;
             btnElement.style.color = '';
         } finally {
+            // 恢复按钮状态
             btnElement.classList.remove('capturing');
         }
     }
     </script>
 
+    <!-- HTML注释: 原群ICP/公安备案信息已整体移除（含下方公安备案块）。日后若部署到自有备案域名，再按实际备案号重新添加。 -->
+    
+<!-- === 金句换一句：候选池由AI从当日聊天记录挑选（8~10条，首条为默认展示句，必须替换下方占位） === -->
+<script>
+(function () {
+    var pool = [
+        { "text": "一代人有一代人的长征，一代人有一代人的路要走。", "author": "吉山偷猪", "date": "2026-11-17 · 热点话题" },
+        { "text": "活在当下，就是不要过临时的生活。一切都是现在，一切只有现在。", "author": "Starlight🍅", "date": "2026-11-17 · 小会精粹" },
+        { "text": "如果一件事我没办法控制，那我焦虑什么？如果一件事我有办法控制，那我焦虑什么？", "author": "一学呀", "date": "2026-11-17 · 小会精粹" },
+        { "text": "需要送礼来进步的，大概率送不好礼。", "author": "深圳-创业者-向宁", "date": "2026-11-17 · 小会精粹" },
+        { "text": "只看重不重要，少管高不高兴", "author": "小企鹅造屋", "date": "2026-11-17 · 小会精粹" },
+        { "text": "没直接说出来的意思就是没表达的意思", "author": "张q", "date": "2026-11-17 · 小会精粹" },
+        { "text": "但，劳动，是实打实的。", "author": "吉山偷猪", "date": "2026-11-17 · 热点话题" },
+        { "text": "不能迷信身份。", "author": "鱼皮", "date": "2026-11-17 · 热点话题" },
+        { "text": "可以经营工作，不可以经营腐败。可以凝聚人心，不可以收买人心。", "author": "唤我李英俊就好", "date": "2026-11-17 · 小会精粹" }
+    ];
+    var el = document.getElementById("fortune-text");
+    var au = document.getElementById("fortune-author");
+    var dt = document.getElementById("fortune-date");
+    var btn = document.getElementById("fortune-shuffle");
+    if (!el || !au || !btn || !pool || pool.length < 2) return;
+    var idx = 0;
+    btn.addEventListener("click", function () {
+        var next = idx;
+        if (pool.length > 1) { while (next === idx) { next = Math.floor(Math.random() * pool.length); } }
+        idx = next;
+        el.textContent = pool[idx].text;
+        au.textContent = pool[idx].author;
+        if (dt && pool[idx].date) { dt.textContent = pool[idx].date; }
+    });
+})();
+</script>
 <script>
 (function(config) {
  const first=config.first,base=config.base,prefix=config.prefix,dateEl=document.getElementById('report-date'),trigger=document.querySelector('.report-date-trigger');
@@ -2597,94 +3018,5 @@
   try{const r=await fetch(url(t),{method:'HEAD',cache:'no-store',signal:AbortSignal.timeout(8000)});if(v!==version)return;state=r.ok&&!r.redirected?'available':r.status===404?'missing':'unknown'}catch(e){if(v!==version)return;state='unknown'}render();
  });
 })({"first": "2026-11-06", "base": "https://sihai-zy.github.io/four-seas/", "prefix": "fourseas_daily_"});
-</script>
-<!-- === 金句换一句：全库精选随机（assets/public_quotes.js），无库时回退当日候选池 === -->
-<script src="assets/public_quotes.js"></script>
-<script>
-(function () {
-    var pool = [
-        {
-                "text": "我觉得，学会说话，比学会送礼有用得多。",
-                "author": "AA昍",
-                "date": "2026-11-17 · 热点话题"
-        },
-        {
-                "text": "对错没有那么重要，要看你的目的。你想走多远，站多高，团结多少人，做多大的事，决定了你要不要解释自己。",
-                "author": "AA昍",
-                "date": "2026-11-17 · 小会精粹"
-        },
-        {
-                "text": "跟着钱走，钱不骗人。",
-                "author": "AA昍",
-                "date": "2026-11-17 · 每日精选"
-        },
-        {
-                "text": "如果你没有权力决定一件事，那你就不应该为这件事情背锅。",
-                "author": "AA昍",
-                "date": "2026-11-17 · 每日精选"
-        },
-        {
-                "text": "向上管理的最佳提升方式，就是向下管理。",
-                "author": "深圳-创业者-向宁",
-                "date": "2026-11-17 · 热点话题"
-        },
-        {
-                "text": "你不画好线，线就会离你越来越近",
-                "author": "深圳-创业者-向宁",
-                "date": "2026-11-17 · 小会精粹"
-        },
-        {
-                "text": "而且人只要活着就不可能让所有人都满意，只要不是伤筋动骨的，听一耳朵也就算了，抓住主要矛盾即可。",
-                "author": "Ansen",
-                "date": "2026-11-17 · 小会精粹"
-        },
-        {
-                "text": "没直接说出来的意思就是没表达的意思",
-                "author": "张q",
-                "date": "2026-11-17 · 小会精粹"
-        },
-        {
-                "text": "只看重不重要\n少管高不高兴",
-                "author": "小企鹅造屋",
-                "date": "2026-11-17 · 小会精粹"
-        },
-        {
-                "text": "人类能走到今天，靠的不是理性，而是靠几万年前那根断裂的大腿骨。",
-                "author": "AA昍",
-                "date": "2026-11-17 · 热点话题"
-        }
-];
-    var allQ = window.PUBLIC_QUOTES || [];
-    var el = document.getElementById("fortune-text");
-    var au = document.getElementById("fortune-author");
-    var dt = document.getElementById("fortune-date");
-    var btn = document.getElementById("fortune-shuffle");
-    if (!el || !au || !btn) return;
-    var src = allQ.length > 1 ? allQ : pool;
-    if (!src || src.length < 1) return;
-    var idx = Math.floor(Math.random() * src.length);
-    function paint() {
-        el.textContent = src[idx].text;
-        au.textContent = src[idx].author;
-        var dstr = (src[idx].date || "");
-        if (dt && dstr) {
-            var md = dstr.match(/^(\d{4}-\d{2}-\d{2})/);
-            if (md) {
-                dt.innerHTML = '<a href="fourseas_daily_' + md[1] + '.html" target="_blank" rel="noopener" style="color:#0369A1;font-weight:600;text-decoration:none;">' + md[1] + '<i class="fas fa-arrow-right" style="font-size:10px;margin-left:2px;"></i></a>';
-            } else {
-                dt.textContent = dstr;
-            }
-        }
-    }
-    paint();
-    if (src.length < 2) return;
-    btn.addEventListener("click", function () {
-        var next = idx;
-        while (next === idx) { next = Math.floor(Math.random() * src.length); }
-        idx = next;
-        paint();
-    });
-})();
-</script>
-</body>
+</script></body>
 </html>
