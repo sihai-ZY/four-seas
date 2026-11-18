@@ -2932,7 +2932,8 @@
 
     <!-- HTML注释: 原群ICP/公安备案信息已整体移除（含下方公安备案块）。日后若部署到自有备案域名，再按实际备案号重新添加。 -->
     
-<!-- === 金句换一句：候选池由AI从当日聊天记录挑选（8~10条，首条为默认展示句，必须替换下方占位） === -->
+<!-- === 金句换一句：全库精选随机（assets/public_quotes.js），无库时回退当日候选池 === -->
+<script src="assets/public_quotes.js"></script>
 <script>
 (function () {
     var pool = [
@@ -3042,19 +3043,35 @@
                 "date": "2026-11-17 · 终审金句"
         }
 ];
+    var allQ = window.PUBLIC_QUOTES || [];
     var el = document.getElementById("fortune-text");
     var au = document.getElementById("fortune-author");
     var dt = document.getElementById("fortune-date");
     var btn = document.getElementById("fortune-shuffle");
-    if (!el || !au || !btn || !pool || pool.length < 2) return;
-    var idx = 0;
+    if (!el || !au || !btn) return;
+    var src = allQ.length > 1 ? allQ : pool;
+    if (!src || src.length < 1) return;
+    var idx = Math.floor(Math.random() * src.length);
+    function paint() {
+        el.textContent = src[idx].text;
+        au.textContent = src[idx].author;
+        var dstr = (src[idx].date || "");
+        if (dt && dstr) {
+            var md = dstr.match(/^(\d{4}-\d{2}-\d{2})/);
+            if (md) {
+                dt.innerHTML = '<a href="fourseas_daily_' + md[1] + '.html" target="_blank" rel="noopener" style="color:#0369A1;font-weight:600;text-decoration:none;">' + md[1] + '<i class="fas fa-arrow-right" style="font-size:10px;margin-left:2px;"></i></a>';
+            } else {
+                dt.textContent = dstr;
+            }
+        }
+    }
+    paint();
+    if (src.length < 2) return;
     btn.addEventListener("click", function () {
         var next = idx;
-        if (pool.length > 1) { while (next === idx) { next = Math.floor(Math.random() * pool.length); } }
+        while (next === idx) { next = Math.floor(Math.random() * src.length); }
         idx = next;
-        el.textContent = pool[idx].text;
-        au.textContent = pool[idx].author;
-        if (dt && pool[idx].date) { dt.textContent = pool[idx].date; }
+        paint();
     });
 })();
 </script>
