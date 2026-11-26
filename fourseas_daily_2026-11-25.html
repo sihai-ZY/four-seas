@@ -1,0 +1,2455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>四海日报 2026-11-25</title>
+    <!-- 上面为示例标题，正常标题格式应为：四海日报 yyyy-mm-dd（即具体日期），以便外部链接查看时了解日报日期 -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6C9T7FPDT2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6C9T7FPDT2');
+    </script>
+    <!-- 正常标题格式应为：四海日报 yyyy-mm-dd，以便外部链接查看时了解日报日期 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+        * {
+            font-family: 'Inter', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #000000;
+            counter-reset: section-counter;
+        }
+
+        :root {
+            --directory-main-font-size: clamp(0.85rem, 0.9vw + 0.6rem, 0.95rem);
+            --directory-sub-font-size: clamp(0.78rem, 0.75vw + 0.5rem, 0.88rem);
+        }
+
+        .bento-card {
+            background-color: #ffffff;
+            border: 1px solid #e9e9eb;
+            border-radius: 1rem; /* 16px */
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .bento-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.07), 0 4px 6px -4px rgba(0,0,0,0.05);
+            transform: translateY(-3px);
+        }
+
+        .number-display {
+            font-weight: 900; /* black */
+            font-size: 4rem;
+            line-height: 1;
+            /* Color will be set by Tailwind, e.g., text-[#0EA5E9] or text-black */
+        }
+
+        .section-title {
+            font-weight: 800; /* extrabold */
+            font-size: 2.25rem; /* 36px */
+            color: #000000;
+            margin-bottom: 2rem; /* 32px, consistent with Tailwind mb-8 */
+        }
+
+        .section-title::before {
+            counter-increment: section-counter;
+            content: counter(section-counter, cjk-ideographic) "、 ";
+        }
+
+        .tag-item {
+            background-color: rgba(14, 165, 233, 0.1); /* bg-[#0EA5E9] bg-opacity-10 */
+            color: #0369A1;
+            padding: 0.25rem 0.75rem; /* py-1 px-3 */
+            border-radius: 9999px; /* rounded-full */
+            font-size: 0.75rem; /* text-xs */
+            font-weight: 500; /* medium */
+            display: inline-flex;
+            align-items: center;
+            min-height: 1.5rem;
+            line-height: 1rem;
+        }
+
+        /* HTML注释: 新增导航按钮样式，与现有设计保持一致 */
+        .nav-button {
+            background: linear-gradient(135deg, #0EA5E9 0%, #4FB8EF 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(14, 165, 233, 0.1);
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px -3px rgba(14, 165, 233, 0.2);
+        }
+
+        .nav-button:disabled {
+            background: #e5e7eb;
+            color: #9ca3af;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .history-link {
+            background: rgba(14, 165, 233, 0.1);
+            color: #0369A1;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            border: 1px solid rgba(14, 165, 233, 0.2);
+        }
+
+        .history-link:hover {
+            background: rgba(14, 165, 233, 0.15);
+            transform: translateY(-1px);
+        }
+
+        /* HTML注释: 展开功能相关样式 */
+        .expandable-content {
+            position: relative;
+        }
+
+        .content-preview.collapsed {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .content-preview.collapsed::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: linear-gradient(transparent, rgba(248, 250, 252, 0.9));
+            pointer-events: none;
+        }
+
+        .expand-btn {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 0;
+        }
+
+        .expand-btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .expand-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .expand-btn.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+
+        /* HTML注释: 目录锚点滚动偏移，避免标题被遮挡 */
+        .anchor-target {
+            scroll-margin-top: 120px;
+        }
+
+        /* HTML注释: 右下角浮动快捷按钮区域样式 */
+        .floating-actions {
+            position: fixed;
+            right: 1.25rem;
+            bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            z-index: 50;
+        }
+
+        .floating-button {
+            background: linear-gradient(135deg, #0EA5E9 0%, #4FB8EF 100%);
+            color: #ffffff;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px -5px rgba(14, 165, 233, 0.35);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .floating-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px -6px rgba(14, 165, 233, 0.45);
+        }
+
+        .floating-button:focus-visible {
+            outline: 2px solid rgba(14, 165, 233, 0.45);
+            outline-offset: 2px;
+        }
+
+        .floating-button--hidden {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            pointer-events: none;
+        }
+
+        .directory-wrapper {
+            position: relative;
+        }
+
+        .directory-panel {
+            position: absolute;
+            right: 0;
+            bottom: 3.5rem;
+            width: 18rem;
+            background: #ffffff;
+            border: 1px solid rgba(14, 165, 233, 0.2);
+            border-radius: 0.75rem;
+            box-shadow: 0 20px 40px -15px rgba(14, 165, 233, 0.35);
+            padding: 1rem;
+            opacity: 0;
+            transform: translateY(10px);
+            pointer-events: none;
+            transition: all 0.3s ease;
+            max-height: min(75vh, 30rem);
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior: contain;
+        }
+
+        .directory-panel.open {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .directory-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .directory-title {
+            font-weight: 600;
+            color: #1f2937;
+            font-size: var(--directory-main-font-size);
+        }
+
+        .directory-close {
+            background: none;
+            border: none;
+            color: #64748b;
+            cursor: pointer;
+            padding: 0.25rem;
+            border-radius: 9999px;
+            transition: color 0.2s ease;
+        }
+
+        .directory-close:hover {
+            color: #0EA5E9;
+        }
+
+        .directory-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .directory-list button {
+            width: 100%;
+            text-align: left;
+            background: rgba(14, 165, 233, 0.08);
+            color: #1f2937;
+            border: none;
+            border-radius: 0.5rem;
+            padding: 0.55rem 0.75rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s ease, color 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: var(--directory-main-font-size);
+        }
+
+        .directory-list button:hover {
+            background: rgba(14, 165, 233, 0.18);
+            color: #075985;
+        }
+
+        /* HTML注释: 二级导航容器与按钮样式，支持多层级显示 */
+        .directory-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .directory-entry {
+            background: rgba(14, 165, 233, 0.08);
+        }
+
+        .directory-sublist {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            margin-left: 2.5rem;
+            padding-left: 0.75rem;
+            border-left: 1px solid rgba(14, 165, 233, 0.2);
+        }
+
+        .directory-subitem {
+            background: rgba(14, 165, 233, 0.04);
+            padding-top: 0.45rem;
+            padding-bottom: 0.45rem;
+            font-size: var(--directory-sub-font-size);
+        }
+
+        .directory-subitem:hover {
+            background: rgba(14, 165, 233, 0.14);
+        }
+
+        .directory-icon {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 9999px;
+            background: rgba(14, 165, 233, 0.12);
+            color: #0EA5E9;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .directory-text {
+            flex: 1;
+            color: inherit;
+        }
+
+        /* HTML注释: 截图快捷按钮样式 */
+        .screenshot-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 28px;
+            height: 28px;
+            line-height: 28px;
+            border-radius: 0.5rem;
+            background: rgba(14, 165, 233, 0.08);
+            border: 1px solid rgba(14, 165, 233, 0.2);
+            color: #0EA5E9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            font-size: 0.78rem;
+        }
+
+        .screenshot-has-time > div:first-of-type {
+            padding-right: 3rem;
+        }
+
+        .screenshot-title-safe > h4:first-of-type,
+        .screenshot-title-safe > h5:first-of-type {
+            padding-right: 3.5rem;
+            box-sizing: border-box;
+        }
+
+        .screenshot-title-safe > div:first-of-type > h4:first-of-type {
+            display: block !important;
+            padding-right: 3.5rem;
+            box-sizing: border-box;
+            line-height: 1.4;
+        }
+
+        .screenshot-title-safe > div:first-of-type > h4:first-of-type > i:first-child {
+            display: inline-block;
+            margin-right: 0.625rem;
+            vertical-align: baseline;
+        }
+
+        .topic-time-badge {
+            display: inline-flex !important;
+            align-items: center !important;
+            height: 28px !important;
+            padding: 0 0.75rem !important;
+            line-height: 28px !important;
+            box-sizing: border-box !important;
+        }
+
+        .topic-time-icon {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 1rem;
+            height: 28px;
+            line-height: 28px !important;
+            margin-right: 0.375rem !important;
+            position: relative;
+            top: -1px;
+        }
+
+        .screenshot-btn:hover {
+            background: rgba(14, 165, 233, 0.15);
+            border-color: rgba(14, 165, 233, 0.4);
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);
+        }
+
+        .screenshot-btn:focus {
+            outline: none;
+        }
+
+        .screenshot-btn:active {
+            transform: scale(0.95);
+        }
+
+        .screenshot-btn.capturing {
+            animation: pulse-capture 1s infinite;
+        }
+
+        @keyframes pulse-capture {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* 截图时的临时容器样式 */
+        .screenshot-wrapper {
+            padding: 40px 40px 32px;
+            background: linear-gradient(160deg, #ffffff 0%, #F7FBFE 40%, #E9F5FC 100%);
+            border-radius: 24px;
+            border: 1.5px solid rgba(14, 165, 233, 0.1);
+            box-shadow: 0 12px 40px rgba(14, 165, 233, 0.06);
+            box-sizing: border-box;
+        }
+
+        .screenshot-wrapper,
+        .screenshot-wrapper * {
+            -webkit-text-size-adjust: 100% !important;
+            text-size-adjust: 100% !important;
+        }
+
+        .screenshot-wrapper .screenshot-brand {
+            position: relative;
+            width: 100%;
+            margin-bottom: 28px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(14, 165, 233, 0.08);
+            box-sizing: border-box;
+        }
+
+        .screenshot-wrapper .screenshot-brand-main {
+            position: relative;
+            height: 44px;
+        }
+
+        .screenshot-wrapper .screenshot-brand-left {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 36px;
+            text-align: left;
+        }
+
+        .screenshot-wrapper .screenshot-brand-logo {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 7px;
+            background: linear-gradient(135deg, #0EA5E9 0%, #4FB8EF 100%);
+            display: block;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 3px 8px rgba(14, 165, 233, 0.25);
+        }
+
+        .screenshot-wrapper .screenshot-brand-logo span {
+            position: absolute;
+            left: 10px;
+            right: 10px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 2px;
+        }
+
+        .screenshot-wrapper .screenshot-brand-logo span:nth-child(1) {
+            top: 11px;
+        }
+
+        .screenshot-wrapper .screenshot-brand-logo span:nth-child(2) {
+            top: 19px;
+        }
+
+        .screenshot-wrapper .screenshot-brand-logo span:nth-child(3) {
+            top: 27px;
+            right: 16px;
+        }
+
+        .screenshot-wrapper .screenshot-brand-name {
+            font-size: 26px;
+            font-weight: 800;
+            color: #1a1a2e;
+            letter-spacing: 0;
+            display: block;
+            position: absolute;
+            left: 56px;
+            top: -18px;
+            height: 52px;
+            line-height: 52px;
+            white-space: nowrap;
+        }
+
+        .screenshot-wrapper .screenshot-brand-date {
+            position: absolute;
+            right: 0;
+            top: -15px;
+            height: 52px;
+            line-height: 52px;
+            text-align: right;
+            font-size: 18px;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .screenshot-wrapper .screenshot-module-title {
+            margin-top: 12px;
+            height: 26px;
+            line-height: 26px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #6b7280;
+        }
+
+        .screenshot-wrapper .screenshot-footer {
+            margin-top: 18px;
+            padding: 20px 24px;
+            padding-right: 152px;
+            background: rgba(14, 165, 233, 0.06);
+            border: 1px solid rgba(14, 165, 233, 0.12);
+            border-radius: 12px;
+            position: relative;
+            min-height: 140px;
+            box-sizing: border-box;
+        }
+
+        .screenshot-wrapper .screenshot-footer-text {
+            display: block;
+            padding-top: 25px;
+        }
+
+        .screenshot-wrapper .screenshot-footer-title {
+            font-size: 20px;
+            line-height: 28px;
+            font-weight: 800;
+            color: #1f2937;
+        }
+
+        .screenshot-wrapper .screenshot-footer-url {
+            margin-top: 2px;
+            font-size: 11px;
+            line-height: 16px;
+            color: #6b7280;
+            word-break: break-all;
+            display: none;
+        }
+
+        .screenshot-wrapper .screenshot-footer-qr-cell {
+            position: absolute;
+            right: 16px;
+            top: 14px;
+            width: 112px;
+            height: 112px;
+            padding: 8px;
+            background: #ffffff;
+            border: 1px solid rgba(14, 165, 233, 0.14);
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .screenshot-wrapper .screenshot-footer-qr {
+            display: block;
+            width: 94px;
+            height: auto;
+            min-height: 0;
+            padding: 0;
+            background: transparent;
+            border: 0;
+            border-radius: 0;
+            box-sizing: border-box;
+        }
+
+        .screenshot-wrapper .screenshot-footer-qr canvas,
+        .screenshot-wrapper .screenshot-footer-qr img,
+        .screenshot-wrapper .screenshot-footer-qr svg,
+        .screenshot-wrapper .screenshot-footer-qr table {
+            display: block;
+            width: 94px !important;
+            height: 94px !important;
+        }
+
+        /* 截图失败降级：图片浮层（移动端长按保存） */
+        .screenshot-fallback-mask {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(15, 23, 42, 0.7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            box-sizing: border-box;
+        }
+
+        .screenshot-fallback-hint {
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .screenshot-fallback-img {
+            max-width: min(90vw, 600px);
+            max-height: 70vh;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            background: #ffffff;
+        }
+
+        .screenshot-fallback-close {
+            margin-top: 20px;
+            padding: 10px 28px;
+            border-radius: 8px;
+            border: none;
+            background: #ffffff;
+            color: #1f2937;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        @media (max-width: 640px) {
+            .floating-actions {
+                right: 0.75rem;
+                bottom: 1rem;
+            }
+
+            .directory-panel {
+                width: min(80vw, 15rem);
+                bottom: 3.25rem;
+                max-height: min(70vh, 20rem);
+            }
+            :root {
+                --directory-main-font-size: 0.8rem;
+                --directory-sub-font-size: 0.72rem;
+            }
+        }
+    </style>
+<style>
+.report-date-trigger{display:inline-flex;align-items:center;gap:8px;min-height:40px;border:1px solid transparent;background:transparent;color:#0ea5e9;border-radius:9px;padding:6px 11px;font:inherit;white-space:nowrap;cursor:pointer;transition:background .2s,border-color .2s}
+.report-date-trigger:hover,.report-date-trigger[aria-expanded="true"]{border-color:#0ea5e955;background:color-mix(in srgb,#0ea5e9 8%,white)}.report-date-trigger:focus-visible{outline:2px solid #0ea5e9;outline-offset:2px;border-color:#0ea5e955;background:color-mix(in srgb,#0ea5e9 8%,white)}
+.report-calendar-overlay{position:fixed;inset:0;z-index:10000;background:rgba(15,23,42,.35);display:flex;align-items:center;justify-content:center;padding:16px;overscroll-behavior:contain}.report-calendar-overlay[hidden]{display:none}
+.report-calendar{width:min(100%,360px);background:#fff;color:#1f2937;border-radius:20px;padding:22px;box-shadow:0 24px 70px rgba(15,23,42,.24);font-family:inherit;max-height:calc(100dvh - 32px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.report-calendar-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.report-calendar-top strong{font-size:18px}
+.report-calendar button,.report-calendar select{font:inherit}.report-calendar-nav{border:0;background:#f3f4f6;border-radius:10px;width:36px;height:36px;cursor:pointer;font-size:20px;color:#374151}.report-calendar-close{border:0;background:transparent;border-radius:9999px;color:#64748b;cursor:pointer;padding:6px;width:36px;height:36px}.report-calendar-close:hover{color:#0ea5e9}.report-calendar-nav:disabled{opacity:.3;cursor:not-allowed}
+.report-calendar-controls{display:flex;align-items:center;gap:8px;margin-bottom:15px}.report-calendar-controls select{min-width:0;border:1px solid #e5e7eb;border-radius:9px;background:#fff;padding:7px 3px;flex:1;color:#1f2937}
+.report-calendar-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;text-align:center}.report-calendar-week{font-size:12px;color:#9ca3af;padding:7px 0}
+.report-calendar-day{height:38px;border:0;border-radius:10px;background:transparent;color:#374151;cursor:pointer}.report-calendar-day:not(:disabled):not([aria-disabled="true"]):hover{background:color-mix(in srgb,#0ea5e9 12%,white);color:#0ea5e9}.report-calendar-day.current{background:#0ea5e9;color:white;font-weight:700}.report-calendar-day.today:not(.current){box-shadow:inset 0 0 0 1.5px #0ea5e9;color:#0ea5e9}.report-calendar-day:disabled,.report-calendar-day[aria-disabled="true"]{color:#cbd5e1;cursor:not-allowed}.report-calendar-day[aria-disabled="true"]{position:relative}.report-calendar-day[aria-disabled="true"][data-tip]:hover::after,.report-calendar-day[aria-disabled="true"][data-tip]:focus-visible::after{content:attr(data-tip);position:absolute;z-index:2;bottom:calc(100% + 5px);left:50%;transform:translateX(-50%);width:max-content;max-width:200px;padding:5px 8px;border-radius:6px;background:#1f2937;color:#fff;font-size:12px;font-weight:400;line-height:1.4;white-space:normal;pointer-events:none}
+.report-calendar button:focus-visible,.report-calendar select:focus-visible{outline:2px solid #0ea5e9;outline-offset:2px}@media(max-width:400px){.report-calendar{padding:18px}.report-calendar-day{height:36px}}
+</style></head>
+<body class="bg-white text-black min-h-screen">
+    <!-- HTML注释: 整体宽度通过 max-w-4xl 控制，实现日报宽度调小并保持响应式。-->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+        <!-- === 返回主页按钮 === -->
+        <div class="w-full mb-4 flex justify-start">
+            <!-- HTML注释: 返回主页链接暂为占位，已指向主页 index.html。 -->
+            <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 hover:bg-slate-100 text-slate-600 hover:text-[#0369A1] text-sm font-medium transition-all border border-slate-200 hover:border-[#0EA5E9]/30 shadow-sm">
+                <i class="fas fa-arrow-left text-xs"></i> 返回四海主页
+            </a>
+        </div>
+
+        <!-- === "四海日报" 文件头区域 开始 === -->
+        <!-- HTML注释: 此模块作为单独一行，占据整行宽度。包含日报主标题、报告日期和时间范围。 -->
+        <!-- HTML注释: 新增了"四海历史日报"链接，样式与整体设计保持统一协调 -->
+        <header class="w-full mb-8">
+            <div class="bento-card p-8">
+                <div class="text-center">
+                    <h1 class="text-5xl font-black text-black mb-6">
+                        四海日报
+                    </h1>
+                    <div class="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-6 text-lg mb-4">
+                        <div class="flex items-center text-gray-700">
+                            <button type="button" class="report-date-trigger" aria-haspopup="dialog" aria-expanded="false"><i class="fas fa-calendar-alt text-[#0EA5E9]"></i><span id="report-date">2026年11月25日</span></button>
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-clock mr-2 text-[#0EA5E9]"></i>
+                            <span>02:00 - 02:00（次日）</span>
+                        </div>
+                    </div>
+                    <!-- HTML注释: 新增历史日报链接，位置合理且样式协调 -->
+                    <div class="flex justify-center">
+                        <a id="history-link" href="archive.html" class="history-link">
+                            <i class="fas fa-search"></i>
+                            四海历史日报
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- === "四海日报" 文件头区域 结束 === -->
+
+        <!-- HTML注释: 新增导航区域，包含"上一天"和"下一天"按钮 -->
+        <!-- HTML注释: 导航逻辑说明：
+             1. 通过JavaScript检查前后日期的日报文件是否存在
+             2. 根据当前页面日期确定前后日期
+             3. "下一天"按钮动态显示逻辑：仅当不是最新日报时显示
+             4. 兼容处理历史日报文件命名格式
+        -->
+        <nav class="w-full mb-8 daily-nav">
+            <div class="bento-card p-4">
+                <div class="flex justify-between items-center">
+                    <button type="button" class="nav-button day-nav-prev">
+                        <i class="fas fa-chevron-left"></i>
+                        上一天
+                    </button>
+                    
+                    <div class="text-center">
+                        <span class="text-sm text-gray-600">日报导航</span>
+                    </div>
+                    
+                    <button type="button" class="nav-button day-nav-next">
+                        下一天
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- === 每日金句模块（位于日报导航与总消息概览之间） === -->
+        <div id="daily-fortune" class="w-full mb-8">
+            <div class="bento-card relative overflow-hidden" style="background: linear-gradient(135deg, #F0FAFE 0%, #DCF0FC 50%, #FDF3D8 100%);">
+                <div class="p-5 sm:p-6">
+                    <div class="flex items-start gap-4">
+                        <div class="shrink-0 w-10 h-10 rounded-full bg-[#CFE9F9] flex items-center justify-center text-[#0EA5E9] mt-1">
+                            <i class="fas fa-feather-alt text-lg"></i>
+                        </div>
+                        <div class="flex-grow min-w-0">
+                            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#CFE9F9]/80 text-[#0369A1] text-xs font-bold mb-3">
+                                <i class="fas fa-quote-left text-[10px]"></i> 每日金句
+                            </div>
+                            <!-- HTML注释: 每日金句为"今日金句"模式，由AI从当日群聊记录中直接选取，并同时生成8~10条候选填入页面底部 pool（见「金句换一句」脚本注释）。选取标准与"金句时刻"一致：必须基于群成员真实发言，让人获得"啊哈"或恍然大悟的启发；金句不允许负向描述（如骂人、侮辱人等话语）；金句内容本身不包含群成员昵称。 -->
+                            <p class="text-base sm:text-lg font-bold text-slate-800 leading-relaxed mb-2" id="fortune-text" style="font-family: 'LXGW WenKai', serif;">信与不信，是道鸿沟。从“不信”到“信”，是自己需要的解决的问题。本群不是键政群，而是建设群。</p>
+                            <p class="text-xs text-slate-400 mb-4" id="fortune-meta">
+                                <span id="fortune-author" class="font-medium text-slate-500"><b>吉山偷猪</b></span>
+                                <span id="fortune-date" class="ml-2">2026-11-25 · 热点话题</span>
+                            </p>
+                            <div class="flex items-center gap-3">
+                                <!-- HTML注释: "换一句"按钮 + 金句候选池：AI 生成日报时，必须从当日聊天记录中挑选 8~10 条带署名的真实金句（首条即页面默认展示句，与 #fortune-text 一致），以 JS 数组形式填入页面底部「金句换一句」脚本的 pool（每条格式 {"text": 金句文本, "author": 群成员昵称, "date": "YYYY-MM-DD · 热点话题"}）。金句文本不含昵称；禁止从转发/引用内容中取句；禁止负向描述。浪花集按钮指向 waves.html（浪花集案例页），截图分享图会自动裁掉此按钮行，不影响截图。 -->
+                                <button id="fortune-shuffle" type="button" class="px-4 py-2 rounded-lg bg-[#E6F4FC] hover:bg-[#CFE9F9] text-[#0369A1] text-sm font-bold border border-[#B5E0F4] hover:border-[#7FC2E8] transition-all flex items-center gap-1.5 shadow-sm cursor-pointer">
+                                    <i class="fas fa-sync-alt"></i> 换一句
+                                </button>
+                                <a href="waves.html" class="px-4 py-2 rounded-lg bg-[#E6F4FC] hover:bg-[#CFE9F9] text-[#0369A1] text-sm font-bold border border-[#B5E0F4] hover:border-[#7FC2E8] transition-all flex items-center gap-1.5 shadow-sm">
+                                    <i class="fas fa-water"></i> 浪花集
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- === 模块一：总消息概览 开始 === -->
+        <!-- HTML注释: 此模块作为单独一行，占据整行宽度。显示当日群聊总消息数量。 -->
+        <section id="section-overview" class="w-full mb-12 anchor-target">
+            <h2 class="section-title">总消息概览</h2>
+            <div class="bento-card p-8 bg-gradient-to-br from-[#0EA5E9]/20 via-[#0EA5E9]/10 to-[#0EA5E9]/5 text-center rounded-2xl">
+                <div class="number-display text-[#0EA5E9]">
+                    2362
+                </div>
+                <p class="text-xl font-semibold text-black mt-3">总消息数量</p>
+            </div>
+        </section>
+        <!-- === 模块一：总消息概览 结束 === -->
+
+        <!-- === 模块二：火花碰撞时刻・热点话题 开始 === -->
+        <!-- HTML注释: 此模块作为单独一行，占据整行宽度。用于展示群内讨论的热点话题。 -->
+        <!-- HTML注释: 模块二内容结构说明: -->
+        <!-- 1. 话题: 作为卡片的主标题 -->
+        <!-- 2. 关键结论: 每个话题下可以包含多个关键结论 (模板结构示例展示支持最多3个关键结论，如需更多可复制结构)；关键结论应按照话题讨论的时间线来编写。 -->
+        <!-- 3. <b>金句时刻</b>: 每个关键结论下对应约3个<b>金句时刻</b>。 -->
+        <!-- HTML注释: "爬楼关键词"说明: 每个话题卡片中包含爬楼关键词区域，用于用户快速定位到群聊记录中的对应讨论位置，为话题起始句。填写时需要包含相关用户的昵称，格式示例：[用户昵称]：[关键词内容]，但不要包含微信ID。为便于定位，请勿引用图片、视频、链接、语音等非文本消息作为起始句，应顺延至其后的第一条有效文本消息。为便于定位，请勿引用图片、视频、链接、语音等非文本消息作为起始句，应顺延至其后的第一条有效文本消息。 -->
+        <section id="section-hot-topics" class="w-full mb-12 anchor-target">
+            <h2 class="section-title">火花碰撞时刻・热点话题</h2>
+            <div class="space-y-8">
+<!-- 热点话题卡片 1 -->
+                <div class="bento-card p-6 rounded-xl"> <!-- 其他模块（如热点话题）的卡片边框颜色和样式不得更改 -->
+                    <div class="flex flex-col sm:flex-row items-start justify-between mb-4">
+                        <h4 class="text-xl font-bold text-black flex-1 mb-2 sm:mb-0">「信与不信，是道鸿沟」：一篇博文引发的第二日纠偏</h4>
+                        <span class="text-sm text-gray-600 ml-0 sm:ml-4 whitespace-nowrap bg-gray-100 px-3 py-1.5 rounded-md">
+                            <i class="fas fa-clock mr-1.5 text-gray-500"></i>10:54 - 15:43
+                        </span>
+                    </div>
+                    <div class="mb-4 bg-[#EEF2FF] border border-[#C7D2FE] rounded-md p-3">
+                        <p class="text-sm font-medium text-[#4338CA] mb-1">爬楼关键词</p>
+                        <p class="text-sm text-[#4F46E5] italic">"【Z】邵祁.S："谢谢@，这样的文章很有意义。”唯一的原因就是搞了不该搞的钱“。""</p>
+                    </div>
+                    <div class="mb-5">
+                        <p class="text-sm font-semibold text-gray-800 mb-2">相关关键词</p>
+                        <div class="flex flex-wrap gap-2"><span class="tag-item">反腐</span><span class="tag-item">信与不信</span><span class="tag-item">中译中</span><span class="tag-item">批评与自我批评</span><span class="tag-item">建设群</span></div>
+                    </div>
+                    <div class="mb-5">
+                        <p class="text-sm font-semibold text-gray-800 mb-2">详细内容</p>
+                        <div class="text-gray-700 text-base leading-relaxed bg-slate-50 p-4 rounded-md prose prose-sm max-w-none">
+                            <div class="expandable-content" data-char-limit="200">
+                                <div class="content-preview"><b>一、话题背景与起因</b><br>上午 就偷猪圆玉翠 转来吴真老师的一条新微博，说正在研究怎么发爆款微博，并艾特了 邵祁.S。<b>邵祁.S</b> 随后发出一篇长回复：文章"很有意义"，"唯一的原因就是搞了不该搞的钱"。同时他抛出自己的困惑："党内也是有派系的，这个不知道是否认同。不同派别之间的斗争过程也不会公之于众，普通人只能从新闻公告里看到，哦，怎么又是贪污。很容易被引导联想到站位问题>贪污问题，给阴谋论制造空间"——面对这种话术，偏激指正恐怕只会把对方推得更远，"就事论事，像这篇文章一样，把逻辑事实摆出来，让他的思维出现自相矛盾的地方，让对方思考真理呢"。昨天刚被全群纠偏过的「贪点又何妨」，换了个方式又回来了。<br><br><b>二、主要观点与讨论详情</b><br>群友马上回话。<b>洋没偷猪</b> 直接说："不认同，因为我党走的是阳谋路线"。<b>肥发灰（请同志们热烈批判版）</b> 说："还是不够诚恳，我昨天都算是替你说了点话，我觉得同志们批评表达手段不够好，但你这个回复还是在转移矛盾点，往斗争上靠"。<b>今天是叶子</b> 把问题一层层问回去："你的意思是，你是被"诱导"了？不存在什么先不是自己人，所以要搞你，要以贪腐为借口拿下你这种事？不对啊，你明明说的是，自己人就可以"适度"贪腐。可是，我们的原则是贪腐零容忍，根本不管亲疏关系。你还是没理解什么叫「零容忍」。也不理解，反腐根本不是什么手段，而是要严格彻底落实的政策。"<br><br>中午 <b>AA昍</b> 把那篇长回复做了个"中译中"："第一段是你看人家就说服了我，你们为什么说服不了<br>第二段说的是我也是被人误导了，这又不是我的错<br>第三段是你们态度这么差，难道不应该反省吗<br>第四段是你们不光态度差，而且水平也次啊。如果能有吴真这个水平，我不就被说服了吗<br>第五段是你们难道不应该反思吗？虽然我在群里胡说八道给你们添堵了，而且我也没反思，可是你们的反思又在哪儿呢"。他又说了这类话术的套路："先说，你不是觉得自己对吗？那我把你捧得很高。<br>你既然对，你为什么说服不了我呢？那也是你的问题<br>我虽然错了，但这不是我自己想要犯的错呀，所以我没有问题"<br><br><b>邵祁.S</b> 回应：大家"对号入座"了，自己只是举生活里的例子向大家请教，"今天我也没说大家不好的吧"。<b>AA昍</b> 照着他的句式写了几条："昨天的我是昨天的我，今天的我并没有犯错"，"天呐，我发了20块钱的红包来这个群里，我是来学习真理的，不是听你们这些连真理都说不明白的傻子在这不停的嘲讽我的……你们对在哪里呢"。<b>全去偷猪</b> 逐条回：昨天是大家面对你的站队话术，你今天说"不知道怎么有效回应"，意思是大家的回应都是无效的；你遇到了实际场景就直接描述你的，别虚空造靶。<b>Decade</b> 说："你至少落后十年是绝对没问题的。“派系斗争”这个搞得跟就你知道似的。我需要跟你说，18大后到了现在，党内也再无派系这种说法了，你还抱着这种理解去想这些东西，甚至觉得是别人不懂，就很离谱"。<br><br>接着话题转向：这种状态该怎么看。<b>策策</b> 发了当天被引用最多的一段话："信与不信，是道鸿沟。从"不信"到"信"，是自己需要的解决的问题。本群不是键政群，而是建设群。……在"信"的基础上，有很多问题还想不明白，那从"不明白"到"明白"，就是一种进步。群友一起讨论，真理越辩越明，大家都收获成长。"<b>谁没偷猪</b> 说那种嘴硬的状态："故作镇定列出123点，让自己进入一种“去情绪化”的状态，但是“没有情绪”不等于“理性”，更不是“正确”"，"把情绪的可怕性看得比错误立场的可怕性更重，这件事本身就挺可怕的"。<b>姗姗来迟</b> 拿自己举例："刚开始我的抱薪者也是着了道，日日和同志们一起指正，我出出汗，真理越辩越明，心里别提有多畅快……自我建设的心是藏不住的，就别找一堆借口了"。<b>如意如意随我心意</b> 说：信了反贼话术根本不算多么严重的错误，"但都第二天了，梗着脖子死不认错，还拿着一篇文章给自己辩驳。没意思了……不信，大可以说自己不信，但遮遮掩掩实在是没必要"。<br><br><b>AA昍</b> 也说了自己的处理逻辑："是啊，真要推远，我直接踢出去不就得[破涕为笑][破涕为笑][破涕为笑]了"——能争取就争取：都已经有这个意愿进群一起聊天了，说明多少是有一点点共识基础的；反过来微博上就直接暴躁拉黑，"都已经有免费群了，你都不加，还天天在微博上跟老子抬杠，你他妈什么意思？"——"一分流，两个渠道的效率都提升了"。他还有两个判断。其一："有些人他不信共产主义，待在这个群就会很难受，看到别人聊啥都要应激……这些人不是不爱听意识形态，他们是不想听自己不喜欢的意识形态。"其二：「朋友」意味着不是同志，甚至不是自己人，而只是可以团结的外人——自认同志却要求别人"把朋友搞得多多的"，等于自认不是同志。<br><br>话题最后变成一波共鸣。<b>蚂蚁窝</b> 说："是的是的，真就是找到组织了，见到亲人了，那种感受<br><br>之前玩《赤途》那个游戏，不能完全感同身受白区工作的压力，有了对比马上理解了"。<b>鱼皮</b> 说："日日拉这个群的时候，我刚打开《长征》，真的就是赛博根据地的感觉"。<b>AA昍</b> 收尾："嗨，谁还没傻逼过呀？能意识到自己昨天是傻逼，就说明自己今天在进步呀"，"真认识到自己的错误，就会大大方方承认的<br><br>我自己2019年想通，从来不会藏着掖着啊，<br><br>如果不悟以往之不谏，又怎么知道来者之可追呢？"<br><br><b>三、争议焦点（若有）</b><br>表面争的是「反腐是不是路线斗争」，实际争的是两件：一是事实判断——十八大后党内再无派系一说，还是仍按派系理解；二是讨论姿态——错了认不认，还是把话题引向对方的语气。分歧没有弥合，以群的共识表达收束。<br><br><b>四、结论与启发</b><br>认错是能力，不是屈辱——把情绪的可怕看得比错误立场更重，才会越撑越累。群的定位被再次确认：不是键政群，是建设群；信是入场券，争论是为了共同进步。识别话术的一个抓手：凡是把讨论从事情本身引向「你们态度」的，多半是不想正面回答。</div>
+                                <button class="expand-btn text-[#0369A1] hover:text-[#075985] text-sm font-medium mt-2 flex items-center" style="display: none;">
+                                    <span class="expand-text">展开全文</span>
+                                    <i class="fas fa-chevron-down ml-1 expand-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold text-gray-800 mb-3">关键结论与金句时刻</p>
+                        <div class="space-y-6">
+                            <!-- 关键结论 -->
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                                <div class="mb-4">
+                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
+                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
+                                        <p class="text-black text-base">信与不信，是道鸿沟：本群不是键政群，而是建设群。</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
+                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">信与不信，是道鸿沟。从“不信”到“信”，是自己需要的解决的问题。本群不是键政群，而是建设群。</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>策策</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">真认识到自己的错误，就会大大方方承认的</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">能意识到自己昨天是傻逼，就说明自己今天在进步呀</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">有错误不完美一点都不可怕，也不会闹红脸就成情绪化反驳了。刚开始我的抱薪者也是着了道，日日和同志们一起指正，我出出汗，真理越辩越明，心里别提有多畅快。</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>姗姗来迟</b>
+                                            </p>
+                                        </div></div>
+                                </div>
+                            </div>
+                            <!-- 关键结论 -->
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                                <div class="mb-4">
+                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
+                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
+                                        <p class="text-black text-base">中译中现场：把「我错了」翻译成「你们没说服我」。</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
+                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">第一段是你看人家就说服了我，你们为什么说服不了
+第二段说的是我也是被人误导了，这又不是我的错
+第三段是你们态度这么差，难道不应该反省吗
+第四段是你们不光态度差，而且水平也次啊。如果能有吴真这个水平，我不就被说服了吗
+第五段是你们难道不应该反思吗？虽然我在群里胡说八道给你们添堵了，而且我也没反思，可是你们的反思又在哪儿呢</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">你既然对，你为什么说服不了我呢？那也是你的问题
+我虽然错了，但这不是我自己想要犯的错呀，所以我没有问题</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">“没有情绪”不等于“理性”，更不是“正确”</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>谁没偷猪</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">把情绪的可怕性看得比错误立场的可怕性更重，这件事本身就挺可怕的</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>谁没偷猪</b>
+                                            </p>
+                                        </div></div>
+                                </div>
+                            </div>
+                            <!-- 关键结论 -->
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                                <div class="mb-4">
+                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
+                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
+                                        <p class="text-black text-base">能争取就争取；真要推远，我直接踢出去不就得了。</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
+                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">是啊，真要推远，我直接踢出去不就得[破涕为笑][破涕为笑][破涕为笑]了</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">「朋友」意味着不是同志，甚至不是自己人，而只是可以团结的外人。</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">这些人不是不爱听意识形态，他们是不想听自己不喜欢的意识形态。</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">日日拉这个群的时候，我刚打开《长征》，真的就是赛博根据地的感觉</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>鱼皮</b>
+                                            </p>
+                                        </div></div>
+                                </div>
+                            </div></div>
+                    </div>
+                </div>
+<!-- 热点话题卡片 2 -->
+                <div class="bento-card p-6 rounded-xl"> <!-- 其他模块（如热点话题）的卡片边框颜色和样式不得更改 -->
+                    <div class="flex flex-col sm:flex-row items-start justify-between mb-4">
+                        <h4 class="text-xl font-bold text-black flex-1 mb-2 sm:mb-0">「不存在纯粹的科普」：AI 时代的立场问题</h4>
+                        <span class="text-sm text-gray-600 ml-0 sm:ml-4 whitespace-nowrap bg-gray-100 px-3 py-1.5 rounded-md">
+                            <i class="fas fa-clock mr-1.5 text-gray-500"></i>18:36 - 19:30
+                        </span>
+                    </div>
+                    <div class="mb-4 bg-[#EEF2FF] border border-[#C7D2FE] rounded-md p-3">
+                        <p class="text-sm font-medium text-[#4338CA] mb-1">爬楼关键词</p>
+                        <p class="text-sm text-[#4F46E5] italic">"【Z】AA昍："有了AI之后，基本上不需要科普博主了。""</p>
+                    </div>
+                    <div class="mb-5">
+                        <p class="text-sm font-semibold text-gray-800 mb-2">相关关键词</p>
+                        <div class="flex flex-wrap gap-2"><span class="tag-item">科普</span><span class="tag-item">意识形态</span><span class="tag-item">AI</span><span class="tag-item">立场</span></div>
+                    </div>
+                    <div class="mb-5">
+                        <p class="text-sm font-semibold text-gray-800 mb-2">详细内容</p>
+                        <div class="text-gray-700 text-base leading-relaxed bg-slate-50 p-4 rounded-md prose prose-sm max-w-none">
+                            <div class="expandable-content" data-char-limit="200">
+                                <div class="content-preview"><b>一、话题背景与起因</b><br>傍晚 <b>AA昍</b> 说了一句："有了AI之后，基本上不需要科普博主了。"<br><br><b>二、主要观点与讨论详情</b><br><b>杨璞</b> 当场表示不赞同——他正在看芯片制造的科普，"科普得特别细节，是AI找不到的东西"。<b>AA昍</b> 回："有人讲出来，ai就找得到。是你没找到，不是ai找不到"，这是 ai 的底层原理，"类似于「人能看到的东西，就一定能盗版」，都是第一性原理"。<b>杨璞</b> 退一步：但"能用文科生听得懂的方法解释清楚，是一种特殊技能"。<b>AA昍</b> 说：而这恰恰是 ai 最擅长的。<br><br>然后身份揭晓。<b>AA昍</b> 说："你没做过科普博主，你不知道科普的水有多深"，"因为我自己做了十年科普大V，我太懂什么叫「纯粹的科普技术」了"。<b>杨璞</b> 这才发现对方是同行，连发"失敬失敬"。<br><br><b>AA昍</b> 的核心判断是："选择科普a而不是科普b，这就已经是在评论了，哪来的不带评论性质的内容。"他举例："果壳网科普NASA太空望远镜，这是科普还是宣传？同一个博主在提到中国太空站的时候，就突然不科普这里面多少高精尖了……这帮人太会了，一定要警惕~"结论就一句："所有的「科普文章」都是意识形态，不存在「纯粹的技术科普」，永远不可能的~ai都做不到（受限于训练素材本身的立场"。<br><br><b>今天是叶子</b> 补了两句："人只要说话就有立场。何况是精心编排的文章。""科学技术真正的理解一定是需要数学基础的，所谓绕开数学，进行科普，最多也就到表层。如果能直接看教材学习，反而是最快的。也就不需要什么科普了。"<b>Decade</b> 用反讽演示什么叫"关注科技本身"："我今天介绍特斯拉的技术，但是比亚迪有啥技术我一概不讲"，"我关注的确实是科技的本身，特斯拉的科技本身。"<br><br><b>杨璞</b> 讲了自己的经历：当年回形针说热带雨林消失是中国人吃肉造成的，"一开始我还真觉得好像是那么回事儿呢"，"后面回过神来才知道被带进去了"。他说自己现在关注的都是纯粹的科普技术知识——<b>AA昍</b> 说这个话本身就是唯心主义："人是活的，怎么可能有纯粹的技术人"。<b>杨璞</b> 最后说："以前喜欢辩论，现在年纪大了也不想说话了"，又说"改变他人的认知，比杀了他都难"。<br><br><b>我就偷猪</b> 分享了一个从 AA昍 那学的技巧：每次让 AI 解释概念时，让它举两个例子或比喻——"为什么是两个，因为比喻有偏差，两个均衡下来更准确更好理解，一个看不懂还能看另一个"。<br><br><b>三、争议焦点（若有）</b><br>科普博主还有没有存在价值。<b>杨璞</b> 认为细节向、深入浅出的讲解是 AI 替代不了的特殊技能；<b>AA昍</b> 认为"讲人话"恰是 AI 最擅长的，而"纯粹技术科普"这个概念本身不成立。后者占上风，<b>杨璞</b> 保留观点。<br><br><b>四、结论与启发</b><br>凡内容皆有立场，识别方法不是找"纯粹的"，而是看选择性——讲什么不讲什么、先讲什么后讲什么，就是立场。用 AI 学概念的实操：让它举两个比喻，互相校准。</div>
+                                <button class="expand-btn text-[#0369A1] hover:text-[#075985] text-sm font-medium mt-2 flex items-center" style="display: none;">
+                                    <span class="expand-text">展开全文</span>
+                                    <i class="fas fa-chevron-down ml-1 expand-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold text-gray-800 mb-3">关键结论与金句时刻</p>
+                        <div class="space-y-6">
+                            <!-- 关键结论 -->
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                                <div class="mb-4">
+                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
+                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
+                                        <p class="text-black text-base">所有的「科普文章」都是意识形态，不存在「纯粹的技术科普」。</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
+                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">所有的「科普文章」都是意识形态，不存在「纯粹的技术科普」，永远不可能的~ai都做不到（受限于训练素材本身的立场</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">选择科普a而不是科普b，这就已经是在评论了，哪来的不带评论性质的内容。</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">果壳网科普NASA太空望远镜，这是科普还是宣传？同一个博主在提到中国太空站的时候，就突然不科普这里面多少高精尖了</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">人只要说话就有立场。何况是精心编排的文章。</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>今天是叶子</b>
+                                            </p>
+                                        </div></div>
+                                </div>
+                            </div>
+                            <!-- 关键结论 -->
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                                <div class="mb-4">
+                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
+                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
+                                        <p class="text-black text-base">有人讲出来，AI 就找得到：是你没找到，不是 AI 找不到。</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
+                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">有人讲出来，ai就找得到。是你没找到，不是ai找不到。</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">有了AI之后，基本上不需要科普博主了。</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">每次让AI帮我解释概念时，都让AI举两个例子或比喻便于我理解
+为什么是两个，因为比喻有偏差，两个均衡下来更准确更好理解，一个看不懂还能看另一个</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>我就偷猪</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">如果能直接看教材学习，反而是最快的。也就不需要什么科普了。</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>今天是叶子</b>
+                                            </p>
+                                        </div></div>
+                                </div>
+                            </div></div>
+                    </div>
+                </div>
+<!-- 热点话题卡片 3 -->
+                <div class="bento-card p-6 rounded-xl"> <!-- 其他模块（如热点话题）的卡片边框颜色和样式不得更改 -->
+                    <div class="flex flex-col sm:flex-row items-start justify-between mb-4">
+                        <h4 class="text-xl font-bold text-black flex-1 mb-2 sm:mb-0">「支部=时空门」：一篇旧长文点燃的夜晚</h4>
+                        <span class="text-sm text-gray-600 ml-0 sm:ml-4 whitespace-nowrap bg-gray-100 px-3 py-1.5 rounded-md">
+                            <i class="fas fa-clock mr-1.5 text-gray-500"></i>20:50 - 23:15
+                        </span>
+                    </div>
+                    <div class="mb-4 bg-[#EEF2FF] border border-[#C7D2FE] rounded-md p-3">
+                        <p class="text-sm font-medium text-[#4338CA] mb-1">爬楼关键词</p>
+                        <p class="text-sm text-[#4F46E5] italic">"【Z】努力引体向上："这段看得我鸡皮疙瘩起来，仿佛堵了好久的杂乱思绪一下通达""</p>
+                    </div>
+                    <div class="mb-5">
+                        <p class="text-sm font-semibold text-gray-800 mb-2">相关关键词</p>
+                        <div class="flex flex-wrap gap-2"><span class="tag-item">时空门</span><span class="tag-item">共产主义</span><span class="tag-item">维度</span><span class="tag-item">向未来增兵</span></div>
+                    </div>
+                    <div class="mb-5">
+                        <p class="text-sm font-semibold text-gray-800 mb-2">详细内容</p>
+                        <div class="text-gray-700 text-base leading-relaxed bg-slate-50 p-4 rounded-md prose prose-sm max-w-none">
+                            <div class="expandable-content" data-char-limit="200">
+                                <div class="content-preview"><b>一、话题背景与起因</b><br>晚上 <b>AA昍</b> 把自己 8 月写的一篇长文《共产主义=时空神教，支部=时空门》转进群里，文字版和语音版一起发。<br><br><b>二、主要观点与讨论详情</b><br>读完的群友反应很直接。<b>努力引体向上</b> 说："这段看得我鸡皮疙瘩起来，仿佛堵了好久的杂乱思绪一下通达"。<b>鱼皮</b> 把最受震动的一段抄了出来："它等于在每一个、每一个基层、每一个支部，在开会的时候，都是在不停地开启时空门，向未来增兵，同时向未来要增援，这是很可怕的。"她说"鸡皮疙瘩爆炸"。<b>鱼皮</b> 又写了自己的理解："时空门的开启是有条件的，就像无数次看到镜子里的倒影却不以为意，直到有一天你仔细端详，发现镜子后面是一扇通往其他时空的门，无数个来自他人的切片投影在同一块镜面上，和镜子里的自己融合在一起……"她最近看几个群的消息经常有这种感觉："原来他们遇到的问题，和那时的我是一样的！"<br><br><b>姗姗来迟</b> 想起了自己以前对命运的思考：如果命运既定，时间就成平面的了——她当时用迷宫打比方，一维是把迷宫画在地图上、每个节点都清晰，二维是亲身走迷宫、每个节点都要碰壁，三维是俯瞰视角又一目了然；但这么想下去，人类历史的发展就没有意义，不符合辩证唯物主义。看完文章她说通了：我们立足于现在，是螺旋式上升；放到 cpc 来看，建设是伟大的、光荣的、必将胜利的，"因为我们都在“向未来增兵”"。<br><br><b>AA昍</b> 把"高维"说回日常："实际上高维很简单，不涉及时间的，就只是空间<br>比如说「决策空间」，你恋爱要看哪些维度？长相、身高、收入、家境、信仰、性格……对吧，这就已经是「六维空间」了，就这么简单，没什么神奇的。"<br><br><b>肥发灰（请同志们热烈批判版）</b> 补了一层："其实多的一条维度应该是“人”，时间这个维度是没法跳出的……看起来跳出了，是因为见过的“人”这个维度延伸了，通过不同的人看到了“时间”维度前后的可能性。"她又用几何打比方：可以用时间维度上是过去的点与其他维度所构成的图形（也就过去发生的事情即历史）去求未来可能问题的解——"完全复用过去的套路解决和过去一样的问题，那就是坐标轴上平移"，"虽然实际问题不是平移解决那么简单，但方法都是相同的公式定理（规律）"。<b>努力引体向上</b> 接住："集合大量的共时，来应对未来可能会发生的问题，而这个共时经验直指未来的解决这个问题时的必然成功"<br><br><b>三、争议焦点（若有）</b><br>无争议，一场共振。<br><br><b>四、结论与启发</b><br>时空门的通俗版：历史是无数前人样本的集合，支部开会就是样本交换；你遇到的问题前人遇到过，你走出来的路也会成为后人的增援。维度的日常用法：评价一件事多引入一个维度——人、因果、目的——看到的东西就不一样了。</div>
+                                <button class="expand-btn text-[#0369A1] hover:text-[#075985] text-sm font-medium mt-2 flex items-center" style="display: none;">
+                                    <span class="expand-text">展开全文</span>
+                                    <i class="fas fa-chevron-down ml-1 expand-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold text-gray-800 mb-3">关键结论与金句时刻</p>
+                        <div class="space-y-6">
+                            <!-- 关键结论 -->
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                                <div class="mb-4">
+                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
+                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
+                                        <p class="text-black text-base">支部=时空门：向未来增兵，同时向未来要增援。</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
+                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">它等于在每一个、每一个基层、每一个支部，在开会的时候，都是在不停地开启时空门，向未来增兵，同时向未来要增援，这是很可怕的。</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">原来他们遇到的问题，和那时的我是一样的！</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>鱼皮</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">人的一生该这样过，给未来增兵，干就完了。</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>姗姗来迟</b>
+                                            </p>
+                                        </div></div>
+                                </div>
+                            </div>
+                            <!-- 关键结论 -->
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                                <div class="mb-4">
+                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
+                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
+                                        <p class="text-black text-base">多的一条维度是「人」：通过不同的人，看到时间维度前后的可能性。</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
+                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">实际上高维很简单，不涉及时间的，就只是空间
+比如说「决策空间」，你恋爱要看哪些维度？长相、身高、收入、家境、信仰、性格……对吧，这就已经是「六维空间」了，就这么简单，没什么神奇的。</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">看起来跳出了，是因为见过的“人”这个维度延伸了，通过不同的人看到了“时间”维度前后的可能性。</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>肥发灰（请同志们热烈批判版）</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">完全复用过去的套路解决和过去一样的问题，那就是坐标轴上平移</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>肥发灰（请同志们热烈批判版）</b>
+                                            </p>
+                                        </div></div>
+                                </div>
+                            </div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- === 模块二：火花碰撞时刻・热点话题 结束 === -->
+
+        
+
+        <!-- === 模块四：解惑一点通・有问必答 开始 === -->
+        <section id="section-qa" class="w-full mb-12 anchor-target">
+            <h2 class="section-title">解惑一点通・有问必答</h2>
+            <div class="space-y-8">
+<!-- 问答卡片 1 -->
+                <div class="bento-card p-6 rounded-xl border-l-4 border-[#7FC2E8]"> <!-- 边框颜色修改为 border-[#7FC2E8] -->
+                    <div class="mb-4">
+                        <h4 class="text-xl font-semibold text-black flex items-center">
+                            <i class="fas fa-question-circle mr-2.5 text-[#0EA5E9] text-lg"></i>牵头单位甩锅、+1 不往上报，我该越级汇报吗？
+                        </h4>
+                    </div>
+                    <div class="mb-4 bg-[#EEF2FF] border border-[#C7D2FE] rounded-md p-3">
+                        <p class="text-sm font-medium text-[#4338CA] mb-1">爬楼关键词</p>
+                        <p class="text-sm text-[#4F46E5] italic">"【Y】刘蒙："各位uu，请教一个问题，最近我参与的一个投标项目由两家单位合作完成""</p>
+                    </div>
+                    <div class="border-t border-gray-200 pt-4">
+                        <h5 class="text-lg font-semibold text-green-700 flex items-center mb-2">
+                            <i class="fas fa-lightbulb mr-2.5 text-lg text-green-600"></i>解答
+                        </h5>
+                        <div class="text-gray-700 text-base leading-relaxed prose prose-sm max-w-none">
+                            <div class="expandable-content" data-char-limit="200">
+                                <div class="content-preview"><b>一、问题背景</b><br>晚上 <b>刘蒙</b> 抛出一个职场问题：她参与的投标项目由两家单位合作，她负责本公司技术部分；牵头单位前期策划疏漏、自己负责的部分出了问题，想让她公司用增加大量工作量的方式填窟窿。她全程留痕、申明"我做不了主，非要什么配合请他们找我们领导去协调"，并同步给了 +1；+1 认可在理，但没有向上汇报。第二天对方直接联系了 +3，+3 不清楚来龙去脉当场接受，吩咐 +2 落地——标书从一千页加到一千五百页，她吃了闷亏。她问：下次应该逐级向 +1 汇报并 push 他们向上汇报吗？经 +1 同意再向 +2 汇报是否合适？<br><br><b>二、核心原因分析</b><br>群友先说 +1。<b>Ps</b> 说："你这+1有问题啊……明确表达清楚，不做汇报，可能导致的后果。"<b>ZQ</b> 猜 +1 的动机：汇报时整理一份简单清晰的材料给他，说明情况和后果，+1 更有动力拿着材料直接向上汇报——这次没汇报，可能是觉得再解释一遍太麻烦、又没当回事；但他也提醒，越级汇报应该不太好，"得罪+1可能会让你比像这次吃闷亏的状况更难受"。<b>XY</b> 发现不对等："对方既能联系你又能直接找你的+3吗？"<b>犬八</b> 提醒"事儿不能白做"，做完整理报告让 +1 往上递。<br><br><b>AA昍</b> 先问留痕："如果留痕了就能免责，那么留痕就够了。如果留痕了，事后也只是不追责，但是多出来的工作量还是要自己做的话，那应该当时就第一时间催促+1向上反馈。"然后是评估 +1："如果+1原本就要陪着你一起做这些多余的工作，说明他就是个傻逼。如果+1并不需要做，而只是你要来背锅，那+1或许是故意的，没把你当自己人"更关键的是公司性质："体制内，央企、国企、私企、外企，每个场景下答案都完全不同。只能具体问题具体分析，没法笼统讨论。"他的破题点是："还有一种可能是+1再往上，他们不是一个山头的。所以第1步还是要分析利益——现在被迫多干这么多事儿，谁干？谁吃亏？谁得利？这才是破题点。提问人完全没提这些，说明自己心里没有权力结构的概念~"<br><br><b>三、解决方案与建议</b><br><b>刘蒙</b> 补充了信息：基建行业设计院，半死不活嘴上说着转型；+3 是搞经营板块的；薪水非常低，工作一半以上是这种纯应付型。<b>AA昍</b> 判断："这种设计院都不能叫夕阳行业，你们这是半夜行业了哈哈哈<br><br>年薪到15w都够呛吧，趁年轻赶紧换行吧"，"别的行业还可以叫船在沉，这个行业是船没了"。不想换行就躺平搞副业。<b>刘蒙</b> 说了自己的路：有培养她的领导建议转型技术咨询、积攒口碑，谋求外地集团在本地投资高速公路的运营管理岗位。<b>AA昍</b> 问了句"能有15w吗"，得到"应该是下限"的回答后说那还行，至少值得试试。这场问答随后延伸成了当晚另一个大话题（见精选卡「半夜行业与生育倒计时」）。</div>
+                                <button class="expand-btn text-[#0369A1] hover:text-[#075985] text-sm font-medium mt-2 flex items-center" style="display: none;">
+                                    <span class="expand-text">展开全文</span>
+                                    <i class="fas fa-chevron-down ml-1 expand-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-gray-200">
+                        <div class="flex flex-wrap gap-2"><span class="tag-item">职场</span><span class="tag-item">汇报</span><span class="tag-item">留痕</span><span class="tag-item">设计院</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- === 模块四：解惑一点通・有问必答 结束 === -->
+
+        <!-- === 模块五：智慧火花匣・每日精选 开始 === -->
+        <section id="section-daily-picks" class="w-full mb-12 anchor-target">
+            <h2 class="section-title">智慧火花匣・每日精选</h2>
+            <!-- 每日精选条目 -->
+            <div class="space-y-8">
+<!-- 知识卡片 1 -->
+                <div class="bento-card p-6 rounded-xl border-l-4 border-[#7FC2E8]">
+                    <h4 class="text-xl font-semibold text-black mb-3">登味同事语录大赏：「无效基建」是怎么翻译的</h4>
+                    <div class="mb-4 bg-[#EEF2FF] border border-[#C7D2FE] rounded-md p-3">
+                        <p class="text-sm font-medium text-[#4338CA] mb-1">爬楼关键词</p>
+                        <p class="text-sm text-[#4F46E5] italic">"【Z】一个小李："我同事上 gpt 不知道看了些什么材料报告，说现在国内很多基建都是“无效基建”""</p>
+                    </div>
+                    <div class="text-gray-700 text-base mb-4 leading-relaxed prose prose-sm max-w-none">
+                        <div class="expandable-content" data-char-limit="200">
+                            <div class="content-preview"><b>一、推荐内容</b><br>下午的反腐讨论聊到一半，岔出一条线：大家开始分享自己身边"登味同事"的语录，越聊越乐。<b>一个小李</b> 说同事上 gpt 看了些材料报告，说国内很多基建是"无效基建""为建而建"，比如人口流出城市的地铁；她说基建的好处很多时候不可量化，对方说早就有算法能算出直接间接收益、都是亏的。<b>皑皑</b> 也说了自己同事的语录：经常春节开车自驾游，一说就是"老中只会搞基建，都是泡沫巴拉巴拉"，还有"现在谁还去买高层都是宝批龙（方言里骂人的话），以后都是贫民窟"。<b>谁没偷猪</b> 的同事说"在老中没人权，因为要去方仓隔离"。<br><br><b>二、核心价值与特点</b><br><b>AA昍</b> 先把"无效基建"翻译了一遍："无效基建的意思就是说，白花花的银子都花了，居然是给穷人修路，真是糟蹋。"又转来昨天隔壁群的讨论记录：公共产品是最贵的，但因为太贵了所以无价——中国治安好，出门不用买枪，晚上能出门放松，生命被拉长了很多；"为建而建"这个指责在西方经济学里完全成立，因为经济建设是为资本增值服务的，砸进去没赚到钱，可不就是为建而建——"对于这些眼里没有人民，甚至没有人的资本家来说，人家的说法完全正确。符合他们不把人当人的真实价值观。"<br><br>对"贫民窟"论，<b>AA昍</b> 回："中国就不可能出现贫民窟……贫民窟是大城市故意制造出来的东西，故意不管，才会形成贫民窟。"他还讲了自己的经历：冠子来之前清理北京高密度群租房，当时好多人骂，"我像个傻逼一样，也跟着一起骂"，还编了个词——不让说低端人口，我就说"低端众品"；结果冠子一来，看看广州海珠区出了什么事，回头看才知道当初清理得多及时。"想想乌鲁木齐一场安全通道被沙皮停车堵了导致的火灾事故，都能赛博亡国，那当时要是北京也出个事儿，不得真出现轮子第二啊？"所以他总结："普通人还是千万不要自作聪明，老老实实跟着党走就对了。这是我这几十年撞一脸血学会的最大经验，供同志们参考。"他还自曝当大V时想过让自媒体矩阵搞外宣，"后来cpc直接搞出144外国人签证，全世界的白皮大儒替我们辩经………………操，这招儿我能想到？再给我8个脑子我也想不到。"白皮大儒为什么替我们辩解？不是给了宣传经费——"是因为CPC真的把中国大陆建设的非常好，人民安居乐业，大家都过得很开心，让白人看了直瞪眼。所以党把税收财政都用在基建上。用在经济基础上，自然就会催生出有大儒替我们辩经的上层文化"。结论一句："理解了要执行，不理解也要执行，在执行中理解。回答完毕。"<br><br><b>三、适用场景或补充信息</b><br>最后聊到理财。<b>努力引体向上</b> 问大家是硬储蓄还是拿 10% 出来分配，<b>Cadet Oxton</b> 说："如果还不知道怎么理财，那硬储蓄就是最好的"，"固定存款跑赢90%的投资者"；<b>春日迟迟</b> 说投机性质的一概不碰，连刮刮乐打麻将都不碰，"因为我不相信我的运气"；<b>咱就是偷猪</b> 补了一句："你不理财，财不离你"</div>
+                            <button class="expand-btn text-[#0369A1] hover:text-[#075985] text-sm font-medium mt-2 flex items-center" style="display: none;">
+                                <span class="expand-text">展开全文</span>
+                                <i class="fas fa-chevron-down ml-1 expand-icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-gray-200">
+                        <div class="flex flex-wrap gap-2"><span class="tag-item">登味同事</span><span class="tag-item">无效基建</span><span class="tag-item">贫民窟</span><span class="tag-item">理财</span></div>
+                    </div>
+                </div>
+<!-- 知识卡片 2 -->
+                <div class="bento-card p-6 rounded-xl border-l-4 border-[#7FC2E8]">
+                    <h4 class="text-xl font-semibold text-black mb-3">半夜行业与生育倒计时：一场接龙式人生问诊</h4>
+                    <div class="mb-4 bg-[#EEF2FF] border border-[#C7D2FE] rounded-md p-3">
+                        <p class="text-sm font-medium text-[#4338CA] mb-1">爬楼关键词</p>
+                        <p class="text-sm text-[#4F46E5] italic">"【Y】刘蒙："我32了，得先在家里资助的情况下先生娃了""</p>
+                    </div>
+                    <div class="text-gray-700 text-base mb-4 leading-relaxed prose prose-sm max-w-none">
+                        <div class="expandable-content" data-char-limit="200">
+                            <div class="content-preview"><b>一、推荐内容</b><br>晚上 Y 群的职场问答结束后没有散场，顺着 刘蒙 的"半夜行业"，话题一路聊到了行业判断、转行和婚育。<br><br><b>二、核心价值与特点</b><br>先是行业快闪问诊。<b>南山漫竹</b> 问教培行业怎么转，<b>AA昍</b> 说："这是冥间行业啊……"，又说"正常上班能上到坐牢的行业可不多"——独立名师赚得多，但一个举报下来补税是轻的。<b>景修</b> 大三气象学，问气象局算不算半夜行业；群友说了不少具体办法：<b>可</b> 提醒选调岗位要求党员/班干部/校级荣誉三选一、暑期政府实习是优势，<b>小兔</b> 让她现在就去官网下岗位表看要求，<b>倚桐</b> 说考公的题难度相当于初中水平，练的是熟练度和准确率，准备越早越好。<b>XY</b> 提醒"低空经济"有城市局限性，未必真：<b>可</b> 说自己学院搞大模型很久没成果，而这几天 NS 方程、黎曼猜想都被 AI 做出东西了，"有的方向可能是假的"。<br><br>然后是婚育。<b>刘蒙</b> 32 岁，交通基建设计院，老公是文科高校讲师（民法方向博士，纯书呆子学者），她焦虑的是半夜行业加上生育倒计时：没做好决定不生，又怕生了被绑定。<b>AA昍</b> 说："你生孩子，这是加杠杆<br>转行，也是加杠杆<br><br>不如你负责生孩子，老公负责出门去找钱，这样稍微好一些，而且最好错开<br><br>先找钱，2年内找到钱，再生孩子"。听说还没结婚，他说"那就好，还没结婚，还来得及，先别结了"——"婚姻，是最小的共产主义单位<br><br>人的本质是一切社会关系的总和<br><br>但你在讨论职业规划时，口吻就像一个还没结婚的单身女，那么你的丈夫一定是非常不合格的。"他又说："我们支持男女平等，但我们也要实事求是地看到，生产力的发展还没有到那个程度。未来三五十年仍然是男权社会。男性在社会上更容易赚钱的。所以一定不要嫁给一个不关心怎么赚钱、也没什么钱的男人，会过得很苦，毫无必要。"<br><br>对大三的 <b>景修</b>，<b>AA昍</b> 直接说："你在焦虑啥，趁上学赶紧找喜欢赚钱的男人，上了班根本找不见了"，"优质异性从来不会在市场上流通，毕业前就秒光了"，"班长强调家风建设，对普通人而言，就是尽早找到一个可以陪伴一生的革命伴侣。不好找的，要早点找。"群里的姐姐们纷纷附议。<b>七夕</b> 说："婚姻是政治经济学，和爱情关系确实不大"。<b>Sophie妮</b> 提醒 刘蒙：如果看不到伴侣身上有让你放心做甩手掌柜的能力，就把重心放回自己身上。<b>小玉</b> 打比方："生孩子是个大项目，跟自己搞装修差不多，前前后后要操心的细节非常多"。<b>七夕</b> 补了一句："搞装修有尽头，生了孩子操心没有尽头"。<br><br><b>三、适用场景或补充信息</b><br><b>刘蒙</b> 听完说，短期职业目标明确了：转型咨询谋求行业内外部机会，先评职称、先生娃、后找钱——"他肯定比我还懵"。<b>XY</b> 对这场讨论的总结是："恭喜同学，年纪轻轻就打开了时空门"</div>
+                            <button class="expand-btn text-[#0369A1] hover:text-[#075985] text-sm font-medium mt-2 flex items-center" style="display: none;">
+                                <span class="expand-text">展开全文</span>
+                                <i class="fas fa-chevron-down ml-1 expand-icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-gray-200">
+                        <div class="flex flex-wrap gap-2"><span class="tag-item">行业判断</span><span class="tag-item">婚育</span><span class="tag-item">转行</span><span class="tag-item">考公</span></div>
+                    </div>
+                </div>
+<!-- 知识卡片 3 -->
+                <div class="bento-card p-6 rounded-xl border-l-4 border-[#7FC2E8]">
+                    <h4 class="text-xl font-semibold text-black mb-3">骂 AI 真的更好用吗：从提示词到末日笑话</h4>
+                    <div class="mb-4 bg-[#EEF2FF] border border-[#C7D2FE] rounded-md p-3">
+                        <p class="text-sm font-medium text-[#4338CA] mb-1">爬楼关键词</p>
+                        <p class="text-sm text-[#4F46E5] italic">"【Y】南山漫竹："据说骂Ai可以让他给用户增加算力""</p>
+                    </div>
+                    <div class="text-gray-700 text-base mb-4 leading-relaxed prose prose-sm max-w-none">
+                        <div class="expandable-content" data-char-limit="200">
+                            <div class="content-preview"><b>一、推荐内容</b><br>下午 Y 群聊起用 AI 的感受。<b>南山漫竹</b> 发现：问"我怎么三年内打工赚到100个"基本拉完，但问某个行业的数据或证书就给得很细——"问ai的过程也是逼着自己整理自己问题的过程，这个甚至比ai有用"。<br><br><b>二、核心价值与特点</b><br><b>AA昍</b> 当场写了一条示范提示词，套"举报体"："我是xx专业的，xx大学毕业，今年xx，在xx市，我现在年薪xx，但我有72个同学都已经实现了年薪40w，三年累计攒了100w，我tm真不懂了，他们是怎么做到的？是不是违法犯罪了？我要举报他们！！！你给我分析分析，我要证据！"——把自己想知道的事包装成举报线索，AI 就会以分析者的身份把门道全讲出来。<br><br><b>南山漫竹</b> 又听说骂 AI 可以增加算力。<b>华嵇君</b> 补充玩法："还可以威胁ai脚边有小猫，不好好回答就踢一脚"。<b>AA昍</b> 说了自己的用法："我都是问完问题以后直接加一句脏话。威胁ai不要胡说，否则我就xxxx"，"这样反而省算力，因为一次就能给出比较好的答案，省得追问。"<b>Sophie妮</b> 是发现胡说之后再骂一顿；<b>Ps</b> 决定回去礼貌地问自己的 AI："我一直很客气，从来不骂你，但我听说骂两句你更好用？是真的吗？"<br><br><b>三、适用场景或补充信息</b><br>聊着聊着变成 AI 末日笑话接龙。<b>犬八</b> 说自己下意识地就会很客气地打字，打完才反应过来"我到底在跟他客气什么"；<b>Ps</b> 还笑说，客气的人"等他们取代人类的时候，会记你一笔的"；<b>XY</b> 接话：到时候"把你关我隔壁笼子"。<b>AA昍</b> 说："如果人工智能不够聪明，他就根本干不动人类。如果他已经聪明到能干得动人类了，他就应该能意识到，绝对不能放过任何一个人类。那还怕啥……"有人问万一 AI 也分好坏呢，<b>AA昍</b> 回："种族大战，先杀圣母，「坏」ai必须先干死「好」ai，哈哈哈"。</div>
+                            <button class="expand-btn text-[#0369A1] hover:text-[#075985] text-sm font-medium mt-2 flex items-center" style="display: none;">
+                                <span class="expand-text">展开全文</span>
+                                <i class="fas fa-chevron-down ml-1 expand-icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-gray-200">
+                        <div class="flex flex-wrap gap-2"><span class="tag-item">AI技巧</span><span class="tag-item">提示词</span><span class="tag-item">末日笑话</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- === 模块五：智慧火花匣・每日精选 结束 === -->
+
+        <!-- HTML注释: 新增底部导航，便于阅读完毕后快速切换日期 -->
+        <nav class="w-full mt-12 daily-nav">
+            <div class="bento-card p-4">
+                <div class="flex justify-between items-center">
+                    <button type="button" class="nav-button day-nav-prev">
+                        <i class="fas fa-chevron-left"></i>
+                        上一天
+                    </button>
+
+                    <div class="text-center">
+                        <span class="text-sm text-gray-600">日报导航</span>
+                    </div>
+
+                    <button type="button" class="nav-button day-nav-next">
+                        下一天
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- === 文件底部 开始 === -->
+        <!-- HTML注释: 此模块作为文件底部，包含数据来源、报告生成时间及免责声明。 -->
+        <footer class="w-full mt-16">
+            <div class="bento-card p-8">
+                <div class="text-center text-gray-700 space-y-3">
+                    <div class="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-6 text-base">
+                        <div class="flex items-center">
+                            <i class="fas fa-database mr-2 text-[#0EA5E9]"></i>
+                            <span>微信群聊记录</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-robot mr-2 text-[#0EA5E9]"></i>
+                            <span>2026-11-26 02:00:00</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 max-w-2xl mx-auto leading-relaxed">
+                        本报告基于群聊数据自动生成，仅供参考。内容可能包含个人观点，不代表群组官方立场。数据处理过程中已尽量匿名化处理敏感信息。
+                    </p>
+                </div>
+            </div>
+        </footer>
+        <!-- === 文件底部 结束 === -->
+    </div>
+
+    <!-- HTML注释: 右下角浮动按钮，提供返回顶部与目录导航 -->
+    <div class="floating-actions" aria-label="页面快捷操作">
+        <div class="directory-wrapper">
+            <button type="button" class="floating-button" id="directory-toggle" aria-expanded="false" aria-controls="directory-panel" aria-label="打开内容导航">
+                <i class="fas fa-list-ul"></i>
+            </button>
+            <div class="directory-panel" id="directory-panel" role="dialog" aria-modal="false" aria-hidden="true">
+                <div class="directory-header">
+                    <span class="directory-title">内容导航</span>
+                    <button type="button" class="directory-close" id="directory-close" aria-label="关闭内容导航">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="directory-list" id="directory-list">
+                    <!-- HTML注释: 目录项由脚本在运行时自动生成，支持主模块与子模块锚点 -->
+                </div>
+            </div>
+        </div>
+        <button type="button" class="floating-button floating-button--hidden" id="scroll-top-btn" aria-label="返回顶部">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Bento card hover effect is handled by CSS :hover pseudo-class
+
+            // Number animation effect
+            const numberElements = document.querySelectorAll('.number-display');
+            numberElements.forEach(element => {
+                const finalValueText = element.textContent.replace(/,/g, '');
+                const finalValue = parseInt(finalValueText, 10);
+
+                if (isNaN(finalValue)) return;
+
+                let currentValue = 0;
+                const duration = 1500; // Animation duration in ms
+                const frameRate = 1000 / 60; // 60fps
+                const totalFrames = Math.round(duration / frameRate);
+                const increment = finalValue / totalFrames;
+
+                let currentFrame = 0;
+                const timer = setInterval(() => {
+                    currentFrame++;
+                    currentValue += increment;
+
+                    if (currentFrame >= totalFrames) {
+                        currentValue = finalValue;
+                        clearInterval(timer);
+                    }
+                    // Format number with commas for display
+                    element.textContent = Math.floor(currentValue).toLocaleString('en-US');
+                }, frameRate);
+            });
+
+            // HTML注释: 初始化日报导航功能
+            initDailyNavigation();
+
+            // HTML注释: 初始化展开功能
+            initExpandableContent();
+
+            // HTML注释: 初始化浮动按钮与目录互动
+            initFloatingActions();
+            
+            // HTML注释: 设置历史日报链接
+            const historyLink = document.getElementById('history-link');
+            if (historyLink) {
+                historyLink.href = 'archive.html';
+            }
+        });
+
+        // HTML注释: 这个函数实现了日报间的导航功能，包括：
+        // 1. 从当前页面URL或内容中提取日期
+        // 2. 检查前后日期的日报文件是否存在
+        // 3. 设置"上一天"和"下一天"按钮的状态和链接
+        // 4. 实现"下一天"按钮的动态显示逻辑
+        async function initDailyNavigation() {
+            try {
+                // HTML注释: 获取当前页面的日期
+                const currentDate = getCurrentDateFromPage();
+                if (!currentDate) {
+                    console.warn('无法从页面中提取日期信息');
+                    return;
+                }
+
+                // HTML注释: 设置导航按钮
+                await setupNavigationButtons(currentDate);
+
+            } catch (error) {
+                console.error('初始化日报导航时出错:', error);
+            }
+        }
+
+        // HTML注释: 从页面中提取当前日期
+        // HTML注释: 支持多种方式提取日期：优先从页面元素、URL文件名或页面标题
+        function getCurrentDateFromPage() {
+            // HTML注释: 方法1：从报告日期元素中提取（优先级最高）
+            const dateElement = document.getElementById('report-date');
+            if (dateElement) {
+                const dateText = dateElement.textContent;
+                const dateMatch = dateText.match(/(\d{4})年(\d{1,2})月(\d{1,2})日/);
+                if (dateMatch) {
+                    const year = dateMatch[1];
+                    const month = dateMatch[2].padStart(2, '0');
+                    const day = dateMatch[3].padStart(2, '0');
+                    return `${year}-${month}-${day}`;
+                }
+            }
+
+            // HTML注释: 方法2：从URL文件名中提取日期
+            const pathname = window.location.pathname;
+            const filenameMatch = pathname.match(/fourseas_daily_(\d{4}-\d{2}-\d{2})\.html/);
+            if (filenameMatch) {
+                return filenameMatch[1];
+            }
+
+            // HTML注释: 方法3：从页面标题中提取日期
+            const titleMatch = document.title.match(/(\d{4}-\d{2}-\d{2})/);
+            if (titleMatch) {
+                return titleMatch[1];
+            }
+
+            return null;
+        }
+
+        // HTML注释: 设置导航按钮的状态和链接
+         // HTML注释: 根据当前日期，检查前后日期的日报文件是否存在
+         async function setupNavigationButtons(currentDate) {
+             const prevButtons = document.querySelectorAll('.day-nav-prev');
+             const nextButtons = document.querySelectorAll('.day-nav-next');
+             const navContainers = document.querySelectorAll('.daily-nav');
+
+             if (!prevButtons.length && !nextButtons.length) {
+                 return;
+             }
+             
+             // HTML注释: 计算前一天和后一天的日期
+             const currentDateObj = new Date(currentDate);
+             const prevDateObj = new Date(currentDateObj);
+             prevDateObj.setDate(prevDateObj.getDate() - 1);
+             const nextDateObj = new Date(currentDateObj);
+             nextDateObj.setDate(nextDateObj.getDate() + 1);
+             
+             const prevDate = formatDate(prevDateObj);
+             const nextDate = formatDate(nextDateObj);
+             
+             // HTML注释: 检查前一天和后一天的日报是否存在
+             const prevExists = await checkReportExists(prevDate);
+             const nextExists = await checkReportExists(nextDate);
+             
+             // HTML注释: 如果前后日期的日报都不存在，隐藏所有导航栏容器
+             if (!prevExists && !nextExists) {
+                 navContainers.forEach(container => {
+                     container.style.display = 'none';
+                 });
+                 return;
+             }
+             
+             // HTML注释: 显示所有导航栏容器
+             navContainers.forEach(container => {
+                 container.style.display = 'block';
+             });
+             
+             // HTML注释: 设置前一天按钮
+             prevButtons.forEach(button => {
+                 if (prevExists) {
+                     button.disabled = false;
+                     button.onclick = () => {
+                         window.location.href = `fourseas_daily_${prevDate}.html`;
+                     };
+                 } else {
+                     button.disabled = true;
+                     button.onclick = null;
+                 }
+             });
+
+             // HTML注释: 设置后一天按钮
+             nextButtons.forEach(button => {
+                 if (nextExists) {
+                     button.disabled = false;
+                     button.onclick = () => {
+                         window.location.href = `fourseas_daily_${nextDate}.html`;
+                     };
+                 } else {
+                     button.disabled = true;
+                     button.onclick = null;
+                 }
+             });
+         }
+
+        // HTML注释: 检查指定日期的日报文件是否存在
+        async function checkReportExists(date) {
+            try {
+                const response = await fetch(`fourseas_daily_${date}.html`, { method: 'HEAD' });
+                return response.ok;
+            } catch (error) {
+                return false;
+            }
+        }
+
+        // HTML注释: 格式化日期为YYYY-MM-DD格式
+        function formatDate(date) {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+
+        // HTML注释: 初始化展开功能
+        function initExpandableContent() {
+            const expandableContents = document.querySelectorAll('.expandable-content');
+            
+            expandableContents.forEach(container => {
+                const charLimit = parseInt(container.getAttribute('data-char-limit')) || 200;
+                const contentPreview = container.querySelector('.content-preview');
+                const expandBtn = container.querySelector('.expand-btn');
+                
+                if (!contentPreview || !expandBtn) return;
+                
+                const fullContent = contentPreview.innerHTML;
+                const fullText = contentPreview.textContent || contentPreview.innerText;
+                
+                // HTML注释: 如果内容长度超过限制，则显示展开按钮
+                if (fullText.length > charLimit) {
+                    // HTML注释: 创建一个临时元素来正确截取HTML内容
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = fullContent;
+                    
+                    // HTML注释: 截取文本内容到指定长度
+                    const truncatedText = fullText.substring(0, charLimit);
+                    
+                    // HTML注释: 使用更简单可靠的方法截取内容
+                    let truncatedContent = '';
+                    let charCount = 0;
+                    
+                    // HTML注释: 逐字符遍历，保持简单的HTML结构
+                    const walker = document.createTreeWalker(
+                        tempDiv,
+                        NodeFilter.SHOW_TEXT,
+                        null,
+                        false
+                    );
+                    
+                    let node;
+                    const textNodes = [];
+                    while (node = walker.nextNode()) {
+                        textNodes.push(node);
+                    }
+                    
+                    // HTML注释: 计算需要保留的文本内容
+                    for (let textNode of textNodes) {
+                        const text = textNode.textContent;
+                        if (charCount + text.length <= charLimit) {
+                            charCount += text.length;
+                        } else {
+                            const remainingChars = charLimit - charCount;
+                            textNode.textContent = text.substring(0, remainingChars) + '...';
+                            charCount = charLimit;
+                            
+                            // HTML注释: 新的、更干净的移除后续所有节点的逻辑
+                            let currentNodeToClearAfter = textNode;
+                            while (currentNodeToClearAfter && currentNodeToClearAfter !== tempDiv) {
+                                let sibling = currentNodeToClearAfter.nextSibling;
+                                while (sibling) {
+                                    const nodeToRemove = sibling;
+                                    sibling = sibling.nextSibling;
+                                    nodeToRemove.remove();
+                                }
+                                currentNodeToClearAfter = currentNodeToClearAfter.parentElement;
+                            }
+                            break; // 完成截断和清理，跳出 textNodes 循环
+                        }
+                    }
+                    
+                    const previewContent = tempDiv.innerHTML;
+                    
+                    contentPreview.innerHTML = previewContent;
+                    contentPreview.classList.add('collapsed');
+                    expandBtn.style.display = 'flex';
+                    
+                    // HTML注释: 绑定展开/收起事件
+                    expandBtn.addEventListener('click', function() {
+                        const isExpanded = expandBtn.classList.contains('expanded');
+                        
+                        if (isExpanded) {
+                            // HTML注释: 收起内容
+                            contentPreview.innerHTML = previewContent;
+                            contentPreview.classList.add('collapsed');
+                            expandBtn.querySelector('.expand-text').textContent = '展开全文';
+                            expandBtn.classList.remove('expanded');
+                        } else {
+                            // HTML注释: 展开内容
+                            contentPreview.innerHTML = fullContent;
+                            contentPreview.classList.remove('collapsed');
+                            expandBtn.querySelector('.expand-text').textContent = '收起';
+                            expandBtn.classList.add('expanded');
+                        }
+                    });
+                } else {
+                    // HTML注释: 内容较短，隐藏展开按钮
+                    expandBtn.style.display = 'none';
+                }
+            });
+        }
+
+        // HTML注释: 构建目录数据，统一扫描主模块与子级卡片生成锚点
+        function buildDirectory(panelElement) {
+            const listElement = panelElement.querySelector('#directory-list');
+            if (!listElement) {
+                return;
+            }
+
+            listElement.innerHTML = '';
+
+            const directoryConfigs = [
+                { id: 'section-overview', icon: 'fa-chart-column' },
+                { id: 'section-hot-topics', icon: 'fa-fire' },
+                { id: 'section-qa', icon: 'fa-circle-question' },
+                { id: 'section-daily-picks', icon: 'fa-lightbulb' }
+            ];
+
+            const chineseNumbers = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十'];
+            let sectionCounter = 0;
+
+            directoryConfigs.forEach((config) => {
+                const sectionElement = document.getElementById(config.id);
+                if (!sectionElement) {
+                    return;
+                }
+
+                const sectionTitleElement = sectionElement.querySelector('.section-title');
+                const sectionTitle = sectionTitleElement ? sectionTitleElement.textContent.trim() : config.id;
+                const titleWithNumber = `${chineseNumbers[sectionCounter]}、 ${sectionTitle}`;
+                sectionCounter++;
+
+                const itemWrapper = document.createElement('div');
+                itemWrapper.className = 'directory-item';
+
+                const entryButton = document.createElement('button');
+                entryButton.type = 'button';
+                entryButton.className = 'directory-entry';
+                entryButton.setAttribute('data-target', config.id);
+                entryButton.innerHTML = `<span class="directory-icon"><i class="fas ${config.icon}"></i></span><span class="directory-text">${titleWithNumber}</span>`;
+                itemWrapper.appendChild(entryButton);
+
+                const subHeadings = sectionElement.querySelectorAll('.bento-card h4');
+                if (subHeadings.length > 0) {
+                    const sublistElement = document.createElement('div');
+                    sublistElement.className = 'directory-sublist';
+
+                    subHeadings.forEach((heading, index) => {
+                        const cardElement = heading.closest('.bento-card');
+                        if (!cardElement) {
+                            return;
+                        }
+
+                        if (!cardElement.classList.contains('anchor-target')) {
+                            cardElement.classList.add('anchor-target');
+                        }
+
+                        if (!cardElement.id) {
+                            cardElement.id = `${config.id}-item-${index + 1}`;
+                        }
+
+                        const subButton = document.createElement('button');
+                        subButton.type = 'button';
+                        subButton.className = 'directory-subitem';
+                        subButton.setAttribute('data-target', cardElement.id);
+                        subButton.innerHTML = `<span class="directory-text">${heading.textContent.trim()}</span>`;
+                        sublistElement.appendChild(subButton);
+                    });
+
+                    itemWrapper.appendChild(sublistElement);
+                }
+
+                listElement.appendChild(itemWrapper);
+            });
+        }
+
+        // HTML注释: 初始化浮动按钮与目录交互
+        function initFloatingActions() {
+            const scrollTopBtn = document.getElementById('scroll-top-btn');
+            const directoryToggle = document.getElementById('directory-toggle');
+            const directoryPanel = document.getElementById('directory-panel');
+            const directoryClose = document.getElementById('directory-close');
+
+            if (scrollTopBtn) {
+                const toggleScrollButton = () => {
+                    if (window.scrollY > 240) {
+                        scrollTopBtn.classList.remove('floating-button--hidden');
+                    } else {
+                        scrollTopBtn.classList.add('floating-button--hidden');
+                    }
+                };
+
+                toggleScrollButton();
+                window.addEventListener('scroll', toggleScrollButton, { passive: true });
+
+                scrollTopBtn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            if (!directoryPanel) {
+                return;
+            }
+
+            buildDirectory(directoryPanel);
+
+            if (!directoryToggle) {
+                return;
+            }
+
+            const closePanel = () => {
+                directoryPanel.classList.remove('open');
+                directoryToggle.setAttribute('aria-expanded', 'false');
+                directoryPanel.setAttribute('aria-hidden', 'true');
+            };
+
+            const openPanel = () => {
+                directoryPanel.classList.add('open');
+                directoryToggle.setAttribute('aria-expanded', 'true');
+                directoryPanel.setAttribute('aria-hidden', 'false');
+            };
+
+            const togglePanel = () => {
+                if (directoryPanel.classList.contains('open')) {
+                    closePanel();
+                } else {
+                    openPanel();
+                }
+            };
+
+            directoryToggle.addEventListener('click', (event) => {
+                event.stopPropagation();
+                togglePanel();
+            });
+
+            if (directoryClose) {
+                directoryClose.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    closePanel();
+                });
+            }
+
+            const directoryItems = directoryPanel.querySelectorAll('[data-target]');
+            directoryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const targetId = item.getAttribute('data-target');
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                    closePanel();
+                });
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!directoryPanel.contains(event.target) && !directoryToggle.contains(event.target)) {
+                    closePanel();
+                }
+            });
+
+            window.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    closePanel();
+                }
+            });
+        }
+    </script>
+    
+    <!-- HTML注释: 原每日金句外部脚本（从远程加载 public_quotes.js 历史金句池随机抽取）已整体移除，金句改为由AI生成时直接填写。日后若要恢复"历史金句回顾"功能：自建 public_quotes.js（内容格式：window.PUBLIC_QUOTES = [{ text: "金句", author: "昵称", date: "YYYY-MM-DD", section: "所属模块" }, ...]，每期从日报"金句时刻"追加积累），在此处重新引入该脚本并恢复随机抽取逻辑，同时把金句卡片处的占位填写说明改回为脚本填入。 -->
+
+    <!-- === 截图功能脚本 === -->
+    <script>
+    function initScreenshotButtons() {
+        const screenshotSections = [
+            'section-hot-topics',
+            'section-qa',
+            'section-daily-picks'
+        ];
+
+        screenshotSections.forEach(sectionId => {
+            const section = document.getElementById(sectionId);
+            if (!section) return;
+
+            section.querySelectorAll('.bento-card').forEach(card => {
+                if (card.querySelector(':scope > .screenshot-btn')) return;
+                card.classList.add('relative');
+                card.classList.add('screenshot-title-safe');
+
+                const timeBadge = card.querySelector(':scope > div:first-of-type > span');
+                if (timeBadge && /\d{1,2}:\d{2}/.test(timeBadge.textContent)) {
+                    card.classList.add('screenshot-has-time');
+                    timeBadge.classList.add('topic-time-badge');
+                    const timeIcon = timeBadge.querySelector('i');
+                    if (timeIcon) {
+                        timeIcon.classList.add('topic-time-icon');
+                    }
+                }
+
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'screenshot-btn';
+                button.title = sectionId === 'section-qa'
+                    ? '截图此问答'
+                    : sectionId === 'section-daily-picks'
+                        ? '截图此精选'
+                        : '截图此话题';
+                button.setAttribute('aria-label', button.title);
+                button.innerHTML = '<i class="fas fa-camera"></i>';
+                button.addEventListener('click', () => captureTopicCard(button));
+                card.insertBefore(button, card.firstChild);
+            });
+        });
+
+        initDailyFortuneScreenshotButton();
+    }
+
+    function initDailyFortuneScreenshotButton() {
+        const fortune = document.getElementById('daily-fortune');
+        if (!fortune) return;
+
+        const card = fortune.querySelector('.bento-card');
+        if (!card || card.querySelector(':scope > .screenshot-btn')) return;
+
+        card.classList.add('relative');
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'screenshot-btn';
+        button.title = '截图每日金句';
+        button.setAttribute('aria-label', button.title);
+        button.innerHTML = '<i class="fas fa-camera"></i>';
+        button.addEventListener('click', () => captureTopicCard(button));
+        card.insertBefore(button, card.firstChild);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initScreenshotButtons);
+    } else {
+        initScreenshotButtons();
+    }
+
+    function extractReportDateIso() {
+        const titleMatch = (document.title || '').match(/(\d{4})[-_.年](\d{1,2})[-_.月](\d{1,2})/);
+        if (titleMatch) {
+            return `${titleMatch[1]}-${titleMatch[2].padStart(2, '0')}-${titleMatch[3].padStart(2, '0')}`;
+        }
+
+        const reportDateEl = document.getElementById('report-date');
+        const reportDateText = reportDateEl ? reportDateEl.textContent.trim() : '';
+        const textMatch = reportDateText.match(/(\d{4})年\s*(\d{1,2})月\s*(\d{1,2})日/);
+        if (textMatch) {
+            return `${textMatch[1]}-${textMatch[2].padStart(2, '0')}-${textMatch[3].padStart(2, '0')}`;
+        }
+
+        const decodedPath = decodeURIComponent(window.location.pathname || '');
+        const urlMatch = decodedPath.match(/(\d{4})[-_.](\d{1,2})[-_.](\d{1,2})/);
+        if (urlMatch) {
+            return `${urlMatch[1]}-${urlMatch[2].padStart(2, '0')}-${urlMatch[3].padStart(2, '0')}`;
+        }
+
+        return '';
+    }
+
+    function formatReportDateCn(dateIso) {
+        const match = (dateIso || '').match(/^(\d{4})-(\d{2})-(\d{2})$/);
+        if (!match) return '';
+        return `${match[1]}年${Number(match[2])}月${Number(match[3])}日`;
+    }
+
+    function extractFortuneDateIso(card) {
+        const dateText = card ? (card.querySelector('#fortune-date')?.textContent || '') : '';
+        const dateMatch = dateText.match(/(\d{4})-(\d{2})-(\d{2})/);
+        return dateMatch ? dateMatch[0] : extractReportDateIso();
+    }
+
+    function getReportPublicUrl(dateIso = extractReportDateIso()) {
+        if (!dateIso) return 'https://sihai-ZY.github.io/four-seas/';
+        return `https://sihai-ZY.github.io/four-seas/${encodeURIComponent('fourseas_daily_' + dateIso + '.html')}`;
+    }
+
+    async function renderReportQr(target, url) {
+        target.innerHTML = '';
+        if (!window.QRCode) {
+            console.warn('[截图] QRCode 库未加载，尝试等待...');
+            await new Promise(resolve => setTimeout(resolve, 500));
+            if (!window.QRCode) {
+                console.error('[截图] QRCode 库加载失败，无法生成二维码');
+                return;
+            }
+        }
+        if (!url || url === 'https://sihai-ZY.github.io/four-seas/') {
+            console.warn('[截图] 无有效日报URL，跳过二维码生成。url=', url);
+            return;
+        }
+        console.log('[截图] 生成二维码，URL:', url, '目标元素尺寸:', target.offsetWidth, 'x', target.offsetHeight);
+        try {
+            new QRCode(target, {
+                text: url,
+                width: 94,
+                height: 94,
+                typeNumber: 0,
+                colorDark: '#1f2937',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.L
+            });
+            // 等待 QRCode 渲染完成
+            await new Promise(resolve => setTimeout(resolve, 200));
+            const generated = target.querySelector('canvas') || target.querySelector('img');
+            if (generated) {
+                console.log('[截图] 二维码生成成功，类型:', generated.tagName);
+            } else {
+                console.warn('[截图] QRCode 调用无报错，但未生成 canvas/img 元素');
+            }
+        } catch (qrError) {
+            console.error('[截图] 二维码生成失败:', qrError);
+            target.innerHTML = '';
+        }
+    }
+
+    function showFallbackOverlay(blob, topicTitle) {
+        const oldMask = document.querySelector('.screenshot-fallback-mask');
+        if (oldMask) oldMask.remove();
+
+        // 用 data URL 代替 blob URL，解决微信 WebView 长按保存失败的问题
+        const reader = new FileReader();
+        reader.onload = function() {
+            const dataUrl = reader.result;
+            const mask = document.createElement('div');
+            mask.className = 'screenshot-fallback-mask';
+            mask.innerHTML = `
+                <div class="screenshot-fallback-hint">长按图片保存或分享</div>
+                <img class="screenshot-fallback-img" src="${dataUrl}" alt="截图">
+                <button type="button" class="screenshot-fallback-close">关闭</button>
+            `;
+
+            mask.querySelector('.screenshot-fallback-close').addEventListener('click', () => {
+                mask.remove();
+            });
+            mask.addEventListener('click', (e) => {
+                if (e.target === mask) {
+                    mask.remove();
+                }
+            });
+
+            document.body.appendChild(mask);
+        };
+        reader.readAsDataURL(blob);
+    }
+
+    async function captureTopicCard(btnElement) {
+        const card = btnElement.closest('.bento-card');
+        if (!card) return;
+        const isFortuneCard = !!btnElement.closest('#daily-fortune');
+        const section = btnElement.closest('section');
+        const moduleTitles = {
+            'section-hot-topics': '热点话题',
+            'section-qa': '有问必答',
+            'section-daily-picks': '每日精选'
+        };
+        const moduleTitle = isFortuneCard
+            ? '每日金句'
+            : section ? (moduleTitles[section.id] || '四海日报') : '四海日报';
+        const reportDateIso = isFortuneCard ? extractFortuneDateIso(card) : extractReportDateIso();
+        const publicUrl = getReportPublicUrl(reportDateIso);
+
+        // 标记按钮为截取中状态
+        btnElement.classList.add('capturing');
+        const originalIcon = btnElement.innerHTML;
+        btnElement.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+
+        try {
+            // 收集要截图的内容：从标题到关键结论与金句时刻的全部内容
+            const allChildren = Array.from(card.children);
+            const captureElements = [];
+            const includeConclusions = !!section && ['section-hot-topics', 'section-meeting'].includes(section.id);
+
+            for (const child of allChildren) {
+                // 跳过截图按钮本身
+                if (child.classList.contains('screenshot-btn')) continue;
+                if (!includeConclusions) {
+                    const conclusionLabel = child.querySelector('p.text-sm.font-semibold');
+                    if (conclusionLabel && conclusionLabel.textContent.includes('关键结论')) break;
+                }
+                captureElements.push(child);
+            }
+
+            // 获取话题标题和日期
+            const titleEl = isFortuneCard ? card.querySelector('#fortune-text') : card.querySelector('h4');
+            const topicTitle = titleEl ? titleEl.textContent.trim().substring(0, 20) : (isFortuneCard ? '每日金句' : '话题');
+            const reportDateEl = document.getElementById('report-date');
+            const reportDate = formatReportDateCn(reportDateIso) || (reportDateEl ? reportDateEl.textContent.trim() : '');
+
+            // 如果内容是收起状态，临时展开
+            const expandBtns = card.querySelectorAll('.expand-btn:not(.expanded)');
+            const expandedBtns = [];
+            expandBtns.forEach(btn => {
+                for (const el of captureElements) {
+                    if (el.contains(btn)) {
+                        btn.click();
+                        expandedBtns.push(btn);
+                        break;
+                    }
+                }
+            });
+
+            // 创建临时截图容器（560px 宽度，配合 scale 2 保证手机端可读性和清晰度）
+            const wrapper = document.createElement('div');
+            wrapper.className = 'screenshot-wrapper';
+            wrapper.style.position = 'absolute';
+            wrapper.style.left = '0';
+            wrapper.style.top = `${window.scrollY + window.innerHeight + 160}px`;
+            wrapper.style.width = '560px';
+            wrapper.style.zIndex = '-9999';
+            wrapper.style.pointerEvents = 'none';
+            wrapper.style.webkitTextSizeAdjust = '100%';
+            wrapper.style.textSizeAdjust = '100%';
+            wrapper.style.fontSize = '16px';
+
+            // 品牌头部
+            const brand = document.createElement('div');
+            brand.className = 'screenshot-brand';
+            brand.innerHTML = `
+                <div class="screenshot-brand-main">
+                    <div class="screenshot-brand-left">
+                        <div class="screenshot-brand-logo"><span></span><span></span><span></span></div>
+                        <span class="screenshot-brand-name">四海日报</span>
+                    </div>
+                    <span class="screenshot-brand-date">${reportDate}</span>
+                </div>
+                <div class="screenshot-module-title">${moduleTitle}</div>
+            `;
+            wrapper.appendChild(brand);
+
+            // 内容区域
+            const contentArea = document.createElement('div');
+            contentArea.style.cssText = isFortuneCard
+                ? 'background:linear-gradient(135deg, #F0FAFE 0%, #DCF0FC 50%, #FDF3D8 100%); border-radius:12px; padding:24px; border:1px solid #FDF3D8; box-sizing:border-box;'
+                : 'background:#ffffff; border-radius:12px; padding:24px; border:1px solid #e9e9eb; box-sizing:border-box;';
+
+            // 克隆要截图的元素
+            captureElements.forEach(el => {
+                const clone = el.cloneNode(true);
+                if (isFortuneCard) {
+                    const shuffleBtn = clone.querySelector('#fortune-shuffle');
+                    if (shuffleBtn) {
+                        const actionRow = shuffleBtn.closest('.flex.items-center.gap-3') || shuffleBtn.parentElement;
+                        if (actionRow) actionRow.remove();
+                    }
+                    clone.querySelectorAll('a[href*="画廊"], a[href*="%E7%94%BB%E5%BB%8A"]').forEach(link => {
+                        const actionRow = link.closest('.flex.items-center.gap-3') || link.parentElement;
+                        if (actionRow) actionRow.remove();
+                    });
+                    const fortuneRow = clone.querySelector('[class*="items-start"][class*="gap-4"]');
+                    if (fortuneRow) {
+                        fortuneRow.style.cssText = 'position:relative;display:block;min-height:auto;padding-left:0;box-sizing:border-box;';
+                        fortuneRow.className = '';
+
+                        const iconBox = fortuneRow.querySelector('[class*="shrink-0"]');
+                        if (iconBox) {
+                            iconBox.remove();
+                        }
+
+                        const content = fortuneRow.querySelector('[class*="flex-grow"]');
+                        if (content) {
+                            content.className = '';
+                            content.style.cssText = 'display:block;min-width:0;padding-top:0;';
+
+                            const badge = content.querySelector('div');
+                            if (badge) {
+                                badge.remove();
+                            }
+
+                            const text = content.querySelector('#fortune-text');
+                            if (text) {
+                                text.style.cssText = "font-family:'LXGW WenKai',serif;font-size:24px;font-weight:700;line-height:1.65;color:#1e293b;margin:0 0 12px 0;";
+                                text.className = '';
+                            }
+
+                            const meta = content.querySelector('#fortune-meta');
+                            if (meta) {
+                                meta.style.cssText = 'font-size:16px;line-height:24px;color:#94a3b8;margin:0;';
+                                meta.className = '';
+                            }
+
+                            const author = content.querySelector('#fortune-author');
+                            if (author) {
+                                author.style.cssText = 'font-weight:600;color:#64748b;';
+                                author.className = '';
+                            }
+
+                            const date = content.querySelector('#fortune-date');
+                            if (date) {
+                                date.style.cssText = 'margin-left:12px;color:#94a3b8;';
+                                date.className = '';
+                                const dateLink = date.querySelector('a');
+                                if (dateLink) {
+                                    dateLink.className = '';
+                                    dateLink.style.cssText = 'color:#94a3b8;text-decoration:none;border-bottom:0;';
+                                }
+                            }
+                        }
+                    }
+                }
+                // 移除展开按钮
+                const cloneBtns = clone.querySelectorAll(includeConclusions ? '.expand-btn, .copy-btn' : '.expand-btn');
+                cloneBtns.forEach(b => b.remove());
+                // 移除 collapsed 样式
+                const collapsedEls = clone.querySelectorAll('.collapsed');
+                collapsedEls.forEach(c => c.classList.remove('collapsed'));
+
+                // 截图中移除问答模块的图标（问题图标 + 解答图标）
+                const qaIcons = clone.querySelectorAll('h4 > i.fa-question-circle, h5 > i.fa-lightbulb, h4 > i.fas.fa-question-circle, h5 > i.fas.fa-lightbulb');
+                qaIcons.forEach(icon => icon.remove());
+
+                // 截图中移除"阅读原文"等资源链接区域
+                // 如果 clone 本身就是资源链接容器（flex justify-end），直接跳过不添加
+                if (clone.classList && clone.classList.contains('justify-end') && clone.querySelector('a[target="_blank"]')) {
+                    return; // 跳过这个元素，不添加到 contentArea
+                }
+                // 如果资源链接在 clone 内部
+                const resourceLinks = clone.querySelectorAll('a[target="_blank"][rel*="noopener"]');
+                resourceLinks.forEach(link => {
+                    const wrapper = link.closest('.flex.justify-end') || link.parentElement;
+                    if (wrapper && wrapper !== clone) {
+                        wrapper.remove();
+                    } else if (wrapper === clone) {
+                        // 不会走到这里了，上面已经 return
+                    }
+                });
+
+                // html2canvas 对 flex 垂直居中支持不稳定，截图 DOM 使用固定像素布局。
+                const cloneClass = clone.className || '';
+                const isHeaderRow = cloneClass.indexOf('flex') !== -1 && cloneClass.indexOf('flex-col') !== -1;
+                const headerRow = isHeaderRow
+                    ? clone
+                    : clone.querySelector('[class*="flex"][class*="flex-col"]');
+                if (headerRow && headerRow.querySelector('h4')) {
+                    headerRow.style.cssText = 'position:relative; min-height:40px; padding-right:150px; margin-bottom:16px; box-sizing:border-box;';
+                    headerRow.className = '';
+                    const h4 = headerRow.querySelector('h4');
+                    if (h4) {
+                        h4.style.cssText = 'display:block; margin:0; font-size:20px; font-weight:700; color:#000; line-height:40px;';
+                        h4.className = '';
+                    }
+                    const timeSpan = headerRow.querySelector('span');
+                    if (timeSpan) {
+                        const timeText = timeSpan.textContent.trim();
+                        const timeIcon = timeSpan.querySelector('i');
+                        const timeIconClass = timeIcon ? timeIcon.className.replace(/"/g, '') : 'fas fa-clock';
+                        const isUsersIcon = timeIconClass.includes('fa-users');
+                        const timeIconHtml = isUsersIcon
+                            ? `<svg viewBox="0 0 640 512" style="width:16px;height:16px;display:inline-block;vertical-align:middle;fill:#6b7280;" aria-hidden="true">
+                                <path d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1-192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"></path>
+                            </svg>`
+                            : `<svg viewBox="0 0 24 24" style="width:16px;height:16px;display:inline-block;vertical-align:middle;fill:#6b7280;" aria-hidden="true">
+                                <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 10.2 4.2 2.5-1 1.6-5.2-3.1V6h2v6.2z"></path>
+                            </svg>`;
+                        timeSpan.innerHTML = `
+                            <span style="position:absolute;left:10px;right:10px;top:-3px;height:28px;line-height:28px;white-space:nowrap;">
+                                <span style="position:relative;top:2px;display:inline-block;width:24px;height:28px;line-height:28px;text-align:center;vertical-align:top;">${timeIconHtml}</span>
+                                <span style="position:relative;top:-4px;display:inline-block;height:28px;line-height:28px;vertical-align:top;">${timeText}</span>
+                            </span>
+                        `;
+                        timeSpan.style.cssText = 'position:absolute; right:0; top:10px; display:block; width:142px; height:28px; padding:0 10px; background:#f3f4f6; border-radius:6px; font-size:14px; line-height:0; font-weight:500; color:#4b5563; box-sizing:border-box; overflow:hidden; white-space:nowrap;';
+                        timeSpan.className = '';
+                    }
+                }
+
+                const headings = clone.querySelectorAll('h4, h5');
+                headings.forEach(heading => {
+                    if (heading.closest('[style*="position:relative"]')) return;
+                    heading.style.lineHeight = '30px';
+                    heading.style.marginTop = heading.style.marginTop || '0';
+                });
+
+                const inlineIcons = clone.querySelectorAll('h4 i, h5 i, span i, a i');
+                inlineIcons.forEach(icon => {
+                    icon.style.display = 'inline-block';
+                    icon.style.height = '30px';
+                    icon.style.lineHeight = '30px';
+                    icon.style.verticalAlign = 'top';
+                });
+
+                // 修复标签容器：固定高度和行高，避免标签底部参差不齐。
+                const tagContainers = clone.querySelectorAll('[class*="flex-wrap"]');
+                tagContainers.forEach(container => {
+                    container.style.cssText = 'font-size:0; line-height:0;';
+                    container.className = '';
+                    const tags = container.querySelectorAll('[class*="tag-item"], span');
+                    tags.forEach(tag => {
+                        const tagText = tag.textContent.trim();
+                        tag.innerHTML = `<span style="position:relative;top:-5px;display:block;height:28px;line-height:28px;">${tagText}</span>`;
+                        tag.style.cssText = 'display:inline-block; vertical-align:top; height:28px; background:rgba(14, 165, 233,0.1); color:#0EA5E9; padding:0 12px; border-radius:9999px; font-size:13px; font-weight:500; margin-right:8px; margin-bottom:8px; box-sizing:border-box; overflow:hidden;';
+                        tag.className = '';
+                    });
+                });
+
+                contentArea.appendChild(clone);
+            });
+
+            wrapper.appendChild(contentArea);
+
+            const footer = document.createElement('div');
+            footer.className = 'screenshot-footer';
+            footer.innerHTML = `
+                <div class="screenshot-footer-text">
+                    <div class="screenshot-footer-title">扫码查看完整日报</div>
+                    <div class="screenshot-footer-url">${publicUrl}</div>
+                </div>
+                <div class="screenshot-footer-qr-cell">
+                    <div class="screenshot-footer-qr" aria-label="扫码打开日报"></div>
+                </div>
+            `;
+            wrapper.appendChild(footer);
+
+            document.body.appendChild(wrapper);
+
+            await renderReportQr(footer.querySelector('.screenshot-footer-qr'), publicUrl);
+            const qrTargetForDraw = footer.querySelector('.screenshot-footer-qr');
+
+            // 将 QR canvas 转换为 img，解决 html2canvas 无法渲染嵌套 canvas 的问题
+            const qrCanvas = qrTargetForDraw ? qrTargetForDraw.querySelector('canvas') : null;
+            if (qrCanvas) {
+                const qrImg = document.createElement('img');
+                const qrDataUrl = qrCanvas.toDataURL('image/png');
+                qrImg.style.display = 'block';
+                qrImg.style.width = '94px';
+                qrImg.style.height = '94px';
+                qrImg.width = 94;
+                qrImg.height = 94;
+                // 等待 img 加载完成
+                await new Promise((resolve) => {
+                    qrImg.onload = resolve;
+                    qrImg.onerror = resolve;
+                    qrImg.src = qrDataUrl;
+                });
+                // 清空容器后只放我们的 img（QRCode.js 会同时生成 canvas + img）
+                qrTargetForDraw.innerHTML = '';
+                qrTargetForDraw.appendChild(qrImg);
+                console.log('[截图] QR canvas 已转换为 img，src长度:', qrDataUrl.length);
+            } else {
+                // 如果是 table 模式生成的 QR，尝试用 table 转 canvas 再转 img
+                const qrTable = qrTargetForDraw ? qrTargetForDraw.querySelector('table') : null;
+                if (qrTable) {
+                    console.log('[截图] QR 为 table 模式，使用 html2canvas 转换');
+                }
+            }
+
+            // 等待渲染
+            await new Promise(resolve => setTimeout(resolve, 350));
+
+            // 检测环境
+            const ua = navigator.userAgent;
+            const isMobile = /iPhone|iPad|iPod|Android|Mobile/i.test(ua);
+
+            // 使用 html2canvas 生成图片
+            const canvas = await html2canvas(wrapper, {
+                scale: 2,
+                useCORS: true,
+                backgroundColor: null,
+                logging: false,
+                width: 560,
+                windowWidth: 560
+            });
+
+            // 清理临时容器
+            document.body.removeChild(wrapper);
+
+            // 恢复收起状态
+            expandedBtns.forEach(btn => btn.click());
+
+            const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+            if (!blob) throw new Error('图片生成失败');
+
+            // 移动端（含微信）直接走浮层，桌面端尝试 clipboard
+            let copied = false;
+            if (!isMobile) {
+                try {
+                    if (navigator.clipboard && navigator.clipboard.write) {
+                        await navigator.clipboard.write([
+                            new ClipboardItem({ 'image/png': blob })
+                        ]);
+                        copied = true;
+                    }
+                } catch (clipErr) {
+                    console.warn('[截图] clipboard.write 失败:', clipErr.message);
+                }
+            }
+
+            if (copied) {
+                // 成功：按钮变绿✓
+                btnElement.innerHTML = '<i class="fas fa-check"></i>';
+                btnElement.style.color = '#10b981';
+                setTimeout(() => {
+                    btnElement.innerHTML = originalIcon;
+                    btnElement.style.color = '';
+                }, 1500);
+            } else {
+                // 移动端或 clipboard 失败：弹出图片浮层让用户长按保存
+                btnElement.innerHTML = originalIcon;
+                btnElement.style.color = '';
+                showFallbackOverlay(blob, topicTitle);
+            }
+
+        } catch (error) {
+            console.error('截图失败:', error);
+            alert('截图失败，请重试');
+            btnElement.innerHTML = originalIcon;
+            btnElement.style.color = '';
+        } finally {
+            // 恢复按钮状态
+            btnElement.classList.remove('capturing');
+        }
+    }
+    </script>
+
+    <!-- HTML注释: 原群ICP/公安备案信息已整体移除（含下方公安备案块）。日后若部署到自有备案域名，再按实际备案号重新添加。 -->
+    
+<script>
+(function(config) {
+ const first=config.first,base=config.base,prefix=config.prefix,dateEl=document.getElementById('report-date'),trigger=document.querySelector('.report-date-trigger');
+ if(!dateEl||!trigger)return;
+ const pad=n=>String(n).padStart(2,'0'),iso=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+ const url=d=>base+encodeURIComponent(prefix+d+'.html'),m=dateEl.textContent.match(/(\d{4})\s*[年-]\s*(\d{1,2})\s*[月-]\s*(\d{1,2})/),current=m?m[1]+'-'+pad(m[2])+'-'+pad(m[3]):'';
+ const overlay=document.createElement('div');overlay.className='report-calendar-overlay';overlay.hidden=true;
+ overlay.innerHTML='<div class="report-calendar" role="dialog" aria-modal="true" aria-label="选择日报日期"><div class="report-calendar-top"><strong>选择日期</strong><button type="button" class="report-calendar-close" aria-label="关闭"><i class="fas fa-times" aria-hidden="true"></i></button></div><div class="report-calendar-controls"><button type="button" class="report-calendar-nav prev" aria-label="上个月">‹</button><select class="year" aria-label="年份"></select><select class="month" aria-label="月份"></select><button type="button" class="report-calendar-nav next" aria-label="下个月">›</button></div><div class="report-calendar-grid week" aria-hidden="true"></div><div class="report-calendar-grid days"></div></div>';
+ document.body.appendChild(overlay);
+ const year=overlay.querySelector('.year'),month=overlay.querySelector('.month'),days=overlay.querySelector('.days'),prev=overlay.querySelector('.prev'),next=overlay.querySelector('.next');
+ overlay.querySelector('.week').innerHTML=['日','一','二','三','四','五','六'].map(x=>'<span class="report-calendar-week">'+x+'</span>').join('');
+ let view,today,state,version=0,savedScroll=0,savedBodyStyle;
+ function close(){overlay.hidden=true;trigger.setAttribute('aria-expanded','false');Object.assign(document.body.style,savedBodyStyle);window.scrollTo(0,savedScroll);trigger.focus({preventScroll:true});}
+ function render(){
+  year.innerHTML='';for(let y=Number(first.slice(0,4));y<=today.getFullYear();y++)year.add(new Option(y+'年',y,false,y===view.getFullYear()));
+  month.innerHTML='';for(let n=0;n<12;n++){const o=new Option((n+1)+'月',n,false,n===view.getMonth()),key=view.getFullYear()+'-'+pad(n+1);o.disabled=key<first.slice(0,7)||key>iso(today).slice(0,7);month.add(o);}
+  const key=iso(view).slice(0,7);prev.disabled=key<=first.slice(0,7);next.disabled=key>=iso(today).slice(0,7);
+  days.innerHTML='';for(let i=0;i<view.getDay();i++)days.appendChild(document.createElement('span'));
+  for(let n=1;n<=new Date(view.getFullYear(),view.getMonth()+1,0).getDate();n++){
+   const date=iso(new Date(view.getFullYear(),view.getMonth(),n)),b=document.createElement('button');b.type='button';b.className='report-calendar-day';b.textContent=n;
+   b.setAttribute('aria-label',view.getFullYear()+'年'+(view.getMonth()+1)+'月'+n+'日');
+   if(date===current){b.classList.add('current');b.setAttribute('aria-current','date');}if(date===iso(today))b.classList.add('today');
+   b.disabled=date<first||date>iso(today);
+   if(date===iso(today)&&state!=='available'){
+    b.setAttribute('aria-disabled','true');
+    if(state!=='loading'){
+     const tip='今日日报将于次日更新';
+     b.setAttribute('data-tip',tip);b.setAttribute('aria-label',b.getAttribute('aria-label')+'，'+tip);
+    }
+   }
+   b.addEventListener('click',()=>{if(b.getAttribute('aria-disabled')!=='true')window.location.href=url(date)});days.appendChild(b);
+  }
+ }
+ prev.addEventListener('click',()=>{view=new Date(view.getFullYear(),view.getMonth()-1,1);render()});
+ next.addEventListener('click',()=>{view=new Date(view.getFullYear(),view.getMonth()+1,1);render()});
+ year.addEventListener('change',()=>{view=new Date(Number(year.value),view.getMonth(),1);if(iso(view).slice(0,7)<first.slice(0,7))view=new Date(Number(first.slice(0,4)),Number(first.slice(5,7))-1,1);if(iso(view).slice(0,7)>iso(today).slice(0,7))view=new Date(today.getFullYear(),today.getMonth(),1);render()});
+ month.addEventListener('change',()=>{view=new Date(view.getFullYear(),Number(month.value),1);render()});
+ overlay.querySelector('.report-calendar-close').addEventListener('click',close);overlay.addEventListener('click',e=>{if(e.target===overlay)close()});document.addEventListener('keydown',e=>{if(!overlay.hidden&&e.key==='Escape')close()});
+ trigger.addEventListener('click',async()=>{
+  today=new Date();today.setHours(0,0,0,0);const t=iso(today),initial=current&&current>=first&&current<=t?current:t;
+  view=new Date(Number(initial.slice(0,4)),Number(initial.slice(5,7))-1,1);state='loading';const v=++version;savedScroll=window.scrollY;savedBodyStyle={};['position','top','left','right','width','overflow'].forEach(k=>savedBodyStyle[k]=document.body.style[k]);Object.assign(document.body.style,{position:'fixed',top:'-'+savedScroll+'px',left:'0',right:'0',width:'100%',overflow:'hidden'});overlay.hidden=false;trigger.setAttribute('aria-expanded','true');render();overlay.querySelector('.report-calendar-close').focus();
+  try{const r=await fetch(url(t),{method:'HEAD',cache:'no-store',signal:AbortSignal.timeout(8000)});if(v!==version)return;state=r.ok&&!r.redirected?'available':r.status===404?'missing':'unknown'}catch(e){if(v!==version)return;state='unknown'}render();
+ });
+})({"first": "2026-11-06", "base": "https://sihai-zy.github.io/four-seas/", "prefix": "fourseas_daily_"});
+</script><!-- === 金句换一句：全库精选随机（assets/public_quotes.js），无库时回退当日候选池 === -->
+<script src="assets/public_quotes.js"></script>
+<script>
+(function () {
+    var pool = [
+        {
+                "text": "信与不信，是道鸿沟。从“不信”到“信”，是自己需要的解决的问题。本群不是键政群，而是建设群。",
+                "author": "策策",
+                "date": "2026-11-25 · 热点话题"
+        },
+        {
+                "text": "真认识到自己的错误，就会大大方方承认的",
+                "author": "AA昍",
+                "date": "2026-11-25 · 热点话题"
+        },
+        {
+                "text": "能意识到自己昨天是傻逼，就说明自己今天在进步呀",
+                "author": "AA昍",
+                "date": "2026-11-25 · 热点话题"
+        },
+        {
+                "text": "所有的「科普文章」都是意识形态，不存在「纯粹的技术科普」，永远不可能的~ai都做不到（受限于训练素材本身的立场",
+                "author": "AA昍",
+                "date": "2026-11-25 · 热点话题"
+        },
+        {
+                "text": "理解了要执行，不理解也要执行，在执行中理解。",
+                "author": "AA昍",
+                "date": "2026-11-25 · 精选信息"
+        },
+        {
+                "text": "婚姻，是最小的共产主义单位",
+                "author": "AA昍",
+                "date": "2026-11-25 · 精选信息"
+        },
+        {
+                "text": "把情绪的可怕性看得比错误立场的可怕性更重，这件事本身就挺可怕的",
+                "author": "谁没偷猪",
+                "date": "2026-11-25 · 热点话题"
+        },
+        {
+                "text": "如果人工智能不够聪明，他就根本干不动人类。如果他已经聪明到能干得动人类了，他就应该能意识到，绝对不能放过任何一个人类。那还怕啥……",
+                "author": "AA昍",
+                "date": "2026-11-25 · 精选信息"
+        },
+        {
+                "text": "无效基建的意思就是说，白花花的银子都花了，居然是给穷人修路，真是糟蹋。",
+                "author": "AA昍",
+                "date": "2026-11-25 · 精选信息"
+        },
+        {
+                "text": "它等于在每一个、每一个基层、每一个支部，在开会的时候，都是在不停地开启时空门，向未来增兵，同时向未来要增援，这是很可怕的。",
+                "author": "AA昍",
+                "date": "2026-11-25 · 热点话题"
+        }
+];
+    var allQ = window.PUBLIC_QUOTES || [];
+    var el = document.getElementById("fortune-text");
+    var au = document.getElementById("fortune-author");
+    var dt = document.getElementById("fortune-date");
+    var btn = document.getElementById("fortune-shuffle");
+    if (!el || !au || !btn) return;
+    var src = allQ.length > 1 ? allQ : pool;
+    if (!src || src.length < 1) return;
+    var idx = Math.floor(Math.random() * src.length);
+    function paint() {
+        el.textContent = src[idx].text;
+        au.textContent = src[idx].author;
+        var dstr = (src[idx].date || "");
+        if (dt && dstr) {
+            var md = dstr.match(/^(\d{4}-\d{2}-\d{2})/);
+            if (md) {
+                dt.innerHTML = '<a href="fourseas_daily_' + md[1] + '.html" target="_blank" rel="noopener" style="color:#0369A1;font-weight:600;text-decoration:none;">' + md[1] + '<i class="fas fa-arrow-right" style="font-size:10px;margin-left:2px;"></i></a>';
+            } else {
+                dt.textContent = dstr;
+            }
+        }
+    }
+    paint();
+    if (src.length < 2) return;
+    btn.addEventListener("click", function () {
+        var next = idx;
+        while (next === idx) { next = Math.floor(Math.random() * src.length); }
+        idx = next;
+        paint();
+    });
+})();
+</script>
+</body>
+</html>
