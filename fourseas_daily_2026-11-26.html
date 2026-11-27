@@ -1,0 +1,2781 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>四海日报 2026-11-26</title>
+    <!-- 上面为示例标题，正常标题格式应为：四海日报 yyyy-mm-dd（即具体日期），以便外部链接查看时了解日报日期 -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6C9T7FPDT2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6C9T7FPDT2');
+    </script>
+    <!-- 正常标题格式应为：四海日报 yyyy-mm-dd，以便外部链接查看时了解日报日期 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+        * {
+            font-family: 'Inter', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #000000;
+            counter-reset: section-counter;
+        }
+
+        :root {
+            --directory-main-font-size: clamp(0.85rem, 0.9vw + 0.6rem, 0.95rem);
+            --directory-sub-font-size: clamp(0.78rem, 0.75vw + 0.5rem, 0.88rem);
+        }
+
+        .bento-card {
+            background-color: #ffffff;
+            border: 1px solid #e9e9eb;
+            border-radius: 1rem; /* 16px */
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .bento-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.07), 0 4px 6px -4px rgba(0,0,0,0.05);
+            transform: translateY(-3px);
+        }
+
+        .number-display {
+            font-weight: 900; /* black */
+            font-size: 4rem;
+            line-height: 1;
+            /* Color will be set by Tailwind, e.g., text-[#0EA5E9] or text-black */
+        }
+
+        .section-title {
+            font-weight: 800; /* extrabold */
+            font-size: 2.25rem; /* 36px */
+            color: #000000;
+            margin-bottom: 2rem; /* 32px, consistent with Tailwind mb-8 */
+        }
+
+        .section-title::before {
+            counter-increment: section-counter;
+            content: counter(section-counter, cjk-ideographic) "、 ";
+        }
+
+        .tag-item {
+            background-color: rgba(14, 165, 233, 0.1); /* bg-[#0EA5E9] bg-opacity-10 */
+            color: #0369A1;
+            padding: 0.25rem 0.75rem; /* py-1 px-3 */
+            border-radius: 9999px; /* rounded-full */
+            font-size: 0.75rem; /* text-xs */
+            font-weight: 500; /* medium */
+            display: inline-flex;
+            align-items: center;
+            min-height: 1.5rem;
+            line-height: 1rem;
+        }
+
+        /* HTML注释: 新增导航按钮样式，与现有设计保持一致 */
+        .nav-button {
+            background: linear-gradient(135deg, #0EA5E9 0%, #4FB8EF 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(14, 165, 233, 0.1);
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px -3px rgba(14, 165, 233, 0.2);
+        }
+
+        .nav-button:disabled {
+            background: #e5e7eb;
+            color: #9ca3af;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .history-link {
+            background: rgba(14, 165, 233, 0.1);
+            color: #0369A1;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            border: 1px solid rgba(14, 165, 233, 0.2);
+        }
+
+        .history-link:hover {
+            background: rgba(14, 165, 233, 0.15);
+            transform: translateY(-1px);
+        }
+
+        /* HTML注释: 展开功能相关样式 */
+        .expandable-content {
+            position: relative;
+        }
+
+        .content-preview.collapsed {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .content-preview.collapsed::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: linear-gradient(transparent, rgba(248, 250, 252, 0.9));
+            pointer-events: none;
+        }
+
+        .expand-btn {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 0;
+        }
+
+        .expand-btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .expand-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .expand-btn.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+
+        /* HTML注释: 目录锚点滚动偏移，避免标题被遮挡 */
+        .anchor-target {
+            scroll-margin-top: 120px;
+        }
+
+        /* HTML注释: 右下角浮动快捷按钮区域样式 */
+        .floating-actions {
+            position: fixed;
+            right: 1.25rem;
+            bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            z-index: 50;
+        }
+
+        .floating-button {
+            background: linear-gradient(135deg, #0EA5E9 0%, #4FB8EF 100%);
+            color: #ffffff;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px -5px rgba(14, 165, 233, 0.35);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .floating-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px -6px rgba(14, 165, 233, 0.45);
+        }
+
+        .floating-button:focus-visible {
+            outline: 2px solid rgba(14, 165, 233, 0.45);
+            outline-offset: 2px;
+        }
+
+        .floating-button--hidden {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            pointer-events: none;
+        }
+
+        .directory-wrapper {
+            position: relative;
+        }
+
+        .directory-panel {
+            position: absolute;
+            right: 0;
+            bottom: 3.5rem;
+            width: 18rem;
+            background: #ffffff;
+            border: 1px solid rgba(14, 165, 233, 0.2);
+            border-radius: 0.75rem;
+            box-shadow: 0 20px 40px -15px rgba(14, 165, 233, 0.35);
+            padding: 1rem;
+            opacity: 0;
+            transform: translateY(10px);
+            pointer-events: none;
+            transition: all 0.3s ease;
+            max-height: min(75vh, 30rem);
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior: contain;
+        }
+
+        .directory-panel.open {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .directory-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .directory-title {
+            font-weight: 600;
+            color: #1f2937;
+            font-size: var(--directory-main-font-size);
+        }
+
+        .directory-close {
+            background: none;
+            border: none;
+            color: #64748b;
+            cursor: pointer;
+            padding: 0.25rem;
+            border-radius: 9999px;
+            transition: color 0.2s ease;
+        }
+
+        .directory-close:hover {
+            color: #0EA5E9;
+        }
+
+        .directory-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .directory-list button {
+            width: 100%;
+            text-align: left;
+            background: rgba(14, 165, 233, 0.08);
+            color: #1f2937;
+            border: none;
+            border-radius: 0.5rem;
+            padding: 0.55rem 0.75rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s ease, color 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: var(--directory-main-font-size);
+        }
+
+        .directory-list button:hover {
+            background: rgba(14, 165, 233, 0.18);
+            color: #075985;
+        }
+
+        /* HTML注释: 二级导航容器与按钮样式，支持多层级显示 */
+        .directory-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .directory-entry {
+            background: rgba(14, 165, 233, 0.08);
+        }
+
+        .directory-sublist {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            margin-left: 2.5rem;
+            padding-left: 0.75rem;
+            border-left: 1px solid rgba(14, 165, 233, 0.2);
+        }
+
+        .directory-subitem {
+            background: rgba(14, 165, 233, 0.04);
+            padding-top: 0.45rem;
+            padding-bottom: 0.45rem;
+            font-size: var(--directory-sub-font-size);
+        }
+
+        .directory-subitem:hover {
+            background: rgba(14, 165, 233, 0.14);
+        }
+
+        .directory-icon {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 9999px;
+            background: rgba(14, 165, 233, 0.12);
+            color: #0EA5E9;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .directory-text {
+            flex: 1;
+            color: inherit;
+        }
+
+        /* HTML注释: 截图快捷按钮样式 */
+        .screenshot-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 28px;
+            height: 28px;
+            line-height: 28px;
+            border-radius: 0.5rem;
+            background: rgba(14, 165, 233, 0.08);
+            border: 1px solid rgba(14, 165, 233, 0.2);
+            color: #0EA5E9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            font-size: 0.78rem;
+        }
+
+        .screenshot-has-time > div:first-of-type {
+            padding-right: 3rem;
+        }
+
+        .screenshot-title-safe > h4:first-of-type,
+        .screenshot-title-safe > h5:first-of-type {
+            padding-right: 3.5rem;
+            box-sizing: border-box;
+        }
+
+        .screenshot-title-safe > div:first-of-type > h4:first-of-type {
+            display: block !important;
+            padding-right: 3.5rem;
+            box-sizing: border-box;
+            line-height: 1.4;
+        }
+
+        .screenshot-title-safe > div:first-of-type > h4:first-of-type > i:first-child {
+            display: inline-block;
+            margin-right: 0.625rem;
+            vertical-align: baseline;
+        }
+
+        .topic-time-badge {
+            display: inline-flex !important;
+            align-items: center !important;
+            height: 28px !important;
+            padding: 0 0.75rem !important;
+            line-height: 28px !important;
+            box-sizing: border-box !important;
+        }
+
+        .topic-time-icon {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 1rem;
+            height: 28px;
+            line-height: 28px !important;
+            margin-right: 0.375rem !important;
+            position: relative;
+            top: -1px;
+        }
+
+        .screenshot-btn:hover {
+            background: rgba(14, 165, 233, 0.15);
+            border-color: rgba(14, 165, 233, 0.4);
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);
+        }
+
+        .screenshot-btn:focus {
+            outline: none;
+        }
+
+        .screenshot-btn:active {
+            transform: scale(0.95);
+        }
+
+        .screenshot-btn.capturing {
+            animation: pulse-capture 1s infinite;
+        }
+
+        @keyframes pulse-capture {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* 截图时的临时容器样式 */
+        .screenshot-wrapper {
+            padding: 40px 40px 32px;
+            background: linear-gradient(160deg, #ffffff 0%, #F7FBFE 40%, #E9F5FC 100%);
+            border-radius: 24px;
+            border: 1.5px solid rgba(14, 165, 233, 0.1);
+            box-shadow: 0 12px 40px rgba(14, 165, 233, 0.06);
+            box-sizing: border-box;
+        }
+
+        .screenshot-wrapper,
+        .screenshot-wrapper * {
+            -webkit-text-size-adjust: 100% !important;
+            text-size-adjust: 100% !important;
+        }
+
+        .screenshot-wrapper .screenshot-brand {
+            position: relative;
+            width: 100%;
+            margin-bottom: 28px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(14, 165, 233, 0.08);
+            box-sizing: border-box;
+        }
+
+        .screenshot-wrapper .screenshot-brand-main {
+            position: relative;
+            height: 44px;
+        }
+
+        .screenshot-wrapper .screenshot-brand-left {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 36px;
+            text-align: left;
+        }
+
+        .screenshot-wrapper .screenshot-brand-logo {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 7px;
+            background: linear-gradient(135deg, #0EA5E9 0%, #4FB8EF 100%);
+            display: block;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 3px 8px rgba(14, 165, 233, 0.25);
+        }
+
+        .screenshot-wrapper .screenshot-brand-logo span {
+            position: absolute;
+            left: 10px;
+            right: 10px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 2px;
+        }
+
+        .screenshot-wrapper .screenshot-brand-logo span:nth-child(1) {
+            top: 11px;
+        }
+
+        .screenshot-wrapper .screenshot-brand-logo span:nth-child(2) {
+            top: 19px;
+        }
+
+        .screenshot-wrapper .screenshot-brand-logo span:nth-child(3) {
+            top: 27px;
+            right: 16px;
+        }
+
+        .screenshot-wrapper .screenshot-brand-name {
+            font-size: 26px;
+            font-weight: 800;
+            color: #1a1a2e;
+            letter-spacing: 0;
+            display: block;
+            position: absolute;
+            left: 56px;
+            top: -18px;
+            height: 52px;
+            line-height: 52px;
+            white-space: nowrap;
+        }
+
+        .screenshot-wrapper .screenshot-brand-date {
+            position: absolute;
+            right: 0;
+            top: -15px;
+            height: 52px;
+            line-height: 52px;
+            text-align: right;
+            font-size: 18px;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .screenshot-wrapper .screenshot-module-title {
+            margin-top: 12px;
+            height: 26px;
+            line-height: 26px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #6b7280;
+        }
+
+        .screenshot-wrapper .screenshot-footer {
+            margin-top: 18px;
+            padding: 20px 24px;
+            padding-right: 152px;
+            background: rgba(14, 165, 233, 0.06);
+            border: 1px solid rgba(14, 165, 233, 0.12);
+            border-radius: 12px;
+            position: relative;
+            min-height: 140px;
+            box-sizing: border-box;
+        }
+
+        .screenshot-wrapper .screenshot-footer-text {
+            display: block;
+            padding-top: 25px;
+        }
+
+        .screenshot-wrapper .screenshot-footer-title {
+            font-size: 20px;
+            line-height: 28px;
+            font-weight: 800;
+            color: #1f2937;
+        }
+
+        .screenshot-wrapper .screenshot-footer-url {
+            margin-top: 2px;
+            font-size: 11px;
+            line-height: 16px;
+            color: #6b7280;
+            word-break: break-all;
+            display: none;
+        }
+
+        .screenshot-wrapper .screenshot-footer-qr-cell {
+            position: absolute;
+            right: 16px;
+            top: 14px;
+            width: 112px;
+            height: 112px;
+            padding: 8px;
+            background: #ffffff;
+            border: 1px solid rgba(14, 165, 233, 0.14);
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .screenshot-wrapper .screenshot-footer-qr {
+            display: block;
+            width: 94px;
+            height: auto;
+            min-height: 0;
+            padding: 0;
+            background: transparent;
+            border: 0;
+            border-radius: 0;
+            box-sizing: border-box;
+        }
+
+        .screenshot-wrapper .screenshot-footer-qr canvas,
+        .screenshot-wrapper .screenshot-footer-qr img,
+        .screenshot-wrapper .screenshot-footer-qr svg,
+        .screenshot-wrapper .screenshot-footer-qr table {
+            display: block;
+            width: 94px !important;
+            height: 94px !important;
+        }
+
+        /* 截图失败降级：图片浮层（移动端长按保存） */
+        .screenshot-fallback-mask {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(15, 23, 42, 0.7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            box-sizing: border-box;
+        }
+
+        .screenshot-fallback-hint {
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .screenshot-fallback-img {
+            max-width: min(90vw, 600px);
+            max-height: 70vh;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            background: #ffffff;
+        }
+
+        .screenshot-fallback-close {
+            margin-top: 20px;
+            padding: 10px 28px;
+            border-radius: 8px;
+            border: none;
+            background: #ffffff;
+            color: #1f2937;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        @media (max-width: 640px) {
+            .floating-actions {
+                right: 0.75rem;
+                bottom: 1rem;
+            }
+
+            .directory-panel {
+                width: min(80vw, 15rem);
+                bottom: 3.25rem;
+                max-height: min(70vh, 20rem);
+            }
+            :root {
+                --directory-main-font-size: 0.8rem;
+                --directory-sub-font-size: 0.72rem;
+            }
+        }
+    </style>
+<style>
+.report-date-trigger{display:inline-flex;align-items:center;gap:8px;min-height:40px;border:1px solid transparent;background:transparent;color:#0ea5e9;border-radius:9px;padding:6px 11px;font:inherit;white-space:nowrap;cursor:pointer;transition:background .2s,border-color .2s}
+.report-date-trigger:hover,.report-date-trigger[aria-expanded="true"]{border-color:#0ea5e955;background:color-mix(in srgb,#0ea5e9 8%,white)}.report-date-trigger:focus-visible{outline:2px solid #0ea5e9;outline-offset:2px;border-color:#0ea5e955;background:color-mix(in srgb,#0ea5e9 8%,white)}
+.report-calendar-overlay{position:fixed;inset:0;z-index:10000;background:rgba(15,23,42,.35);display:flex;align-items:center;justify-content:center;padding:16px;overscroll-behavior:contain}.report-calendar-overlay[hidden]{display:none}
+.report-calendar{width:min(100%,360px);background:#fff;color:#1f2937;border-radius:20px;padding:22px;box-shadow:0 24px 70px rgba(15,23,42,.24);font-family:inherit;max-height:calc(100dvh - 32px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.report-calendar-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.report-calendar-top strong{font-size:18px}
+.report-calendar button,.report-calendar select{font:inherit}.report-calendar-nav{border:0;background:#f3f4f6;border-radius:10px;width:36px;height:36px;cursor:pointer;font-size:20px;color:#374151}.report-calendar-close{border:0;background:transparent;border-radius:9999px;color:#64748b;cursor:pointer;padding:6px;width:36px;height:36px}.report-calendar-close:hover{color:#0ea5e9}.report-calendar-nav:disabled{opacity:.3;cursor:not-allowed}
+.report-calendar-controls{display:flex;align-items:center;gap:8px;margin-bottom:15px}.report-calendar-controls select{min-width:0;border:1px solid #e5e7eb;border-radius:9px;background:#fff;padding:7px 3px;flex:1;color:#1f2937}
+.report-calendar-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;text-align:center}.report-calendar-week{font-size:12px;color:#9ca3af;padding:7px 0}
+.report-calendar-day{height:38px;border:0;border-radius:10px;background:transparent;color:#374151;cursor:pointer}.report-calendar-day:not(:disabled):not([aria-disabled="true"]):hover{background:color-mix(in srgb,#0ea5e9 12%,white);color:#0ea5e9}.report-calendar-day.current{background:#0ea5e9;color:white;font-weight:700}.report-calendar-day.today:not(.current){box-shadow:inset 0 0 0 1.5px #0ea5e9;color:#0ea5e9}.report-calendar-day:disabled,.report-calendar-day[aria-disabled="true"]{color:#cbd5e1;cursor:not-allowed}.report-calendar-day[aria-disabled="true"]{position:relative}.report-calendar-day[aria-disabled="true"][data-tip]:hover::after,.report-calendar-day[aria-disabled="true"][data-tip]:focus-visible::after{content:attr(data-tip);position:absolute;z-index:2;bottom:calc(100% + 5px);left:50%;transform:translateX(-50%);width:max-content;max-width:200px;padding:5px 8px;border-radius:6px;background:#1f2937;color:#fff;font-size:12px;font-weight:400;line-height:1.4;white-space:normal;pointer-events:none}
+.report-calendar button:focus-visible,.report-calendar select:focus-visible{outline:2px solid #0ea5e9;outline-offset:2px}@media(max-width:400px){.report-calendar{padding:18px}.report-calendar-day{height:36px}}
+</style></head>
+<body class="bg-white text-black min-h-screen">
+    <!-- HTML注释: 整体宽度通过 max-w-4xl 控制，实现日报宽度调小并保持响应式。-->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+        <!-- === 返回主页按钮 === -->
+        <div class="w-full mb-4 flex justify-start">
+            <!-- HTML注释: 返回主页链接暂为占位，已指向主页 index.html。 -->
+            <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 hover:bg-slate-100 text-slate-600 hover:text-[#0369A1] text-sm font-medium transition-all border border-slate-200 hover:border-[#0EA5E9]/30 shadow-sm">
+                <i class="fas fa-arrow-left text-xs"></i> 返回四海主页
+            </a>
+        </div>
+
+        <!-- === "四海日报" 文件头区域 开始 === -->
+        <!-- HTML注释: 此模块作为单独一行，占据整行宽度。包含日报主标题、报告日期和时间范围。 -->
+        <!-- HTML注释: 新增了"四海历史日报"链接，样式与整体设计保持统一协调 -->
+        <header class="w-full mb-8">
+            <div class="bento-card p-8">
+                <div class="text-center">
+                    <h1 class="text-5xl font-black text-black mb-6">
+                        四海日报
+                    </h1>
+                    <div class="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-6 text-lg mb-4">
+                        <div class="flex items-center text-gray-700">
+                            <button type="button" class="report-date-trigger" aria-haspopup="dialog" aria-expanded="false"><i class="fas fa-calendar-alt text-[#0EA5E9]"></i><span id="report-date">2026年11月26日</span></button>
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-clock mr-2 text-[#0EA5E9]"></i>
+                            <span>02:00 - 02:00（次日）</span>
+                        </div>
+                    </div>
+                    <!-- HTML注释: 新增历史日报链接，位置合理且样式协调 -->
+                    <div class="flex justify-center">
+                        <a id="history-link" href="archive.html" class="history-link">
+                            <i class="fas fa-search"></i>
+                            四海历史日报
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- === "四海日报" 文件头区域 结束 === -->
+
+        <!-- HTML注释: 新增导航区域，包含"上一天"和"下一天"按钮 -->
+        <!-- HTML注释: 导航逻辑说明：
+             1. 通过JavaScript检查前后日期的日报文件是否存在
+             2. 根据当前页面日期确定前后日期
+             3. "下一天"按钮动态显示逻辑：仅当不是最新日报时显示
+             4. 兼容处理历史日报文件命名格式
+        -->
+        <nav class="w-full mb-8 daily-nav">
+            <div class="bento-card p-4">
+                <div class="flex justify-between items-center">
+                    <button type="button" class="nav-button day-nav-prev">
+                        <i class="fas fa-chevron-left"></i>
+                        上一天
+                    </button>
+                    
+                    <div class="text-center">
+                        <span class="text-sm text-gray-600">日报导航</span>
+                    </div>
+                    
+                    <button type="button" class="nav-button day-nav-next">
+                        下一天
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- === 每日金句模块（位于日报导航与总消息概览之间） === -->
+        <div id="daily-fortune" class="w-full mb-8">
+            <div class="bento-card relative overflow-hidden" style="background: linear-gradient(135deg, #F0FAFE 0%, #DCF0FC 50%, #FDF3D8 100%);">
+                <div class="p-5 sm:p-6">
+                    <div class="flex items-start gap-4">
+                        <div class="shrink-0 w-10 h-10 rounded-full bg-[#CFE9F9] flex items-center justify-center text-[#0EA5E9] mt-1">
+                            <i class="fas fa-feather-alt text-lg"></i>
+                        </div>
+                        <div class="flex-grow min-w-0">
+                            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#CFE9F9]/80 text-[#0369A1] text-xs font-bold mb-3">
+                                <i class="fas fa-quote-left text-[10px]"></i> 每日金句
+                            </div>
+                            <!-- HTML注释: 每日金句为"今日金句"模式，由AI从当日群聊记录中直接选取，并同时生成8~10条候选填入页面底部 pool（见「金句换一句」脚本注释）。选取标准与"金句时刻"一致：必须基于群成员真实发言，让人获得"啊哈"或恍然大悟的启发；金句不允许负向描述（如骂人、侮辱人等话语）；金句内容本身不包含群成员昵称。 -->
+                            <p class="text-base sm:text-lg font-bold text-slate-800 leading-relaxed mb-2" id="fortune-text" style="font-family: 'LXGW WenKai', serif;">安全第一，未来这十年还是先别去东南亚，他们没有逆周期的能力，只能吃人。</p>
+                            <p class="text-xs text-slate-400 mb-4" id="fortune-meta">
+                                <span id="fortune-author" class="font-medium text-slate-500"><b>吉山偷猪</b></span>
+                                <span id="fortune-date" class="ml-2">2026-11-26 · 热点话题</span>
+                            </p>
+                            <div class="flex items-center gap-3">
+                                <!-- HTML注释: "换一句"按钮 + 金句候选池：AI 生成日报时，必须从当日聊天记录中挑选 8~10 条带署名的真实金句（首条即页面默认展示句，与 #fortune-text 一致），以 JS 数组形式填入页面底部「金句换一句」脚本的 pool（每条格式 {"text": 金句文本, "author": 群成员昵称, "date": "YYYY-MM-DD · 热点话题"}）。金句文本不含昵称；禁止从转发/引用内容中取句；禁止负向描述。浪花集按钮指向 waves.html（浪花集案例页），截图分享图会自动裁掉此按钮行，不影响截图。 -->
+                                <button id="fortune-shuffle" type="button" class="px-4 py-2 rounded-lg bg-[#E6F4FC] hover:bg-[#CFE9F9] text-[#0369A1] text-sm font-bold border border-[#B5E0F4] hover:border-[#7FC2E8] transition-all flex items-center gap-1.5 shadow-sm cursor-pointer">
+                                    <i class="fas fa-sync-alt"></i> 换一句
+                                </button>
+                                <a href="waves.html" class="px-4 py-2 rounded-lg bg-[#E6F4FC] hover:bg-[#CFE9F9] text-[#0369A1] text-sm font-bold border border-[#B5E0F4] hover:border-[#7FC2E8] transition-all flex items-center gap-1.5 shadow-sm">
+                                    <i class="fas fa-water"></i> 浪花集
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- === 模块一：总消息概览 开始 === -->
+        <!-- HTML注释: 此模块作为单独一行，占据整行宽度。显示当日群聊总消息数量。 -->
+        <section id="section-overview" class="w-full mb-12 anchor-target">
+            <h2 class="section-title">总消息概览</h2>
+            <div class="bento-card p-8 bg-gradient-to-br from-[#0EA5E9]/20 via-[#0EA5E9]/10 to-[#0EA5E9]/5 text-center rounded-2xl">
+                <div class="number-display text-[#0EA5E9]">
+                    2552
+                </div>
+                <p class="text-xl font-semibold text-black mt-3">总消息数量</p>
+            </div>
+        </section>
+        <!-- === 模块一：总消息概览 结束 === -->
+
+        <!-- === 模块二：火花碰撞时刻・热点话题 开始 === -->
+        <!-- HTML注释: 此模块作为单独一行，占据整行宽度。用于展示群内讨论的热点话题。 -->
+        <!-- HTML注释: 模块二内容结构说明: -->
+        <!-- 1. 话题: 作为卡片的主标题 -->
+        <!-- 2. 关键结论: 每个话题下可以包含多个关键结论 (模板结构示例展示支持最多3个关键结论，如需更多可复制结构)；关键结论应按照话题讨论的时间线来编写。 -->
+        <!-- 3. <b>金句时刻</b>: 每个关键结论下对应约3个<b>金句时刻</b>。 -->
+        <!-- HTML注释: "爬楼关键词"说明: 每个话题卡片中包含爬楼关键词区域，用于用户快速定位到群聊记录中的对应讨论位置，为话题起始句。填写时需要包含相关用户的昵称，格式示例：[用户昵称]：[关键词内容]，但不要包含微信ID。为便于定位，请勿引用图片、视频、链接、语音等非文本消息作为起始句，应顺延至其后的第一条有效文本消息。为便于定位，请勿引用图片、视频、链接、语音等非文本消息作为起始句，应顺延至其后的第一条有效文本消息。 -->
+        <section id="section-hot-topics" class="w-full mb-12 anchor-target">
+            <h2 class="section-title">火花碰撞时刻・热点话题</h2>
+            <div class="space-y-8">
+<!-- 热点话题卡片 1 -->
+                <div class="bento-card p-6 rounded-xl"> <!-- 其他模块（如热点话题）的卡片边框颜色和样式不得更改 -->
+                    <div class="flex flex-col sm:flex-row items-start justify-between mb-4">
+                        <h4 class="text-xl font-bold text-black flex-1 mb-2 sm:mb-0">这些大V都归于哪一类：装左派恰流量的信息污染源</h4>
+                        <span class="text-sm text-gray-600 ml-0 sm:ml-4 whitespace-nowrap bg-gray-100 px-3 py-1.5 rounded-md">
+                            <i class="fas fa-clock mr-1.5 text-gray-500"></i>09:52 - 10:38
+                        </span>
+                    </div>
+                    <div class="mb-4 bg-[#EEF2FF] border border-[#C7D2FE] rounded-md p-3">
+                        <p class="text-sm font-medium text-[#4338CA] mb-1">爬楼关键词</p>
+                        <p class="text-sm text-[#4F46E5] italic">"【Z】西西："这些人都可以归于哪一类？""</p>
+                    </div>
+                    <div class="mb-5">
+                        <p class="text-sm font-semibold text-gray-800 mb-2">相关关键词</p>
+                        <div class="flex flex-wrap gap-2"><span class="tag-item">公众号</span><span class="tag-item">信息污染</span><span class="tag-item">大V甄别</span><span class="tag-item">创作者视角</span></div>
+                    </div>
+                    <div class="mb-5">
+                        <p class="text-sm font-semibold text-gray-800 mb-2">详细内容</p>
+                        <div class="text-gray-700 text-base leading-relaxed bg-slate-50 p-4 rounded-md prose prose-sm max-w-none">
+                            <div class="expandable-content" data-char-limit="200">
+                                <div class="content-preview"><b>一、话题背景与起因</b><br>上午 <b>西西</b> 说自己翻到几个公众号，看着味道怪怪的；<b>就偷猪圆玉翠</b> 顺势问她：除了金靴，是不是还关注了牧之野、顾子明、岱中岱、云子、赵皓阳。<b>西西</b> 接着问："这些人都可以归于哪一类？"<br><br><b>二、主要观点与讨论详情</b><br><b>就偷猪圆玉翠</b> 一句归类："伤脑啊，信息污染"。<b>我就偷猪</b> 说："这些都不要看，有的写作水平高的能把人绕进去"。他直接给了定义："装左派恰流量的低水平大V/高级黑"。<b>洋没偷猪</b> 的劝法更干脆："少看这些"，"有时间真不如看毛传毛选党史"。<br><br>话题很快扩到整个生态位。<b>西西</b> 说自己常看的还有新潮沉思录、林五一议时、大浪淘沙、观察者网。<b>Rorschach</b> 提醒："上次大家讨论过，新潮也有问题"。<b>就偷猪圆玉翠</b> 补了一句："这个就是赵皓阳"。<b>Dang</b> 提到六神磊磊："这么多年看文章最恶心的就是这货的疫情期间的那篇漏水的文章"，"其他人还是藏着掖着，他那个是演都不演了"。<b>momo</b> 说和菜头好像也是古墓派公知。<b>今天是叶子</b> 给了正向替代："真要看公众号，就看吴老师的"，"还有孔鲤"。<br><br><b>杰</b> 举了个实证：后会有期那两个电竞组流量大的时候，"我发现信息污染是真有用啊"，"直接把豆包干废了"，"问他事情输出的名字都是反的"。<b>阿戒</b> 补充金靴的印象："好像涉堵"。<br><br>最有方法论价值的是 <b>如意如意随我心意</b> 的两句："感觉奇怪就取关，肯定没损失"，"有精力的话可以试着自己写写文章发一发，代入创作者视角体验一下创作的过程，很多奇怪的东西就不奇怪了。""长期的创作者，写文章，每一个字都有目的。"<b>谁没偷猪</b> 的收尾把视野拉开："有没有这帮人在网上放屁都不妨碍cpc建设"。<b>杰</b> 对看红色大V看腻了的也说："你往前走了，大V只是科普水平的"。<br><br><b>三、争议焦点（若有）</b><br>无实质争议——这是一次快速的污染源共识别。唯一的延伸分歧在消费方式：<b>西西</b> 翻记录确认自己没有关注其他时政评论号，算是自清；<b>如意</b> 给的解法不是辨，而是写——自己当一次创作者，立场就露馅了。<br><br><b>四、结论与启发</b><br>识别这类号的三个抓手：归类（装左派恰流量的低水平大V/高级黑）、动作（感觉奇怪就取关）、换位（自己写一次，就懂每个字都有目的）。比甄别更重要的是别让信息源决定自己的脑子——大V只是科普水平，往前走的人不该停在科普水平。</div>
+                                <button class="expand-btn text-[#0369A1] hover:text-[#075985] text-sm font-medium mt-2 flex items-center" style="display: none;">
+                                    <span class="expand-text">展开全文</span>
+                                    <i class="fas fa-chevron-down ml-1 expand-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold text-gray-800 mb-3">关键结论与金句时刻</p>
+                        <div class="space-y-6">
+                            <!-- 关键结论 -->
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                                <div class="mb-4">
+                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
+                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
+                                        <p class="text-black text-base">这些人归于哪一类：装左派恰流量的低水平大V/高级黑。</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
+                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">装左派恰流量的低水平大V/高级黑</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>我就偷猪</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">这些都不要看，有的写作水平高的能把人绕进去</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>我就偷猪</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">少看这些</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>洋没偷猪</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">上次大家讨论过，新潮也有问题</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>Rorschach</b>
+                                            </p>
+                                        </div></div>
+                                </div>
+                            </div>
+                            <!-- 关键结论 -->
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                                <div class="mb-4">
+                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
+                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
+                                        <p class="text-black text-base">感觉奇怪就取关，肯定没损失；长期的创作者，写文章，每一个字都有目的。</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
+                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">感觉奇怪就取关，肯定没损失有精力的话可以试着自己写写文章发一发，代入创作者视角体验一下创作的过程，很多奇怪的东西就不奇怪了。</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>如意如意随我心意</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">长期的创作者，写文章，每一个字都有目的。</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>如意如意随我心意</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">有没有这帮人在网上放屁都不妨碍cpc建设</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>谁没偷猪</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">真要看公众号，就看吴老师的。</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>今天是叶子</b>
+                                            </p>
+                                        </div></div>
+                                </div>
+                            </div></div>
+                    </div>
+                </div>
+<!-- 热点话题卡片 2 -->
+                <div class="bento-card p-6 rounded-xl"> <!-- 其他模块（如热点话题）的卡片边框颜色和样式不得更改 -->
+                    <div class="flex flex-col sm:flex-row items-start justify-between mb-4">
+                        <h4 class="text-xl font-bold text-black flex-1 mb-2 sm:mb-0">口嗨不是种族歧视：「主流社会」四个字到底有多重</h4>
+                        <span class="text-sm text-gray-600 ml-0 sm:ml-4 whitespace-nowrap bg-gray-100 px-3 py-1.5 rounded-md">
+                            <i class="fas fa-clock mr-1.5 text-gray-500"></i>10:52 - 11:30
+                        </span>
+                    </div>
+                    <div class="mb-4 bg-[#EEF2FF] border border-[#C7D2FE] rounded-md p-3">
+                        <p class="text-sm font-medium text-[#4338CA] mb-1">爬楼关键词</p>
+                        <p class="text-sm text-[#4F46E5] italic">"【Z】Nemo："一个北方人，在南方城市上班，办公室里除了自己都是当地人，他们内部沟通都用方言，自己完全听不懂。""</p>
+                    </div>
+                    <div class="mb-5">
+                        <p class="text-sm font-semibold text-gray-800 mb-2">相关关键词</p>
+                        <div class="flex flex-wrap gap-2"><span class="tag-item">种族歧视</span><span class="tag-item">主流社会</span><span class="tag-item">原罪</span><span class="tag-item">口嗨</span></div>
+                    </div>
+                    <div class="mb-5">
+                        <p class="text-sm font-semibold text-gray-800 mb-2">详细内容</p>
+                        <div class="text-gray-700 text-base leading-relaxed bg-slate-50 p-4 rounded-md prose prose-sm max-w-none">
+                            <div class="expandable-content" data-char-limit="200">
+                                <div class="content-preview"><b>一、话题背景与起因</b><br>上午聊到一段写海外华人的文字。<b>我就偷猪</b> 说那段写得好："没有在国外待过的人很难理解主流社会这个词对于一个普通公民究竟意味着什么。为什么呢?因为他们就生活在主流社会，他们不缺祖国"。<br><br><b>二、主要观点与讨论详情</b><br><b>Nemo</b> 给了个本土化的比喻："换个方式更好理解一些：一个北方人，在南方城市上班，办公室里除了自己都是当地人，他们内部沟通都用方言，自己完全听不懂。""或者除了自己都是在一起工作10年的人，他们经常讨论之前的一些故事，自己也插不进去话。"<b>皑皑</b> 对上了自己单位：有几个其他单位调任过来的，就喜欢天天聚在一起说他们以前的事。<b>我就偷猪</b> 把比喻再推一步："或者都是一个办公室的，只有你不嫖娼"。<b>咱就是偷猪</b> 接："那是你的问题吗，那是办公室的问题"。<br><br><b>Nemo</b> 问：这个"主流"，是否可以简单延伸为"话语权"？<b>我就偷猪</b> 说："种族歧视是系统性的，话语权被包含在内"。<b>杰</b> 把关键的那层剥出来："这些都可以通过学习方言和补充缺失的“知识”填补"，但"种族歧视是你打破沟通障碍之后仍然存在的东西"。<br><br>杰还给了这个词的来历："拿中国人来举例其实是理解不了的"，"种族歧视更接近一种“原罪”"，"首先是西方社会因为种族歧视制造了一堆惨剧"，"然后所有人才对种族歧视产生了类似PTSD的东西"。<b>谁没偷猪</b> 把它说白："通俗点说就是根本没把对方当人看，一等公民二等公民三等公民的概念，都是所谓的一等公民定义的"，"定义就是“除了我们一等公民，其他的都不算人”"，"白人的种族歧视，是带着“灭绝”的目的性来进行的"。<br><br>那中国网友的口嗨算不算？<b>春日迟迟</b> 说："虽然一些中国网友嘴上棒子阿三的喊，但实际远达不到种族歧视的地步，因为是真的没有这方面的经验……"真不把对方当人的话，不是这样的，"连骂都懒得骂，直接动手的"。她也说了这个类比的本质："本质是转移话题，西方种族歧视是有血债的、甚至现在还有流血事件，拿国内互联网口嗨去类比，压根不是一回事"。<b>努力引体向上</b> 说身边就有这种朋友："平常爱嘴两句外国人的颜色，但他们是真的不歧视，纯口嗨玩梗"。<b>杰</b> 补了一句角度："有时候骂他们是因为把他们当人了"。<br><br><b>呼吸自己</b> 想起一句反过来的话："最不冒犯任何人的人，最种族歧视"。<b>春日迟迟</b> 解释："因为ta知道每个人被歧视的点在哪里？类似跟一个人聊天很舒服，是因为对方在向下兼容"。<br><br><b>三、争议焦点（若有）</b><br>口嗨与歧视的边界。多数意见：性质不同——口嗨是没经验的互联网习气，种族歧视是带着灭绝目的性的系统性结构；但谁没偷猪 追问："还是说，歧视也分等级？可是它都是歧视了，划分等级的意义是在哪里呢？"这个问题没有收拢答案。<br><br><b>四、结论与启发</b><br>「主流社会」的分量不在方言和饭桌，在你打破了所有沟通障碍之后，对方仍然不把你当人。判断歧视别看字眼看结构：有没有血债、有没有系统性的目的。同时也别用别人的原罪来给自己发许可证——口嗨不是歧视，但口嗨也不是本事。</div>
+                                <button class="expand-btn text-[#0369A1] hover:text-[#075985] text-sm font-medium mt-2 flex items-center" style="display: none;">
+                                    <span class="expand-text">展开全文</span>
+                                    <i class="fas fa-chevron-down ml-1 expand-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold text-gray-800 mb-3">关键结论与金句时刻</p>
+                        <div class="space-y-6">
+                            <!-- 关键结论 -->
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                                <div class="mb-4">
+                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
+                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
+                                        <p class="text-black text-base">种族歧视是你打破沟通障碍之后仍然存在的东西。</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
+                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">种族歧视是你打破沟通障碍之后仍然存在的东西</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>杰</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">种族歧视更接近一种“原罪”</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>杰</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">定义就是“除了我们一等公民，其他的都不算人”</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>谁没偷猪</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">白人的种族歧视，是带着“灭绝”的目的性来进行的</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>谁没偷猪</b>
+                                            </p>
+                                        </div></div>
+                                </div>
+                            </div>
+                            <!-- 关键结论 -->
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                                <div class="mb-4">
+                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
+                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
+                                        <p class="text-black text-base">本质是转移话题：西方种族歧视是有血债的，拿口嗨类比压根不是一回事。</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
+                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">本质是转移话题，西方种族歧视是有血债的、甚至现在还有流血事件，拿国内互联网口嗨去类比，压根不是一回事</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>春日迟迟</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">连骂都懒得骂，直接动手的</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>春日迟迟</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">最不冒犯任何人的人，最种族歧视</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>呼吸自己</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">有时候骂他们是因为把他们当人了</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>杰</b>
+                                            </p>
+                                        </div></div>
+                                </div>
+                            </div></div>
+                    </div>
+                </div>
+<!-- 热点话题卡片 3 -->
+                <div class="bento-card p-6 rounded-xl"> <!-- 其他模块（如热点话题）的卡片边框颜色和样式不得更改 -->
+                    <div class="flex flex-col sm:flex-row items-start justify-between mb-4">
+                        <h4 class="text-xl font-bold text-black flex-1 mb-2 sm:mb-0">豆豆三部曲：只看中间是纯反贼，连着看才见导向</h4>
+                        <span class="text-sm text-gray-600 ml-0 sm:ml-4 whitespace-nowrap bg-gray-100 px-3 py-1.5 rounded-md">
+                            <i class="fas fa-clock mr-1.5 text-gray-500"></i>13:30 - 14:12
+                        </span>
+                    </div>
+                    <div class="mb-4 bg-[#EEF2FF] border border-[#C7D2FE] rounded-md p-3">
+                        <p class="text-sm font-medium text-[#4338CA] mb-1">爬楼关键词</p>
+                        <p class="text-sm text-[#4F46E5] italic">"【Z】AA昍："天道的原著遥远的救世主，这个是豆豆三部曲，得三部连着看""</p>
+                    </div>
+                    <div class="mb-5">
+                        <p class="text-sm font-semibold text-gray-800 mb-2">相关关键词</p>
+                        <div class="flex flex-wrap gap-2"><span class="tag-item">豆豆三部曲</span><span class="tag-item">遥远的救世主</span><span class="tag-item">天幕红尘</span><span class="tag-item">民主辩经</span></div>
+                    </div>
+                    <div class="mb-5">
+                        <p class="text-sm font-semibold text-gray-800 mb-2">详细内容</p>
+                        <div class="text-gray-700 text-base leading-relaxed bg-slate-50 p-4 rounded-md prose prose-sm max-w-none">
+                            <div class="expandable-content" data-char-limit="200">
+                                <div class="content-preview"><b>一、话题背景与起因</b><br>中午 <b>AA昍</b> 聊起豆豆三部曲："天道的原著遥远的救世主，这个是豆豆三部曲，得三部连着看，不能只看中间这部，只看中间这部就是纯反贼，连着看的话就能看到一个反贼是如何导向共产主义的，还是挺有意思的"。他还说自己写过一篇书评发在微博上，讲这三部前后的继承关系："很多小说，如果你只看内容，其实意思不大，但如果你看这个作者背后是怎么想的，反而就有点味道了"。<br><br><b>二、主要观点与讨论详情</b><br><b>今天是叶子</b> 找出了那篇书评，核心一句是：《背叛》是见自我，《遥远的救世主》是见天地，《天幕红尘》是见众生——从 1 到 2 很简单，「我爱你」，而我和你都在天地间，没有天地我们便无法存活；但从 2 到 3 非常难，因为要看到天地之间的众生，这听起来容易，但实际上大部分智人一辈子也做不到。<br><br><b>AA昍</b> 特别点了第三部："《豆豆三部曲》的最后一部里面，男主有一段关于民主的辩经，很精彩很有意思，能看出来作者是自己真的想通了，要不然写不出这样的对话"。又说作者的写法："他写角色写感情有点像大刘，不是夸啊，大刘写的《三体》里边的各个角色都像机器人一样，没有任何的感情或者感情线，特别的机械和生涩。因为他们的重点就不在这儿，他们的重点在于讨论一些哲思的东西，所以就避开了自己的弱项吧"。<br><br>群友对阅读顺序很有共鸣。<b>阿戒</b> 说："我先看的第三部，然后看第一第二部就很难受"。<b>蚂蚁窝</b> 同感："第三部是真精彩，单看也好看，反而再去看前两部，就觉得有点迷惑"。<b>u</b> 说连着看感觉真的不一样，"看第二部的时候很迷惑，不懂为什么被那么多人（尤其是炒股的人）奉为圭臬"。<b>AA昍</b> 回这个疑问："因为真的可行……只有真正操作过的人，才知道。是在赌，但真的行得通。所以公开而言，要说这肯定行不通。"。<b>u</b> 还说："叶子农的好几段辩经都特别好玩，真的可以学到很多"。<br><br><b>三、争议焦点（若有）</b><br>无争议，主要共鸣点在两处：要不要按顺序连读（多数认同要连读，单看中间容易被带偏）；以及它算不算炒股圣经（AA昍 的判断是「真的可行，但公开要说行不通」）。<br><br><b>四、结论与启发</b><br>单部作品容易被截取成自己想要的样子，三部曲连读才看得见作者把一个人从哪里导向哪里。看小说别看内容看作者怎么想——这是很多文本的正确打开方式。</div>
+                                <button class="expand-btn text-[#0369A1] hover:text-[#075985] text-sm font-medium mt-2 flex items-center" style="display: none;">
+                                    <span class="expand-text">展开全文</span>
+                                    <i class="fas fa-chevron-down ml-1 expand-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold text-gray-800 mb-3">关键结论与金句时刻</p>
+                        <div class="space-y-6">
+                            <!-- 关键结论 -->
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                                <div class="mb-4">
+                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
+                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
+                                        <p class="text-black text-base">只看中间这部就是纯反贼，连着看就能看到一个反贼是如何导向共产主义的。</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
+                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">天道的原著遥远的救世主，这个是豆豆三部曲，得三部连着看，不能只看中间这部，只看中间这部就是纯反贼，连着看的话就能看到一个反贼是如何导向共产主义的，还是挺有意思的</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">《豆豆三部曲》的最后一部里面，男主有一段关于民主的辩经，很精彩很有意思，能看出来作者是自己真的想通了，要不然写不出这样的对话</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">他写角色写感情有点像大刘，不是夸啊，大刘写的《三体》里边的各个角色都像机器人一样，没有任何的感情或者感情线，特别的机械和生涩。因为他们的重点就不在这儿，他们的重点在于讨论一些哲思的东西，所以就避开了自己的弱项吧</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div></div>
+                                </div>
+                            </div>
+                            <!-- 关键结论 -->
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                                <div class="mb-4">
+                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
+                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
+                                        <p class="text-black text-base">因为真的可行……只有真正操作过的人，才知道。</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
+                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">因为真的可行……只有真正操作过的人，才知道。是在赌，但真的行得通。所以公开而言，要说这肯定行不通。</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">很多小说，如果你只看内容，其实意思不大，但如果你看这个作者背后是怎么想的，反而就有点味道了，很好玩</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">叶子农的好几段辩经都特别好玩，真的可以学到很多</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>u</b>
+                                            </p>
+                                        </div></div>
+                                </div>
+                            </div></div>
+                    </div>
+                </div>
+<!-- 热点话题卡片 4 -->
+                <div class="bento-card p-6 rounded-xl"> <!-- 其他模块（如热点话题）的卡片边框颜色和样式不得更改 -->
+                    <div class="flex flex-col sm:flex-row items-start justify-between mb-4">
+                        <h4 class="text-xl font-bold text-black flex-1 mb-2 sm:mb-0">电玩城与拼豆：谁在杀死游戏厅，拼豆为什么火</h4>
+                        <span class="text-sm text-gray-600 ml-0 sm:ml-4 whitespace-nowrap bg-gray-100 px-3 py-1.5 rounded-md">
+                            <i class="fas fa-clock mr-1.5 text-gray-500"></i>13:35 - 15:31
+                        </span>
+                    </div>
+                    <div class="mb-4 bg-[#EEF2FF] border border-[#C7D2FE] rounded-md p-3">
+                        <p class="text-sm font-medium text-[#4338CA] mb-1">爬楼关键词</p>
+                        <p class="text-sm text-[#4F46E5] italic">"【Y】犬八："我的店里有电玩业务啊，专门来玩的还挺多的""</p>
+                    </div>
+                    <div class="mb-5">
+                        <p class="text-sm font-semibold text-gray-800 mb-2">相关关键词</p>
+                        <div class="flex flex-wrap gap-2"><span class="tag-item">电玩城</span><span class="tag-item">拼豆</span><span class="tag-item">宜家效应</span><span class="tag-item">抓娃娃</span><span class="tag-item">GTA6</span></div>
+                    </div>
+                    <div class="mb-5">
+                        <p class="text-sm font-semibold text-gray-800 mb-2">详细内容</p>
+                        <div class="text-gray-700 text-base leading-relaxed bg-slate-50 p-4 rounded-md prose prose-sm max-w-none">
+                            <div class="expandable-content" data-char-limit="200">
+                                <div class="content-preview"><b>一、话题背景与起因</b><br>下午聊到电玩城。<b>呆喵没睡醒</b> 先说观察："电玩城的游戏种类太单一了，人多的都是类似老虎机刷票性质的，音乐类的机器都是上世纪那种过时型号"，"路人视角的电玩城群体：刷票兑周边的，跳街舞录视频的，遛娃抓娃娃的，戴手套搓洗衣机的，从小时候的大众体验变成小众群体专属体验了"。<br><br><b>二、主要观点与讨论详情</b><br>开电玩店的 <b>犬八</b> 出来说行情："我的店里有电玩业务啊，专门来玩的还挺多的，我没有开在商场"——但"电玩城的主要收费应该是抓娃娃了目前"，"但是现在很多独立出来的抓娃娃店，吃掉了很大一部分"。他还说商场栏杆边那种共享电玩（电脑主机+模拟器冒充游戏机）有市场："本质是人流在等吃饭或者什么的时候随便玩一玩"，"只看电玩城的数据的话肯定是行业不景气程度非常之高"。<br><br>说到 GTA6，<b>犬八</b> 说他店里电话都被打爆了；但那种共享机器玩不了 GTA6，"能玩的都是假的"。<b>广州-晶晶</b>（做 B 端设备生意的）接话："C端的生意好 我们做B端就不愁了"，"最近这个gta6上线 那是赶上一波"。<br><br><b>AA昍</b> 给了两个判断。其一，电玩城的本质："更多的性质是说，为这个商场向消费者提供一个来这儿转一转的理由，跟电影院的逻辑是类似的。倒不一定是真的来玩游戏，就是一种体验"。其二，和 AI 短剧的关系："电子游戏的本质是通过设定一个适当的难度，让你觉得既有挑战性又能够获得成就感。这个难度的区间是很微妙的，每个人的区别很大，所以一个游戏需要有不同的档次，或者说一个游戏公司需要推出不同档次的游戏。但是AI就不需要，剧里边完全可以提供不同层次的爽点，而且没有任何的难度。你只要能点开手机盯着看就可以了所以从人性的逻辑来说，从心理需求来说，他们俩确实是竞争关系，都是杀时间的利器"。<br><br>然后是拼豆。<b>Ps</b> 说："拼豆这两年可太火了"，"大人小孩都在玩"。<b>犬八</b> 说："就你也无法想象拼豆这个东西好玩在哪"，"但拼豆就是火"，"好在也不需要什么布置成本，上就上了，到时候不景气了撤了便是"。<b>AA昍</b> 给了个标签——#宜家效应："现代人能够亲手创造一点东西的机会太少。人脱离实际创作就容易得精神病。所以哪怕是用拼豆拼一点没有什么实际价值的东西出来，毕竟是自己做的。精神状态也会有所好转。"他还讲了个实验：一群人拼乐高，按图纸拼高达，拼一个给 10 美元；A 组拼完就放在那，越摆越多；B 组拼完就要马上拆掉重新拼，解释是乐高积木不够用但照常计数——"结果A组人平均拼的个数大概是B组人的将近两倍。也就是说，因为A组人能看到自己的劳动成果放在那里。虽然毫无意义，但是毕竟能看到。但B组人看到自己的劳动成果是毫无意义的。他能亲眼看到这个劳动成果被人毁掉，于是增加了这种虚无感。所以哪怕都是计件发钱，A组人更容易坚持，B组人更容易放弃。"结论："拼豆就是A组人，有些虚拟游戏做的还不如拼豆呢，没有提供有价值的反馈，相当于B组人"。<br><br><b>三、争议焦点（若有）</b><br>无争议，主要共享一个行业共识：传统电玩城在收缩（抓娃娃撑营收），共享电玩和拼豆是两种活得不错的替代形态。<br><br><b>四、结论与启发</b><br>拼豆火的理由可能恰恰是它「没用」：人需要看得见摸得着的劳动成果，这是精神刚需。做事也是同理——让人能看到成果留下来，比给他计数发钱更能让他坚持。</div>
+                                <button class="expand-btn text-[#0369A1] hover:text-[#075985] text-sm font-medium mt-2 flex items-center" style="display: none;">
+                                    <span class="expand-text">展开全文</span>
+                                    <i class="fas fa-chevron-down ml-1 expand-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold text-gray-800 mb-3">关键结论与金句时刻</p>
+                        <div class="space-y-6">
+                            <!-- 关键结论 -->
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                                <div class="mb-4">
+                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
+                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
+                                        <p class="text-black text-base">人脱离实际创作就容易得精神病。</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
+                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">现代人能够亲手创造一点东西的机会太少。人脱离实际创作就容易得精神病。所以哪怕是用拼豆拼一点没有什么实际价值的东西出来，毕竟是自己做的。精神状态也会有所好转。</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">因为A组人能看到自己的劳动成果放在那里。虽然毫无意义，但是毕竟能看到。但B组人看到自己的劳动成果是毫无意义的。他能亲眼看到这个劳动成果被人毁掉，于是增加了这种虚无感。</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">拼豆就是A组人，有些虚拟游戏做的还不如拼豆呢，没有提供有价值的反馈，相当于B组人</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div></div>
+                                </div>
+                            </div>
+                            <!-- 关键结论 -->
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                                <div class="mb-4">
+                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
+                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
+                                        <p class="text-black text-base">电玩城更多的性质，是为商场向消费者提供一个来这儿转一转的理由。</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
+                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">电玩城更多的性质是说，为这个商场向消费者提供一个来这儿转一转的理由，跟电影院的逻辑是类似的。倒不一定是真的来玩游戏，就是一种体验。</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">电玩城的主要收费应该是抓娃娃了目前</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>犬八</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">路人视角的电玩城群体：刷票兑周边的，跳街舞录视频的，遛娃抓娃娃的，戴手套搓洗衣机的，从小时候的大众体验变成小众群体专属体验了</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>呆喵没睡醒</b>
+                                            </p>
+                                        </div></div>
+                                </div>
+                            </div></div>
+                    </div>
+                </div>
+<!-- 热点话题卡片 5 -->
+                <div class="bento-card p-6 rounded-xl"> <!-- 其他模块（如热点话题）的卡片边框颜色和样式不得更改 -->
+                    <div class="flex flex-col sm:flex-row items-start justify-between mb-4">
+                        <h4 class="text-xl font-bold text-black flex-1 mb-2 sm:mb-0">「他们没有逆周期的能力，只能吃人」：东南亚十年别去</h4>
+                        <span class="text-sm text-gray-600 ml-0 sm:ml-4 whitespace-nowrap bg-gray-100 px-3 py-1.5 rounded-md">
+                            <i class="fas fa-clock mr-1.5 text-gray-500"></i>14:35 - 16:20
+                        </span>
+                    </div>
+                    <div class="mb-4 bg-[#EEF2FF] border border-[#C7D2FE] rounded-md p-3">
+                        <p class="text-sm font-medium text-[#4338CA] mb-1">爬楼关键词</p>
+                        <p class="text-sm text-[#4F46E5] italic">"【Z】AA昍："未来这十年还是先别去东南亚，他们没有逆周期的能力，只能吃人。""</p>
+                    </div>
+                    <div class="mb-5">
+                        <p class="text-sm font-semibold text-gray-800 mb-2">相关关键词</p>
+                        <div class="flex flex-wrap gap-2"><span class="tag-item">东南亚</span><span class="tag-item">绑架</span><span class="tag-item">电诈</span><span class="tag-item">外贸黑幕</span><span class="tag-item">第一责任人</span></div>
+                    </div>
+                    <div class="mb-5">
+                        <p class="text-sm font-semibold text-gray-800 mb-2">详细内容</p>
+                        <div class="text-gray-700 text-base leading-relaxed bg-slate-50 p-4 rounded-md prose prose-sm max-w-none">
+                            <div class="expandable-content" data-char-limit="200">
+                                <div class="content-preview"><b>一、话题背景与起因</b><br>下午 <b>吉山千印</b> 说了安踏员工泰国被拐的后续：绑匪是直接跟安踏要的赎金，没找那三个人的家里人要——"安踏应该是给了，人救回来了"。随后 <b>AA昍</b> 转来一条新闻：两名中国女子在泰国遭 37 岁男子绑架，白色药片掺进饮料，被迷晕后转移 3 处。他直接艾特所有人："安全第一，未来这十年还是先别去东南亚，他们没有逆周期的能力，只能吃人。"<br><br><b>二、主要观点与讨论详情</b><br><b>AA昍</b> 先拆人贩子的生意经："你要换位思考，如果你是人贩子，会找什么人下手？肯定是找流动人口下手的，不可能找当地有工作的。[捂脸]当地有工作的人失踪了，会有人来找的。游客失踪就失踪了呗，没人管。"<b>Kuma</b> 说自己就在东南亚扳阀门，小一千人的厂区——<b>AA昍</b> 回："那应该当地人怕你们才对"。<br><br>接着外贸人开始讲各国的黑。<b>何安基</b> 做巴西墨西哥：巴西仓库被带队抢劫过，仓管人差点没了；"墨西哥的海关知道你的货柜值钱，给你放行，然后联合黑帮把你的柜子再抢了，通过第三方联系你，让你花钱再买回去"；印尼出了名的难清关，今年经济差就拼命查；"菲律宾就不能算是一个国家，就几大家族分配好利益，你家海关，我家石油，每次换届，都伴随着利益重新分配"。<b>就偷猪圆玉翠</b> 也有一条柜在墨西哥曼萨尼略港被掏过，"剪了一个口子偷了一些"。<br><br>有人还是想去。<b>Nemo</b> 正准备去曼谷过春节；<b>小企鹅造屋</b> 说有朋友打算去菲律宾学英语考托福；<b>宇尉</b> 问：身边"都是熟人作案"，或者"约了当地朋友"，"我自由行，不约当地人就比较安全，你看看 xxx 总去也没出问题啊"——这种论调应该怎么反驳？<b>AA昍</b> 的答案是："不要反驳呀，你不去，然后祝福他们去。出事的人越多，越引起重视，最后被救的人反而越多。当事情不得不跳火坑的时候，一定要加速。"<br><br>还有人纠结"中国人骗中国人"。<b>AA昍</b> 把这个也拆了："这个一换位思考就明白了，如果你是人贩子，要在泰国骗人，难道你骗泰国人吗？[捂脸]骗缅甸人、越南人也费劲啊，语言不通嘛。作为一门生意，你最容易进货的渠道，当然是骗中国人了。所以并不是中国人骗中国人，而是所有的诈骗都是倾向于本国人骗本国人。"<b>诺姗</b> 的态度最干脆："现在还有人说其实东南亚很安全，我把这些人一概视为潜在的人贩子"。<br><br><b>三、争议焦点（若有）</b><br>去与不去。<b>萱苏</b> 说："真的，哪里不能旅游啊，非得去东南亚"。<b>咱就是偷猪</b> 后天去马来西亚出差（有团队不乱跑）；<b>何安基</b> 说新加坡马来还好。<b>Decade</b> 说"未来十年，还是保守了"。共识基本落在：自由行+网友邀约=高危组合。<br><br><b>四、结论与启发</b><br>安全的判断不看感觉看结构：对方有没有逆周期能力。没有，就只能吃人——生意不好做的时候，人就是货。劝不动的人不必劝：你不去，祝福他去，出事的人越多，被救的人反而越多。</div>
+                                <button class="expand-btn text-[#0369A1] hover:text-[#075985] text-sm font-medium mt-2 flex items-center" style="display: none;">
+                                    <span class="expand-text">展开全文</span>
+                                    <i class="fas fa-chevron-down ml-1 expand-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold text-gray-800 mb-3">关键结论与金句时刻</p>
+                        <div class="space-y-6">
+                            <!-- 关键结论 -->
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                                <div class="mb-4">
+                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
+                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
+                                        <p class="text-black text-base">未来这十年还是先别去东南亚：他们没有逆周期的能力，只能吃人。</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
+                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">安全第一，未来这十年还是先别去东南亚，他们没有逆周期的能力，只能吃人。</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">如果你是人贩子，会找什么人下手？肯定是找流动人口下手的，不可能找当地有工作的。</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">作为一门生意，你最容易进货的渠道，当然是骗中国人了。所以并不是中国人骗中国人，而是所有的诈骗都是倾向于本国人骗本国人。</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">真的，哪里不能旅游啊，非得去东南亚</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>萱苏</b>
+                                            </p>
+                                        </div></div>
+                                </div>
+                            </div>
+                            <!-- 关键结论 -->
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                                <div class="mb-4">
+                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
+                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
+                                        <p class="text-black text-base">当事情不得不跳火坑的时候，一定要加速。</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
+                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">不要反驳呀，你不去，然后祝福他们去。出事的人越多，越引起重视，最后被救的人反而越多。</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">当事情不得不跳火坑的时候，一定要加速。</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">现在还有人说其实东南亚很安全，我把这些人一概视为潜在的人贩子</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>诺姗</b>
+                                            </p>
+                                        </div></div>
+                                </div>
+                            </div></div>
+                    </div>
+                </div>
+<!-- 热点话题卡片 6 -->
+                <div class="bento-card p-6 rounded-xl"> <!-- 其他模块（如热点话题）的卡片边框颜色和样式不得更改 -->
+                    <div class="flex flex-col sm:flex-row items-start justify-between mb-4">
+                        <h4 class="text-xl font-bold text-black flex-1 mb-2 sm:mb-0">央企吐槽大会：婢女、奴才与「没有能力的人留下」</h4>
+                        <span class="text-sm text-gray-600 ml-0 sm:ml-4 whitespace-nowrap bg-gray-100 px-3 py-1.5 rounded-md">
+                            <i class="fas fa-clock mr-1.5 text-gray-500"></i>21:49 - 01:17
+                        </span>
+                    </div>
+                    <div class="mb-4 bg-[#EEF2FF] border border-[#C7D2FE] rounded-md p-3">
+                        <p class="text-sm font-medium text-[#4338CA] mb-1">爬楼关键词</p>
+                        <p class="text-sm text-[#4F46E5] italic">"【Z】春禾："经常觉得自己是古代伺候主子的婢女或者奴才""</p>
+                    </div>
+                    <div class="mb-5">
+                        <p class="text-sm font-semibold text-gray-800 mb-2">相关关键词</p>
+                        <div class="flex flex-wrap gap-2"><span class="tag-item">央企</span><span class="tag-item">官僚主义</span><span class="tag-item">定向筛选</span><span class="tag-item">裁员</span><span class="tag-item">发财义务</span></div>
+                    </div>
+                    <div class="mb-5">
+                        <p class="text-sm font-semibold text-gray-800 mb-2">详细内容</p>
+                        <div class="text-gray-700 text-base leading-relaxed bg-slate-50 p-4 rounded-md prose prose-sm max-w-none">
+                            <div class="expandable-content" data-char-limit="200">
+                                <div class="content-preview"><b>一、话题背景与起因</b><br>晚上从央企生存状态聊起。<b>春禾</b> 说毕业后第一份工作在央企："太苦逼了，干了一年跑了"，"经常觉得自己是古代伺候主子的婢女或者奴才"。<br><br><b>二、主要观点与讨论详情</b><br>伺候人的细节一摆一串。<b>春禾</b> 说："我们当时董事长竟然因为底下员工没帮他按电梯，气得批评人家自私"。<b>皑皑</b> 接上："没给领导主动端下午茶就会被记恨"，"不给领导拿包要被蛐蛐半年以上"；她们单位还有公主级别的，"和人说话恨不得用鼻孔，会指责部门公正的+1不护着她；还有把前台和保洁当丫鬟和老妈子使唤的，要别人给她拿私人快递，洗杯子切水果"，"还有领导强行搞了个几百万的项目给自己人"。<b>Rorschach</b> 说他们公司领导中午还要人去食堂把饭端好送到办公室。<b>努力引体向上</b> 说见过 3 个人出差、来接待的有 20 号人，"领导的包都不给你自己背"。<br><br>私企也不是净土。<b>我没偷猪</b> 说前司 +2 老板想安排他，但他跟 +2 的隔壁部门部长是校友吃过饭——"+2知道之后要吓尿了"，"因为他知道我知道组里一个女同事是他小三"。那两人也不避人：天天一起上下班、坐 +2 副驾、在工位吵架完了 +2 去哄。<b>我没偷猪</b> 还说私企裁员的玩法："直接给你安排几个事故复盘"，"打个差绩效，完了开始干人"，"下面不裁一批人，推ai的领导就没业绩"，"30个人的组，今年下半年已经有三个被干掉了"，"现在的环境就像是大逃杀"。<br><br><b>AA昍</b> 说了这类环境的成因："不靠能力升迁的环境一定会是这样的。""是定向筛选的……""人生苦短，有能力又有信仰的人永远是少数。于是有能力的人就会离开，剩下的就是……"。<br><br>话题落到自己怎么办。<b>Decade</b> 说："来这个群之后，看到年入百万的这么多，之前我躺得很安心，现在都感觉焦虑了起来。主要我身边都是国企、政府单位的。之前比起来的话，大家收入都差不多"。<b>我没偷猪</b> 先说"俺也一样"，<b>皑皑</b> 也说："本来躺着也过得去[捂脸]现在就不想躺着了"。<b>AA昍</b> 回了两层："还是要感谢反腐，如果你身边都是躺着啥也不干，但收黑钱年入百万的，时间长了真会得精神病"；"共产主义者有义务发财，在和平年代。和平年代，钞票=选票。"。<br><br><b>三、争议焦点（若有）</b><br>「被边缘化」到底是福是祸。<b>momo</b> 问：国企央企被边缘，领导也没权限随意开除人吧？<b>皑皑</b> 说自己就是被边缘化的，"反正摸鱼摸爽了"，而且"我明显很难搞，是真的会跟他们搞仲裁告纪委发传单那种人"，"我扬言我认识中纪委巡查组的[偷笑][偷笑][偷笑]虽然我根本不认识"。<b>春禾</b> 说领导想裁人就是一句话的事情——<b>Decade</b> 补："我们国企领导想裁一个劳务派遣没成功"。<br><br><b>四、结论与启发</b><br>不靠能力升迁的环境是定向筛选：有能力的人离开，剩下的人互喂规矩。看清这一点，「被边缘」反而可以是安全位。而对自己真正的交代只有一条：和平年代，钞票=选票——共产主义者有义务发财。</div>
+                                <button class="expand-btn text-[#0369A1] hover:text-[#075985] text-sm font-medium mt-2 flex items-center" style="display: none;">
+                                    <span class="expand-text">展开全文</span>
+                                    <i class="fas fa-chevron-down ml-1 expand-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold text-gray-800 mb-3">关键结论与金句时刻</p>
+                        <div class="space-y-6">
+                            <!-- 关键结论 -->
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                                <div class="mb-4">
+                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
+                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
+                                        <p class="text-black text-base">不靠能力升迁的环境，是定向筛选的。</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
+                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">不靠能力升迁的环境一定会是这样的。</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">人生苦短，有能力又有信仰的人永远是少数。于是有能力的人就会离开，剩下的就是……</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">经常觉得自己是古代伺候主子的婢女或者奴才</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>春禾</b>
+                                            </p>
+                                        </div></div>
+                                </div>
+                            </div>
+                            <!-- 关键结论 -->
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                                <div class="mb-4">
+                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
+                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
+                                        <p class="text-black text-base">共产主义者有义务发财，在和平年代：钞票=选票。</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
+                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">共产主义者有义务发财，在和平年代。和平年代，钞票=选票。</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">还是要感谢反腐，如果你身边都是躺着啥也不干，但收黑钱年入百万的，时间长了真会得精神病</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>AA昍</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">下面不裁一批人，推ai的领导就没业绩</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>我没偷猪</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">来这个群之后，看到年入百万的这么多，之前我躺得很安心，现在都感觉焦虑了起来</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>Decade</b>
+                                            </p>
+                                        </div></div>
+                                </div>
+                            </div></div>
+                    </div>
+                </div>
+<!-- 热点话题卡片 7 -->
+                <div class="bento-card p-6 rounded-xl"> <!-- 其他模块（如热点话题）的卡片边框颜色和样式不得更改 -->
+                    <div class="flex flex-col sm:flex-row items-start justify-between mb-4">
+                        <h4 class="text-xl font-bold text-black flex-1 mb-2 sm:mb-0">「为民请命」之争：限制政府权力，还是有别的方法</h4>
+                        <span class="text-sm text-gray-600 ml-0 sm:ml-4 whitespace-nowrap bg-gray-100 px-3 py-1.5 rounded-md">
+                            <i class="fas fa-clock mr-1.5 text-gray-500"></i>11:10 - 12:02
+                        </span>
+                    </div>
+                    <div class="mb-4 bg-[#EEF2FF] border border-[#C7D2FE] rounded-md p-3">
+                        <p class="text-sm font-medium text-[#4338CA] mb-1">爬楼关键词</p>
+                        <p class="text-sm text-[#4F46E5] italic">"【Y】刘蒙："他觉得我共情国家机器，我感觉他立场站在公权力对立面""</p>
+                    </div>
+                    <div class="mb-5">
+                        <p class="text-sm font-semibold text-gray-800 mb-2">相关关键词</p>
+                        <div class="flex flex-wrap gap-2"><span class="tag-item">法学</span><span class="tag-item">意识形态</span><span class="tag-item">为民请命</span><span class="tag-item">行政法</span><span class="tag-item">自我革命</span></div>
+                    </div>
+                    <div class="mb-5">
+                        <p class="text-sm font-semibold text-gray-800 mb-2">详细内容</p>
+                        <div class="text-gray-700 text-base leading-relaxed bg-slate-50 p-4 rounded-md prose prose-sm max-w-none">
+                            <div class="expandable-content" data-char-limit="200">
+                                <div class="content-preview"><b>一、话题背景与起因</b><br>上午从「妹妹文科要不要报法学」聊起。<b>鱼蛋</b> 说有个顾虑："学法也有点害怕越学越反"。<b>倚桐</b> 说这看自己开不开智："我在我们学校有的法学大教授真的就是纯生的早，现在有名气有地位，古墓派公知"，"我当时听他讲刑法听着听着就想翻白眼"。<b>刘蒙</b> 讲了自己的亲历：刚谈恋爱的时候真的会因为这种话题和对象吵架，"感觉法学是意识形态高危领域"。<br><br><b>二、主要观点与讨论详情</b><br><b>刘蒙</b> 讲她和对象的分歧："他觉得我共情国家机器，我感觉他立场站在公权力对立面"。她对象特意选了民法领域，"因为相对来说话题与公权力无关"。她转述对方学科的逻辑："法学就是会思考那些公权力对立面的弱势群体权益"，"天然会警惕强权的不受限制"，"感觉他们脑子里就是鸡蛋石头要站鸡蛋"。<b>倚桐</b> 补了课堂版本："行政法老师讲行政法核心就是限制政府权力"——又自我修正："说的不完整 限制政府权力 保护相对人合法利益"。<br><br><b>可</b> 把问题拽回来："限制政府权力是为了什么？我觉得是在针对官僚主义，那如果针对官僚主义的话是不是有别的方法去做？比如党的自我革命+全过程人民民主？"<b>刘蒙</b> 答对方的口径："为了保护弱势群体"。<b>可</b> 再追："怎么保护？"<b>刘蒙</b> 说这就是法学专业领域了，她不懂——"具体内容不落到细节是无法互相讨论的，我只是说我站在一个外行角度的朴素看法，我也不会去和一个法学博士在那个领域进行辩论"。<br><br><b>可</b> 给了两个直球："西方就是这么干的，保护弱势群体但街头都是流浪汉"；"「保护弱势群体」听着就是在「为民请命」"，"所以我觉得一直提这种虚幻的概念但又不真正做事，那就是在「为民请命」"。<b>可</b> 接着回应："你所说的一些群体无人发声，这类弱势群体，是党一直在帮扶的对象，是党一直在做。"<b>Lucien</b> 落了一句："司法是管理工具"。<br><br>为什么会有这种土壤？<b>倚桐</b> 说："这专业的内容大部分的都是舶来品，提出中国特色社会社会主义法治体系还没多少年年"。<b>Lucien</b> 补："我们的法律框架是借鉴德国＋日本"。<b>刘蒙</b> 说她对象的另一面也能理解："站在民主的角度，这个社会就是要允许不同声音的存在啊"，"如果所有人都理解宏大叙事，然后某一些群体无人发声的话，没有限制，人性的弱点就会被无限地放大嘛"——她只是提醒他："学术和现实不一样，不要混为一谈"。<br><br><b>🌠樱桃冰🍧</b> 的落点很直接："对了，法学这块。要抓一抓意识形态。毕竟爱国法学家很稀缺。""我就说。哎。我就看看谁先占领爱国法学家这个生态位。"<br><br><b>三、争议焦点（若有）</b><br>「限制政府权力」是不是法学唯一的正义。<b>刘蒙</b> 一方的口径是警惕强权、保护弱势群体；<b>可</b> 一方是：针对官僚主义，党的自我革命+全过程人民民主是另一条更实的路，只提概念不做事就是为民请命的表演。没有争出结论，但「为民请命」这个词留在了桌上。<br><br><b>四、结论与启发</b><br>舶来的学科框架自带「政府是需要被限制的对象」这个预设。识别它不难：看一个人谈限制权力时，有没有同时谈谁来做事。只谈限制不谈做事，就是为民请命；又谈限制又谈建设，才谈得上法治。</div>
+                                <button class="expand-btn text-[#0369A1] hover:text-[#075985] text-sm font-medium mt-2 flex items-center" style="display: none;">
+                                    <span class="expand-text">展开全文</span>
+                                    <i class="fas fa-chevron-down ml-1 expand-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold text-gray-800 mb-3">关键结论与金句时刻</p>
+                        <div class="space-y-6">
+                            <!-- 关键结论 -->
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                                <div class="mb-4">
+                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
+                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
+                                        <p class="text-black text-base">针对官僚主义，是不是有别的方法：党的自我革命+全过程人民民主。</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
+                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">限制政府权力是为了什么？我觉得是在针对官僚主义，那如果针对官僚主义的话是不是有别的方法去做？比如党的自我革命+全过程人民民主？</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>可</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">西方就是这么干的，保护弱势群体但街头都是流浪汉</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>可</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">「保护弱势群体」听着就是在「为民请命」</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>可</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">司法是管理工具</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>Lucien</b>
+                                            </p>
+                                        </div></div>
+                                </div>
+                            </div>
+                            <!-- 关键结论 -->
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                                <div class="mb-4">
+                                    <h5 class="text-base font-semibold text-gray-800 mb-2">关键结论</h5>
+                                    <div class="border-l-4 border-[#4F46E5] pl-4 py-3 bg-[#EEF2FF] rounded-r-md">
+                                        <p class="text-black text-base">爱国法学家很稀缺：这个生态位还空着。</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-700 mb-2"><strong>金句时刻</strong></p>
+                                    <div class="space-y-2"><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">对了，法学这块。要抓一抓意识形态。毕竟爱国法学家很稀缺。</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>🌠樱桃冰🍧</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">他觉得我共情国家机器，我感觉他立场站在公权力对立面</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>刘蒙</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">说的不完整 限制政府权力 保护相对人合法利益</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>倚桐</b>
+                                            </p>
+                                        </div><div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-md flex flex-col">
+                                            <p class="text-gray-800 italic text-sm">学术和现实不一样，不要混为一谈</p>
+                                            <p class="text-gray-600 text-xs mt-1 self-end">
+                                                - <b>刘蒙</b>
+                                            </p>
+                                        </div></div>
+                                </div>
+                            </div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- === 模块二：火花碰撞时刻・热点话题 结束 === -->
+
+        
+
+        
+
+        <!-- === 模块四：解惑一点通・有问必答 开始 === -->
+        <section id="section-qa" class="w-full mb-12 anchor-target">
+            <h2 class="section-title">解惑一点通・有问必答</h2>
+            <div class="space-y-8">
+<!-- 问答卡片 1 -->
+                <div class="bento-card p-6 rounded-xl border-l-4 border-[#7FC2E8]"> <!-- 边框颜色修改为 border-[#7FC2E8] -->
+                    <div class="mb-4">
+                        <h4 class="text-xl font-semibold text-black flex items-center">
+                            <i class="fas fa-question-circle mr-2.5 text-[#0EA5E9] text-lg"></i>妹妹文科政史地，报什么专业能赚钱？
+                        </h4>
+                    </div>
+                    <div class="mb-4 bg-[#EEF2FF] border border-[#C7D2FE] rounded-md p-3">
+                        <p class="text-sm font-medium text-[#4338CA] mb-1">爬楼关键词</p>
+                        <p class="text-sm text-[#4F46E5] italic">"【Y】鱼蛋："我妹今年高考，学的是最传统的政史地文科，现在报啥专业会比较能赚钱呢""</p>
+                    </div>
+                    <div class="border-t border-gray-200 pt-4">
+                        <h5 class="text-lg font-semibold text-green-700 flex items-center mb-2">
+                            <i class="fas fa-lightbulb mr-2.5 text-lg text-green-600"></i>解答
+                        </h5>
+                        <div class="text-gray-700 text-base leading-relaxed prose prose-sm max-w-none">
+                            <div class="expandable-content" data-char-limit="200">
+                                <div class="content-preview"><b>一、问题背景</b><br>上午 <b>鱼蛋</b> 来请教：妹妹今年高考，政史地文科，211 末流到普通一本水平，家里兜底只能管口饱饭。本来想推荐法学好考公，但爬完楼又觉得想法可能片面——如果只是为了考公，是不是也可以有别的专业选？<br><br><b>二、核心原因分析</b><br>先把选项铺开。<b>倚桐</b> 说："法学已经是文科里面不错的方向了，挫子里拔将军"，"纯考公的话 汉皇法帝"；但"学马理论不好考公"，招马理论的岗很少。<b>🌠樱桃冰🍧</b> 说："家里经济条件不错可以兜底的话(╹◡╹)可以选法学"，律师行业很吃资源人脉，"律师前 5 年都得靠父母接济，付费上班"。<b>陈工</b> 说身边学法学的大部分都考公去了，考不上的就一直还在当律师。<b>安东尼</b> 提醒方向互斥："考公不要想着赚钱，想赚钱就不要去考公"。还有一条她的隐藏优势要保住：<b>🌠樱桃冰🍧</b> 说"她还那么小，早早规划"——早早入党/班干部/校级荣誉，走选调，"早做准备，很有可能一毕业就为人民服务了"。<br><br><b>AA昍</b> 中午给了一条非典型路径："心理学其实统计上来看不赚钱，但如果一早进去就开始学产品、学AI，早点去互联网实习，毕业之后直接去做AI产品相关的话。起薪十几20万，混个三四十万的年薪还是很容易的"——但注意："心理学其实是理科，很多心理学都不招文科生的。因为要学统计"。<br><br><b>三、解决方案与建议</b><br>落点逐步清晰：考公方向=汉皇法帝（法学），但要想好三年内考不上的退路——<b>呆喵没睡醒</b> 说"那就本着考公去，汉皇法帝没毛病，不过得想好三年内考不上的退路"，<b>鱼蛋</b> 的打算是考不进编就编外、上着编外的班继续考，不脱产；<b>呆喵</b> 引了 AA昍 之前的建议佐证：一个人这辈子就只能考三次公，一直脱产考公的人怎么可能为人民服务。赚钱方向=律师（吃资源、前五年付费上班）或涉外律师（<b>倚桐</b> 说比较少）；银行方向=<b>Sophie妮</b> 说朋友在农行很滋润、国家走出去的政策下银行外派薪资福利不会少，但 <b>Ps</b> 提醒银行也很看资源、柜台裁了好几轮、信贷日子不好过。另外两条保底线：<b>可</b> 提了心理学，但如上所述偏理科；<b>倚桐</b> 提醒文科还有意识形态关要过——"经管 法学意识形态问题都不太好"，让她自学教员思想、百毒不侵。<b>🌠樱桃冰🍧</b> 的方案："高中毕业先把《交锋》《伟大的长征》《问苍茫》看完"，"多谈恋爱少打拳"。</div>
+                                <button class="expand-btn text-[#0369A1] hover:text-[#075985] text-sm font-medium mt-2 flex items-center" style="display: none;">
+                                    <span class="expand-text">展开全文</span>
+                                    <i class="fas fa-chevron-down ml-1 expand-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-gray-200">
+                        <div class="flex flex-wrap gap-2"><span class="tag-item">高考志愿</span><span class="tag-item">文科</span><span class="tag-item">法学</span><span class="tag-item">考公</span></div>
+                    </div>
+                </div>
+<!-- 问答卡片 2 -->
+                <div class="bento-card p-6 rounded-xl border-l-4 border-[#7FC2E8]"> <!-- 边框颜色修改为 border-[#7FC2E8] -->
+                    <div class="mb-4">
+                        <h4 class="text-xl font-semibold text-black flex items-center">
+                            <i class="fas fa-question-circle mr-2.5 text-[#0EA5E9] text-lg"></i>30 岁、英语专业、移民公司文案，往哪转行？
+                        </h4>
+                    </div>
+                    <div class="mb-4 bg-[#EEF2FF] border border-[#C7D2FE] rounded-md p-3">
+                        <p class="text-sm font-medium text-[#4338CA] mb-1">爬楼关键词</p>
+                        <p class="text-sm text-[#4F46E5] italic">"【Z】春日迟迟："自认最大的问题是因为专业学的英语=没有专业，其次畏难情绪严重""</p>
+                    </div>
+                    <div class="border-t border-gray-200 pt-4">
+                        <h5 class="text-lg font-semibold text-green-700 flex items-center mb-2">
+                            <i class="fas fa-lightbulb mr-2.5 text-lg text-green-600"></i>解答
+                        </h5>
+                        <div class="text-gray-700 text-base leading-relaxed prose prose-sm max-w-none">
+                            <div class="expandable-content" data-char-limit="200">
+                                <div class="content-preview"><b>一、问题背景</b><br>晚上 <b>春日迟迟</b> 发了个小红包，把自己的情况摆出来：今年三十，未婚无贷款外债，有 fuck money 存款约 18 万；本科学英语，教培几个月确定不合适，旅行社做签证操作，22 年起在一家移民公司做文案，年薪 8-9 万（成都）但去年开始降薪，一直苟着下不定决心离职。自认最大的问题：专业学的英语=没有专业；其次畏难情绪严重，总被想象的困难吓倒，执行力差。想请大家看看往哪个方向转行有前景。<br><br><b>二、核心原因分析</b><br>先拆「英语=没有专业」这句。<b>咱就是偷猪</b> 说："我觉得英语本身不能算技能，只能算工具"，"所以你得有能用英语做的事情"，"换做是我，我可能考虑一下国家未来规划方向哪些是能用得到英语的"。<b>努力引体向上</b> 补："大家推荐的方向都特别需要对外表达这个能力，大家说的方向都可以在职的时候找一个试试"，"现在的烦恼是选择太多，而不是没有选择"。<b>AA昍</b> 对她的「自媒体不火了」顾虑说得很直："如果做自媒体，重音就在网红上，外国人只是个分类渠道而已"，"不过你这样想的话，说明你可能不太适合自媒体。""还是标准打工人思维。"<br><br><b>三、解决方案与建议</b><br>方向给了好几条。<b>何安基</b> 说："外贸我觉得还是有前景的，广阔天地大有可为"，他身边的案例：带老外旅游的、带看病的、买家具的、直播的、做平台电商的。<b>AA昍</b> 给的是「国内游」：接待外国人的国内游，可以当兼职搞搞——"如果有兴趣自己做自媒体，有了固定获客渠道，也会有不少收入。不像现在完全是帮老板写文案，替别人做运营"；还有一个思路：看看当地有没有做「采访街头外国人」的网红，"你可以做个桥梁，也不少赚"。节奏上，<b>AA昍</b> 说："假如做自媒体的话，确实不需要离职，一边上班一边做就好了。感兴趣你可以先试试。反正整个你们行业也在走下坡路，工资也不高。对得起那个工资就行。"他还补了两句底层："用时间换钱的话，手停口停。健康第一。""做好防疫。"<b>蘑美</b> 说："三十岁还不晚，还是好时候"。实用工具：<b>红祺</b> 照着国家十五五规划结合她的情况用 AI 跑了一份参考；<b>何安基</b> 补充 tiktok 直播目前也大有可为；<b>姗姗来迟</b> 说英语先找法子灵活用起来，多低成本尝试。<b>春日迟迟</b> 最后说："确实第一步比较难，希望能够给大家早日反馈进步"。</div>
+                                <button class="expand-btn text-[#0369A1] hover:text-[#075985] text-sm font-medium mt-2 flex items-center" style="display: none;">
+                                    <span class="expand-text">展开全文</span>
+                                    <i class="fas fa-chevron-down ml-1 expand-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-gray-200">
+                        <div class="flex flex-wrap gap-2"><span class="tag-item">转行</span><span class="tag-item">英语</span><span class="tag-item">自媒体</span><span class="tag-item">外贸</span></div>
+                    </div>
+                </div>
+<!-- 问答卡片 3 -->
+                <div class="bento-card p-6 rounded-xl border-l-4 border-[#7FC2E8]"> <!-- 边框颜色修改为 border-[#7FC2E8] -->
+                    <div class="mb-4">
+                        <h4 class="text-xl font-semibold text-black flex items-center">
+                            <i class="fas fa-question-circle mr-2.5 text-[#0EA5E9] text-lg"></i>28 岁央企会计，行业黄昏、工作很闲，怎么走？
+                        </h4>
+                    </div>
+                    <div class="mb-4 bg-[#EEF2FF] border border-[#C7D2FE] rounded-md p-3">
+                        <p class="text-sm font-medium text-[#4338CA] mb-1">爬楼关键词</p>
+                        <p class="text-sm text-[#4F46E5] italic">"【Z】皑皑："借着今天这个机会，我也想鼓起勇气请大家参谋参谋""</p>
+                    </div>
+                    <div class="border-t border-gray-200 pt-4">
+                        <h5 class="text-lg font-semibold text-green-700 flex items-center mb-2">
+                            <i class="fas fa-lightbulb mr-2.5 text-lg text-green-600"></i>解答
+                        </h5>
+                        <div class="text-gray-700 text-base leading-relaxed prose prose-sm max-w-none">
+                            <div class="expandable-content" data-char-limit="200">
+                                <div class="content-preview"><b>一、问题背景</b><br><b>皑皑</b> 紧接着也摆了自己的情况：今年 28，未婚无贷款外债，父母不需要照顾，有自己的住房，存款约 10 万；本科会计、研究生工程管理，毕业后一直在建筑业央企，年到手约 7 万，离家十五分钟通勤、比较稳定；有中级职称，CPA 已过 3 门（但经济法和审计过期了）；一直在财务部负责银行融资，能接手财务各类型工作。建筑业属于黄昏行业，也不喜欢财务，想转型但没想法；闲暇时间多想尝试副业，在闲鱼挂过税务代理，无人问津。<br><br><b>二、核心原因分析</b><br><b>何安基</b> 从自己公司角度说："单纯的税务代理没啥意义了，现在我们需要专业的懂电商的税筹顾问"。<b>会计王小全</b> 说："想做副业不如去小红书上分享你的考试经验，税务代理这种我觉得没啥好做的"。<b>五只小猪偷猪</b> 起哄："首先，我觉得你可以带着考cpa"，"我跟你学"，"卖课和围绕卖课最好赚钱啦"。<b>AA昍</b> 先把顺序排了："28还是琢磨婚育，先定了这个，再说工作吧~ 现在这份工作很适合生育，除非不打算要孩子"，"想找个比7w收入高的工作还是很容易的，但一定没这么闲了"。<br><br><b>三、解决方案与建议</b><br>聊到婚育，<b>皑皑</b> 说："有男朋友，但是对方属于uu说的不爱赚钱的类型，心累中"。<b>AA昍</b> 的话没有绕："男朋友又不是亲生的，直接换一个呗"，"不爱赚钱的男人没有丁点屌用"，"中国治安这么好，现在反腐这么狠，对普通人而言，基本上是按照自己在社会上创造的价值来分配财富的。一个男人不爱赚钱，说明他不爱创造价值，这种废物有什么用啊？如果是个女的，至少可以生孩子，这是人类的扩大化再生产，比赚钱还要有用。但男的呢？可以一票否决了。"<b>皑皑</b> 说其实之前已经跟对象提出过这个问题，已经有分手的打算了，只是做事有点拖拉还没办。<b>AA昍</b>："分手有啥流程吗，不就是「分了吧」就结束了嘛……这种事是怎么做到拖拉的？"，"别到时候拖的跟CPA一样都轮回了"，"前男友复活了，又变成了现男友~"。<b>皑皑</b>："坚决不能！""死了的前男友才是最好的"。<br><br>这个话题随后烧到了 <b>春禾</b> 家。她晚上散步还在跟男朋友争房贷：她月收入 8k，觉得两个人 4-5k 房贷没太大压力、工资也会随努力提升，男朋友却说收入能不能增长很看机遇。<b>AA昍</b> 判了两句："现在房价不太涨了，倒是也不用急着非要上杠杆"；"确实，没啥关系，3w以上才需要机遇，以下只需要勤奋"。有人问这是不是本群第二例分手预备役，<b>AA昍</b> 回："分手是好事，说明自己进步比别人快，很正常的结果……敢分手的人，说不定最后就不用分手，因为对方也吓醒了，开始一起进步了，多好啊。"<b>春日迟迟</b> 提醒分辨："得看他只是习惯性地悲观，其实还是想赚钱的，还是给自己找借口不想努力"。<b>春禾</b> 想了想说："我觉得他是习惯性悲观。。其实他工作很努力，也想赚钱"。</div>
+                                <button class="expand-btn text-[#0369A1] hover:text-[#075985] text-sm font-medium mt-2 flex items-center" style="display: none;">
+                                    <span class="expand-text">展开全文</span>
+                                    <i class="fas fa-chevron-down ml-1 expand-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-gray-200">
+                        <div class="flex flex-wrap gap-2"><span class="tag-item">央企</span><span class="tag-item">会计</span><span class="tag-item">CPA</span><span class="tag-item">婚育</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- === 模块四：解惑一点通・有问必答 结束 === -->
+
+        
+
+        <!-- HTML注释: 新增底部导航，便于阅读完毕后快速切换日期 -->
+        <nav class="w-full mt-12 daily-nav">
+            <div class="bento-card p-4">
+                <div class="flex justify-between items-center">
+                    <button type="button" class="nav-button day-nav-prev">
+                        <i class="fas fa-chevron-left"></i>
+                        上一天
+                    </button>
+
+                    <div class="text-center">
+                        <span class="text-sm text-gray-600">日报导航</span>
+                    </div>
+
+                    <button type="button" class="nav-button day-nav-next">
+                        下一天
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- === 文件底部 开始 === -->
+        <!-- HTML注释: 此模块作为文件底部，包含数据来源、报告生成时间及免责声明。 -->
+        <footer class="w-full mt-16">
+            <div class="bento-card p-8">
+                <div class="text-center text-gray-700 space-y-3">
+                    <div class="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-6 text-base">
+                        <div class="flex items-center">
+                            <i class="fas fa-database mr-2 text-[#0EA5E9]"></i>
+                            <span>微信群聊记录</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-robot mr-2 text-[#0EA5E9]"></i>
+                            <span>2026-11-27 02:00:00</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 max-w-2xl mx-auto leading-relaxed">
+                        本报告基于群聊数据自动生成，仅供参考。内容可能包含个人观点，不代表群组官方立场。数据处理过程中已尽量匿名化处理敏感信息。
+                    </p>
+                </div>
+            </div>
+        </footer>
+        <!-- === 文件底部 结束 === -->
+    </div>
+
+    <!-- HTML注释: 右下角浮动按钮，提供返回顶部与目录导航 -->
+    <div class="floating-actions" aria-label="页面快捷操作">
+        <div class="directory-wrapper">
+            <button type="button" class="floating-button" id="directory-toggle" aria-expanded="false" aria-controls="directory-panel" aria-label="打开内容导航">
+                <i class="fas fa-list-ul"></i>
+            </button>
+            <div class="directory-panel" id="directory-panel" role="dialog" aria-modal="false" aria-hidden="true">
+                <div class="directory-header">
+                    <span class="directory-title">内容导航</span>
+                    <button type="button" class="directory-close" id="directory-close" aria-label="关闭内容导航">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="directory-list" id="directory-list">
+                    <!-- HTML注释: 目录项由脚本在运行时自动生成，支持主模块与子模块锚点 -->
+                </div>
+            </div>
+        </div>
+        <button type="button" class="floating-button floating-button--hidden" id="scroll-top-btn" aria-label="返回顶部">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Bento card hover effect is handled by CSS :hover pseudo-class
+
+            // Number animation effect
+            const numberElements = document.querySelectorAll('.number-display');
+            numberElements.forEach(element => {
+                const finalValueText = element.textContent.replace(/,/g, '');
+                const finalValue = parseInt(finalValueText, 10);
+
+                if (isNaN(finalValue)) return;
+
+                let currentValue = 0;
+                const duration = 1500; // Animation duration in ms
+                const frameRate = 1000 / 60; // 60fps
+                const totalFrames = Math.round(duration / frameRate);
+                const increment = finalValue / totalFrames;
+
+                let currentFrame = 0;
+                const timer = setInterval(() => {
+                    currentFrame++;
+                    currentValue += increment;
+
+                    if (currentFrame >= totalFrames) {
+                        currentValue = finalValue;
+                        clearInterval(timer);
+                    }
+                    // Format number with commas for display
+                    element.textContent = Math.floor(currentValue).toLocaleString('en-US');
+                }, frameRate);
+            });
+
+            // HTML注释: 初始化日报导航功能
+            initDailyNavigation();
+
+            // HTML注释: 初始化展开功能
+            initExpandableContent();
+
+            // HTML注释: 初始化浮动按钮与目录互动
+            initFloatingActions();
+            
+            // HTML注释: 设置历史日报链接
+            const historyLink = document.getElementById('history-link');
+            if (historyLink) {
+                historyLink.href = 'archive.html';
+            }
+        });
+
+        // HTML注释: 这个函数实现了日报间的导航功能，包括：
+        // 1. 从当前页面URL或内容中提取日期
+        // 2. 检查前后日期的日报文件是否存在
+        // 3. 设置"上一天"和"下一天"按钮的状态和链接
+        // 4. 实现"下一天"按钮的动态显示逻辑
+        async function initDailyNavigation() {
+            try {
+                // HTML注释: 获取当前页面的日期
+                const currentDate = getCurrentDateFromPage();
+                if (!currentDate) {
+                    console.warn('无法从页面中提取日期信息');
+                    return;
+                }
+
+                // HTML注释: 设置导航按钮
+                await setupNavigationButtons(currentDate);
+
+            } catch (error) {
+                console.error('初始化日报导航时出错:', error);
+            }
+        }
+
+        // HTML注释: 从页面中提取当前日期
+        // HTML注释: 支持多种方式提取日期：优先从页面元素、URL文件名或页面标题
+        function getCurrentDateFromPage() {
+            // HTML注释: 方法1：从报告日期元素中提取（优先级最高）
+            const dateElement = document.getElementById('report-date');
+            if (dateElement) {
+                const dateText = dateElement.textContent;
+                const dateMatch = dateText.match(/(\d{4})年(\d{1,2})月(\d{1,2})日/);
+                if (dateMatch) {
+                    const year = dateMatch[1];
+                    const month = dateMatch[2].padStart(2, '0');
+                    const day = dateMatch[3].padStart(2, '0');
+                    return `${year}-${month}-${day}`;
+                }
+            }
+
+            // HTML注释: 方法2：从URL文件名中提取日期
+            const pathname = window.location.pathname;
+            const filenameMatch = pathname.match(/fourseas_daily_(\d{4}-\d{2}-\d{2})\.html/);
+            if (filenameMatch) {
+                return filenameMatch[1];
+            }
+
+            // HTML注释: 方法3：从页面标题中提取日期
+            const titleMatch = document.title.match(/(\d{4}-\d{2}-\d{2})/);
+            if (titleMatch) {
+                return titleMatch[1];
+            }
+
+            return null;
+        }
+
+        // HTML注释: 设置导航按钮的状态和链接
+         // HTML注释: 根据当前日期，检查前后日期的日报文件是否存在
+         async function setupNavigationButtons(currentDate) {
+             const prevButtons = document.querySelectorAll('.day-nav-prev');
+             const nextButtons = document.querySelectorAll('.day-nav-next');
+             const navContainers = document.querySelectorAll('.daily-nav');
+
+             if (!prevButtons.length && !nextButtons.length) {
+                 return;
+             }
+             
+             // HTML注释: 计算前一天和后一天的日期
+             const currentDateObj = new Date(currentDate);
+             const prevDateObj = new Date(currentDateObj);
+             prevDateObj.setDate(prevDateObj.getDate() - 1);
+             const nextDateObj = new Date(currentDateObj);
+             nextDateObj.setDate(nextDateObj.getDate() + 1);
+             
+             const prevDate = formatDate(prevDateObj);
+             const nextDate = formatDate(nextDateObj);
+             
+             // HTML注释: 检查前一天和后一天的日报是否存在
+             const prevExists = await checkReportExists(prevDate);
+             const nextExists = await checkReportExists(nextDate);
+             
+             // HTML注释: 如果前后日期的日报都不存在，隐藏所有导航栏容器
+             if (!prevExists && !nextExists) {
+                 navContainers.forEach(container => {
+                     container.style.display = 'none';
+                 });
+                 return;
+             }
+             
+             // HTML注释: 显示所有导航栏容器
+             navContainers.forEach(container => {
+                 container.style.display = 'block';
+             });
+             
+             // HTML注释: 设置前一天按钮
+             prevButtons.forEach(button => {
+                 if (prevExists) {
+                     button.disabled = false;
+                     button.onclick = () => {
+                         window.location.href = `fourseas_daily_${prevDate}.html`;
+                     };
+                 } else {
+                     button.disabled = true;
+                     button.onclick = null;
+                 }
+             });
+
+             // HTML注释: 设置后一天按钮
+             nextButtons.forEach(button => {
+                 if (nextExists) {
+                     button.disabled = false;
+                     button.onclick = () => {
+                         window.location.href = `fourseas_daily_${nextDate}.html`;
+                     };
+                 } else {
+                     button.disabled = true;
+                     button.onclick = null;
+                 }
+             });
+         }
+
+        // HTML注释: 检查指定日期的日报文件是否存在
+        async function checkReportExists(date) {
+            try {
+                const response = await fetch(`fourseas_daily_${date}.html`, { method: 'HEAD' });
+                return response.ok;
+            } catch (error) {
+                return false;
+            }
+        }
+
+        // HTML注释: 格式化日期为YYYY-MM-DD格式
+        function formatDate(date) {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+
+        // HTML注释: 初始化展开功能
+        function initExpandableContent() {
+            const expandableContents = document.querySelectorAll('.expandable-content');
+            
+            expandableContents.forEach(container => {
+                const charLimit = parseInt(container.getAttribute('data-char-limit')) || 200;
+                const contentPreview = container.querySelector('.content-preview');
+                const expandBtn = container.querySelector('.expand-btn');
+                
+                if (!contentPreview || !expandBtn) return;
+                
+                const fullContent = contentPreview.innerHTML;
+                const fullText = contentPreview.textContent || contentPreview.innerText;
+                
+                // HTML注释: 如果内容长度超过限制，则显示展开按钮
+                if (fullText.length > charLimit) {
+                    // HTML注释: 创建一个临时元素来正确截取HTML内容
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = fullContent;
+                    
+                    // HTML注释: 截取文本内容到指定长度
+                    const truncatedText = fullText.substring(0, charLimit);
+                    
+                    // HTML注释: 使用更简单可靠的方法截取内容
+                    let truncatedContent = '';
+                    let charCount = 0;
+                    
+                    // HTML注释: 逐字符遍历，保持简单的HTML结构
+                    const walker = document.createTreeWalker(
+                        tempDiv,
+                        NodeFilter.SHOW_TEXT,
+                        null,
+                        false
+                    );
+                    
+                    let node;
+                    const textNodes = [];
+                    while (node = walker.nextNode()) {
+                        textNodes.push(node);
+                    }
+                    
+                    // HTML注释: 计算需要保留的文本内容
+                    for (let textNode of textNodes) {
+                        const text = textNode.textContent;
+                        if (charCount + text.length <= charLimit) {
+                            charCount += text.length;
+                        } else {
+                            const remainingChars = charLimit - charCount;
+                            textNode.textContent = text.substring(0, remainingChars) + '...';
+                            charCount = charLimit;
+                            
+                            // HTML注释: 新的、更干净的移除后续所有节点的逻辑
+                            let currentNodeToClearAfter = textNode;
+                            while (currentNodeToClearAfter && currentNodeToClearAfter !== tempDiv) {
+                                let sibling = currentNodeToClearAfter.nextSibling;
+                                while (sibling) {
+                                    const nodeToRemove = sibling;
+                                    sibling = sibling.nextSibling;
+                                    nodeToRemove.remove();
+                                }
+                                currentNodeToClearAfter = currentNodeToClearAfter.parentElement;
+                            }
+                            break; // 完成截断和清理，跳出 textNodes 循环
+                        }
+                    }
+                    
+                    const previewContent = tempDiv.innerHTML;
+                    
+                    contentPreview.innerHTML = previewContent;
+                    contentPreview.classList.add('collapsed');
+                    expandBtn.style.display = 'flex';
+                    
+                    // HTML注释: 绑定展开/收起事件
+                    expandBtn.addEventListener('click', function() {
+                        const isExpanded = expandBtn.classList.contains('expanded');
+                        
+                        if (isExpanded) {
+                            // HTML注释: 收起内容
+                            contentPreview.innerHTML = previewContent;
+                            contentPreview.classList.add('collapsed');
+                            expandBtn.querySelector('.expand-text').textContent = '展开全文';
+                            expandBtn.classList.remove('expanded');
+                        } else {
+                            // HTML注释: 展开内容
+                            contentPreview.innerHTML = fullContent;
+                            contentPreview.classList.remove('collapsed');
+                            expandBtn.querySelector('.expand-text').textContent = '收起';
+                            expandBtn.classList.add('expanded');
+                        }
+                    });
+                } else {
+                    // HTML注释: 内容较短，隐藏展开按钮
+                    expandBtn.style.display = 'none';
+                }
+            });
+        }
+
+        // HTML注释: 构建目录数据，统一扫描主模块与子级卡片生成锚点
+        function buildDirectory(panelElement) {
+            const listElement = panelElement.querySelector('#directory-list');
+            if (!listElement) {
+                return;
+            }
+
+            listElement.innerHTML = '';
+
+            const directoryConfigs = [
+                { id: 'section-overview', icon: 'fa-chart-column' },
+                { id: 'section-hot-topics', icon: 'fa-fire' },
+                { id: 'section-qa', icon: 'fa-circle-question' }
+            ];
+
+            const chineseNumbers = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十'];
+            let sectionCounter = 0;
+
+            directoryConfigs.forEach((config) => {
+                const sectionElement = document.getElementById(config.id);
+                if (!sectionElement) {
+                    return;
+                }
+
+                const sectionTitleElement = sectionElement.querySelector('.section-title');
+                const sectionTitle = sectionTitleElement ? sectionTitleElement.textContent.trim() : config.id;
+                const titleWithNumber = `${chineseNumbers[sectionCounter]}、 ${sectionTitle}`;
+                sectionCounter++;
+
+                const itemWrapper = document.createElement('div');
+                itemWrapper.className = 'directory-item';
+
+                const entryButton = document.createElement('button');
+                entryButton.type = 'button';
+                entryButton.className = 'directory-entry';
+                entryButton.setAttribute('data-target', config.id);
+                entryButton.innerHTML = `<span class="directory-icon"><i class="fas ${config.icon}"></i></span><span class="directory-text">${titleWithNumber}</span>`;
+                itemWrapper.appendChild(entryButton);
+
+                const subHeadings = sectionElement.querySelectorAll('.bento-card h4');
+                if (subHeadings.length > 0) {
+                    const sublistElement = document.createElement('div');
+                    sublistElement.className = 'directory-sublist';
+
+                    subHeadings.forEach((heading, index) => {
+                        const cardElement = heading.closest('.bento-card');
+                        if (!cardElement) {
+                            return;
+                        }
+
+                        if (!cardElement.classList.contains('anchor-target')) {
+                            cardElement.classList.add('anchor-target');
+                        }
+
+                        if (!cardElement.id) {
+                            cardElement.id = `${config.id}-item-${index + 1}`;
+                        }
+
+                        const subButton = document.createElement('button');
+                        subButton.type = 'button';
+                        subButton.className = 'directory-subitem';
+                        subButton.setAttribute('data-target', cardElement.id);
+                        subButton.innerHTML = `<span class="directory-text">${heading.textContent.trim()}</span>`;
+                        sublistElement.appendChild(subButton);
+                    });
+
+                    itemWrapper.appendChild(sublistElement);
+                }
+
+                listElement.appendChild(itemWrapper);
+            });
+        }
+
+        // HTML注释: 初始化浮动按钮与目录交互
+        function initFloatingActions() {
+            const scrollTopBtn = document.getElementById('scroll-top-btn');
+            const directoryToggle = document.getElementById('directory-toggle');
+            const directoryPanel = document.getElementById('directory-panel');
+            const directoryClose = document.getElementById('directory-close');
+
+            if (scrollTopBtn) {
+                const toggleScrollButton = () => {
+                    if (window.scrollY > 240) {
+                        scrollTopBtn.classList.remove('floating-button--hidden');
+                    } else {
+                        scrollTopBtn.classList.add('floating-button--hidden');
+                    }
+                };
+
+                toggleScrollButton();
+                window.addEventListener('scroll', toggleScrollButton, { passive: true });
+
+                scrollTopBtn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            if (!directoryPanel) {
+                return;
+            }
+
+            buildDirectory(directoryPanel);
+
+            if (!directoryToggle) {
+                return;
+            }
+
+            const closePanel = () => {
+                directoryPanel.classList.remove('open');
+                directoryToggle.setAttribute('aria-expanded', 'false');
+                directoryPanel.setAttribute('aria-hidden', 'true');
+            };
+
+            const openPanel = () => {
+                directoryPanel.classList.add('open');
+                directoryToggle.setAttribute('aria-expanded', 'true');
+                directoryPanel.setAttribute('aria-hidden', 'false');
+            };
+
+            const togglePanel = () => {
+                if (directoryPanel.classList.contains('open')) {
+                    closePanel();
+                } else {
+                    openPanel();
+                }
+            };
+
+            directoryToggle.addEventListener('click', (event) => {
+                event.stopPropagation();
+                togglePanel();
+            });
+
+            if (directoryClose) {
+                directoryClose.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    closePanel();
+                });
+            }
+
+            const directoryItems = directoryPanel.querySelectorAll('[data-target]');
+            directoryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const targetId = item.getAttribute('data-target');
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                    closePanel();
+                });
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!directoryPanel.contains(event.target) && !directoryToggle.contains(event.target)) {
+                    closePanel();
+                }
+            });
+
+            window.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    closePanel();
+                }
+            });
+        }
+    </script>
+    
+    <!-- HTML注释: 原每日金句外部脚本（从远程加载 public_quotes.js 历史金句池随机抽取）已整体移除，金句改为由AI生成时直接填写。日后若要恢复"历史金句回顾"功能：自建 public_quotes.js（内容格式：window.PUBLIC_QUOTES = [{ text: "金句", author: "昵称", date: "YYYY-MM-DD", section: "所属模块" }, ...]，每期从日报"金句时刻"追加积累），在此处重新引入该脚本并恢复随机抽取逻辑，同时把金句卡片处的占位填写说明改回为脚本填入。 -->
+
+    <!-- === 截图功能脚本 === -->
+    <script>
+    function initScreenshotButtons() {
+        const screenshotSections = [
+            'section-hot-topics',
+            'section-qa'
+        ];
+
+        screenshotSections.forEach(sectionId => {
+            const section = document.getElementById(sectionId);
+            if (!section) return;
+
+            section.querySelectorAll('.bento-card').forEach(card => {
+                if (card.querySelector(':scope > .screenshot-btn')) return;
+                card.classList.add('relative');
+                card.classList.add('screenshot-title-safe');
+
+                const timeBadge = card.querySelector(':scope > div:first-of-type > span');
+                if (timeBadge && /\d{1,2}:\d{2}/.test(timeBadge.textContent)) {
+                    card.classList.add('screenshot-has-time');
+                    timeBadge.classList.add('topic-time-badge');
+                    const timeIcon = timeBadge.querySelector('i');
+                    if (timeIcon) {
+                        timeIcon.classList.add('topic-time-icon');
+                    }
+                }
+
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'screenshot-btn';
+                button.title = sectionId === 'section-qa'
+                    ? '截图此问答'
+                    : sectionId === 'section-daily-picks'
+                        ? '截图此精选'
+                        : '截图此话题';
+                button.setAttribute('aria-label', button.title);
+                button.innerHTML = '<i class="fas fa-camera"></i>';
+                button.addEventListener('click', () => captureTopicCard(button));
+                card.insertBefore(button, card.firstChild);
+            });
+        });
+
+        initDailyFortuneScreenshotButton();
+    }
+
+    function initDailyFortuneScreenshotButton() {
+        const fortune = document.getElementById('daily-fortune');
+        if (!fortune) return;
+
+        const card = fortune.querySelector('.bento-card');
+        if (!card || card.querySelector(':scope > .screenshot-btn')) return;
+
+        card.classList.add('relative');
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'screenshot-btn';
+        button.title = '截图每日金句';
+        button.setAttribute('aria-label', button.title);
+        button.innerHTML = '<i class="fas fa-camera"></i>';
+        button.addEventListener('click', () => captureTopicCard(button));
+        card.insertBefore(button, card.firstChild);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initScreenshotButtons);
+    } else {
+        initScreenshotButtons();
+    }
+
+    function extractReportDateIso() {
+        const titleMatch = (document.title || '').match(/(\d{4})[-_.年](\d{1,2})[-_.月](\d{1,2})/);
+        if (titleMatch) {
+            return `${titleMatch[1]}-${titleMatch[2].padStart(2, '0')}-${titleMatch[3].padStart(2, '0')}`;
+        }
+
+        const reportDateEl = document.getElementById('report-date');
+        const reportDateText = reportDateEl ? reportDateEl.textContent.trim() : '';
+        const textMatch = reportDateText.match(/(\d{4})年\s*(\d{1,2})月\s*(\d{1,2})日/);
+        if (textMatch) {
+            return `${textMatch[1]}-${textMatch[2].padStart(2, '0')}-${textMatch[3].padStart(2, '0')}`;
+        }
+
+        const decodedPath = decodeURIComponent(window.location.pathname || '');
+        const urlMatch = decodedPath.match(/(\d{4})[-_.](\d{1,2})[-_.](\d{1,2})/);
+        if (urlMatch) {
+            return `${urlMatch[1]}-${urlMatch[2].padStart(2, '0')}-${urlMatch[3].padStart(2, '0')}`;
+        }
+
+        return '';
+    }
+
+    function formatReportDateCn(dateIso) {
+        const match = (dateIso || '').match(/^(\d{4})-(\d{2})-(\d{2})$/);
+        if (!match) return '';
+        return `${match[1]}年${Number(match[2])}月${Number(match[3])}日`;
+    }
+
+    function extractFortuneDateIso(card) {
+        const dateText = card ? (card.querySelector('#fortune-date')?.textContent || '') : '';
+        const dateMatch = dateText.match(/(\d{4})-(\d{2})-(\d{2})/);
+        return dateMatch ? dateMatch[0] : extractReportDateIso();
+    }
+
+    function getReportPublicUrl(dateIso = extractReportDateIso()) {
+        if (!dateIso) return 'https://sihai-ZY.github.io/four-seas/';
+        return `https://sihai-ZY.github.io/four-seas/${encodeURIComponent('fourseas_daily_' + dateIso + '.html')}`;
+    }
+
+    async function renderReportQr(target, url) {
+        target.innerHTML = '';
+        if (!window.QRCode) {
+            console.warn('[截图] QRCode 库未加载，尝试等待...');
+            await new Promise(resolve => setTimeout(resolve, 500));
+            if (!window.QRCode) {
+                console.error('[截图] QRCode 库加载失败，无法生成二维码');
+                return;
+            }
+        }
+        if (!url || url === 'https://sihai-ZY.github.io/four-seas/') {
+            console.warn('[截图] 无有效日报URL，跳过二维码生成。url=', url);
+            return;
+        }
+        console.log('[截图] 生成二维码，URL:', url, '目标元素尺寸:', target.offsetWidth, 'x', target.offsetHeight);
+        try {
+            new QRCode(target, {
+                text: url,
+                width: 94,
+                height: 94,
+                typeNumber: 0,
+                colorDark: '#1f2937',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.L
+            });
+            // 等待 QRCode 渲染完成
+            await new Promise(resolve => setTimeout(resolve, 200));
+            const generated = target.querySelector('canvas') || target.querySelector('img');
+            if (generated) {
+                console.log('[截图] 二维码生成成功，类型:', generated.tagName);
+            } else {
+                console.warn('[截图] QRCode 调用无报错，但未生成 canvas/img 元素');
+            }
+        } catch (qrError) {
+            console.error('[截图] 二维码生成失败:', qrError);
+            target.innerHTML = '';
+        }
+    }
+
+    function showFallbackOverlay(blob, topicTitle) {
+        const oldMask = document.querySelector('.screenshot-fallback-mask');
+        if (oldMask) oldMask.remove();
+
+        // 用 data URL 代替 blob URL，解决微信 WebView 长按保存失败的问题
+        const reader = new FileReader();
+        reader.onload = function() {
+            const dataUrl = reader.result;
+            const mask = document.createElement('div');
+            mask.className = 'screenshot-fallback-mask';
+            mask.innerHTML = `
+                <div class="screenshot-fallback-hint">长按图片保存或分享</div>
+                <img class="screenshot-fallback-img" src="${dataUrl}" alt="截图">
+                <button type="button" class="screenshot-fallback-close">关闭</button>
+            `;
+
+            mask.querySelector('.screenshot-fallback-close').addEventListener('click', () => {
+                mask.remove();
+            });
+            mask.addEventListener('click', (e) => {
+                if (e.target === mask) {
+                    mask.remove();
+                }
+            });
+
+            document.body.appendChild(mask);
+        };
+        reader.readAsDataURL(blob);
+    }
+
+    async function captureTopicCard(btnElement) {
+        const card = btnElement.closest('.bento-card');
+        if (!card) return;
+        const isFortuneCard = !!btnElement.closest('#daily-fortune');
+        const section = btnElement.closest('section');
+        const moduleTitles = {
+            'section-hot-topics': '热点话题',
+            'section-qa': '有问必答'
+        };
+        const moduleTitle = isFortuneCard
+            ? '每日金句'
+            : section ? (moduleTitles[section.id] || '四海日报') : '四海日报';
+        const reportDateIso = isFortuneCard ? extractFortuneDateIso(card) : extractReportDateIso();
+        const publicUrl = getReportPublicUrl(reportDateIso);
+
+        // 标记按钮为截取中状态
+        btnElement.classList.add('capturing');
+        const originalIcon = btnElement.innerHTML;
+        btnElement.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+
+        try {
+            // 收集要截图的内容：从标题到关键结论与金句时刻的全部内容
+            const allChildren = Array.from(card.children);
+            const captureElements = [];
+            const includeConclusions = !!section && ['section-hot-topics', 'section-meeting'].includes(section.id);
+
+            for (const child of allChildren) {
+                // 跳过截图按钮本身
+                if (child.classList.contains('screenshot-btn')) continue;
+                if (!includeConclusions) {
+                    const conclusionLabel = child.querySelector('p.text-sm.font-semibold');
+                    if (conclusionLabel && conclusionLabel.textContent.includes('关键结论')) break;
+                }
+                captureElements.push(child);
+            }
+
+            // 获取话题标题和日期
+            const titleEl = isFortuneCard ? card.querySelector('#fortune-text') : card.querySelector('h4');
+            const topicTitle = titleEl ? titleEl.textContent.trim().substring(0, 20) : (isFortuneCard ? '每日金句' : '话题');
+            const reportDateEl = document.getElementById('report-date');
+            const reportDate = formatReportDateCn(reportDateIso) || (reportDateEl ? reportDateEl.textContent.trim() : '');
+
+            // 如果内容是收起状态，临时展开
+            const expandBtns = card.querySelectorAll('.expand-btn:not(.expanded)');
+            const expandedBtns = [];
+            expandBtns.forEach(btn => {
+                for (const el of captureElements) {
+                    if (el.contains(btn)) {
+                        btn.click();
+                        expandedBtns.push(btn);
+                        break;
+                    }
+                }
+            });
+
+            // 创建临时截图容器（560px 宽度，配合 scale 2 保证手机端可读性和清晰度）
+            const wrapper = document.createElement('div');
+            wrapper.className = 'screenshot-wrapper';
+            wrapper.style.position = 'absolute';
+            wrapper.style.left = '0';
+            wrapper.style.top = `${window.scrollY + window.innerHeight + 160}px`;
+            wrapper.style.width = '560px';
+            wrapper.style.zIndex = '-9999';
+            wrapper.style.pointerEvents = 'none';
+            wrapper.style.webkitTextSizeAdjust = '100%';
+            wrapper.style.textSizeAdjust = '100%';
+            wrapper.style.fontSize = '16px';
+
+            // 品牌头部
+            const brand = document.createElement('div');
+            brand.className = 'screenshot-brand';
+            brand.innerHTML = `
+                <div class="screenshot-brand-main">
+                    <div class="screenshot-brand-left">
+                        <div class="screenshot-brand-logo"><span></span><span></span><span></span></div>
+                        <span class="screenshot-brand-name">四海日报</span>
+                    </div>
+                    <span class="screenshot-brand-date">${reportDate}</span>
+                </div>
+                <div class="screenshot-module-title">${moduleTitle}</div>
+            `;
+            wrapper.appendChild(brand);
+
+            // 内容区域
+            const contentArea = document.createElement('div');
+            contentArea.style.cssText = isFortuneCard
+                ? 'background:linear-gradient(135deg, #F0FAFE 0%, #DCF0FC 50%, #FDF3D8 100%); border-radius:12px; padding:24px; border:1px solid #FDF3D8; box-sizing:border-box;'
+                : 'background:#ffffff; border-radius:12px; padding:24px; border:1px solid #e9e9eb; box-sizing:border-box;';
+
+            // 克隆要截图的元素
+            captureElements.forEach(el => {
+                const clone = el.cloneNode(true);
+                if (isFortuneCard) {
+                    const shuffleBtn = clone.querySelector('#fortune-shuffle');
+                    if (shuffleBtn) {
+                        const actionRow = shuffleBtn.closest('.flex.items-center.gap-3') || shuffleBtn.parentElement;
+                        if (actionRow) actionRow.remove();
+                    }
+                    clone.querySelectorAll('a[href*="画廊"], a[href*="%E7%94%BB%E5%BB%8A"]').forEach(link => {
+                        const actionRow = link.closest('.flex.items-center.gap-3') || link.parentElement;
+                        if (actionRow) actionRow.remove();
+                    });
+                    const fortuneRow = clone.querySelector('[class*="items-start"][class*="gap-4"]');
+                    if (fortuneRow) {
+                        fortuneRow.style.cssText = 'position:relative;display:block;min-height:auto;padding-left:0;box-sizing:border-box;';
+                        fortuneRow.className = '';
+
+                        const iconBox = fortuneRow.querySelector('[class*="shrink-0"]');
+                        if (iconBox) {
+                            iconBox.remove();
+                        }
+
+                        const content = fortuneRow.querySelector('[class*="flex-grow"]');
+                        if (content) {
+                            content.className = '';
+                            content.style.cssText = 'display:block;min-width:0;padding-top:0;';
+
+                            const badge = content.querySelector('div');
+                            if (badge) {
+                                badge.remove();
+                            }
+
+                            const text = content.querySelector('#fortune-text');
+                            if (text) {
+                                text.style.cssText = "font-family:'LXGW WenKai',serif;font-size:24px;font-weight:700;line-height:1.65;color:#1e293b;margin:0 0 12px 0;";
+                                text.className = '';
+                            }
+
+                            const meta = content.querySelector('#fortune-meta');
+                            if (meta) {
+                                meta.style.cssText = 'font-size:16px;line-height:24px;color:#94a3b8;margin:0;';
+                                meta.className = '';
+                            }
+
+                            const author = content.querySelector('#fortune-author');
+                            if (author) {
+                                author.style.cssText = 'font-weight:600;color:#64748b;';
+                                author.className = '';
+                            }
+
+                            const date = content.querySelector('#fortune-date');
+                            if (date) {
+                                date.style.cssText = 'margin-left:12px;color:#94a3b8;';
+                                date.className = '';
+                                const dateLink = date.querySelector('a');
+                                if (dateLink) {
+                                    dateLink.className = '';
+                                    dateLink.style.cssText = 'color:#94a3b8;text-decoration:none;border-bottom:0;';
+                                }
+                            }
+                        }
+                    }
+                }
+                // 移除展开按钮
+                const cloneBtns = clone.querySelectorAll(includeConclusions ? '.expand-btn, .copy-btn' : '.expand-btn');
+                cloneBtns.forEach(b => b.remove());
+                // 移除 collapsed 样式
+                const collapsedEls = clone.querySelectorAll('.collapsed');
+                collapsedEls.forEach(c => c.classList.remove('collapsed'));
+
+                // 截图中移除问答模块的图标（问题图标 + 解答图标）
+                const qaIcons = clone.querySelectorAll('h4 > i.fa-question-circle, h5 > i.fa-lightbulb, h4 > i.fas.fa-question-circle, h5 > i.fas.fa-lightbulb');
+                qaIcons.forEach(icon => icon.remove());
+
+                // 截图中移除"阅读原文"等资源链接区域
+                // 如果 clone 本身就是资源链接容器（flex justify-end），直接跳过不添加
+                if (clone.classList && clone.classList.contains('justify-end') && clone.querySelector('a[target="_blank"]')) {
+                    return; // 跳过这个元素，不添加到 contentArea
+                }
+                // 如果资源链接在 clone 内部
+                const resourceLinks = clone.querySelectorAll('a[target="_blank"][rel*="noopener"]');
+                resourceLinks.forEach(link => {
+                    const wrapper = link.closest('.flex.justify-end') || link.parentElement;
+                    if (wrapper && wrapper !== clone) {
+                        wrapper.remove();
+                    } else if (wrapper === clone) {
+                        // 不会走到这里了，上面已经 return
+                    }
+                });
+
+                // html2canvas 对 flex 垂直居中支持不稳定，截图 DOM 使用固定像素布局。
+                const cloneClass = clone.className || '';
+                const isHeaderRow = cloneClass.indexOf('flex') !== -1 && cloneClass.indexOf('flex-col') !== -1;
+                const headerRow = isHeaderRow
+                    ? clone
+                    : clone.querySelector('[class*="flex"][class*="flex-col"]');
+                if (headerRow && headerRow.querySelector('h4')) {
+                    headerRow.style.cssText = 'position:relative; min-height:40px; padding-right:150px; margin-bottom:16px; box-sizing:border-box;';
+                    headerRow.className = '';
+                    const h4 = headerRow.querySelector('h4');
+                    if (h4) {
+                        h4.style.cssText = 'display:block; margin:0; font-size:20px; font-weight:700; color:#000; line-height:40px;';
+                        h4.className = '';
+                    }
+                    const timeSpan = headerRow.querySelector('span');
+                    if (timeSpan) {
+                        const timeText = timeSpan.textContent.trim();
+                        const timeIcon = timeSpan.querySelector('i');
+                        const timeIconClass = timeIcon ? timeIcon.className.replace(/"/g, '') : 'fas fa-clock';
+                        const isUsersIcon = timeIconClass.includes('fa-users');
+                        const timeIconHtml = isUsersIcon
+                            ? `<svg viewBox="0 0 640 512" style="width:16px;height:16px;display:inline-block;vertical-align:middle;fill:#6b7280;" aria-hidden="true">
+                                <path d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1-192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"></path>
+                            </svg>`
+                            : `<svg viewBox="0 0 24 24" style="width:16px;height:16px;display:inline-block;vertical-align:middle;fill:#6b7280;" aria-hidden="true">
+                                <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 10.2 4.2 2.5-1 1.6-5.2-3.1V6h2v6.2z"></path>
+                            </svg>`;
+                        timeSpan.innerHTML = `
+                            <span style="position:absolute;left:10px;right:10px;top:-3px;height:28px;line-height:28px;white-space:nowrap;">
+                                <span style="position:relative;top:2px;display:inline-block;width:24px;height:28px;line-height:28px;text-align:center;vertical-align:top;">${timeIconHtml}</span>
+                                <span style="position:relative;top:-4px;display:inline-block;height:28px;line-height:28px;vertical-align:top;">${timeText}</span>
+                            </span>
+                        `;
+                        timeSpan.style.cssText = 'position:absolute; right:0; top:10px; display:block; width:142px; height:28px; padding:0 10px; background:#f3f4f6; border-radius:6px; font-size:14px; line-height:0; font-weight:500; color:#4b5563; box-sizing:border-box; overflow:hidden; white-space:nowrap;';
+                        timeSpan.className = '';
+                    }
+                }
+
+                const headings = clone.querySelectorAll('h4, h5');
+                headings.forEach(heading => {
+                    if (heading.closest('[style*="position:relative"]')) return;
+                    heading.style.lineHeight = '30px';
+                    heading.style.marginTop = heading.style.marginTop || '0';
+                });
+
+                const inlineIcons = clone.querySelectorAll('h4 i, h5 i, span i, a i');
+                inlineIcons.forEach(icon => {
+                    icon.style.display = 'inline-block';
+                    icon.style.height = '30px';
+                    icon.style.lineHeight = '30px';
+                    icon.style.verticalAlign = 'top';
+                });
+
+                // 修复标签容器：固定高度和行高，避免标签底部参差不齐。
+                const tagContainers = clone.querySelectorAll('[class*="flex-wrap"]');
+                tagContainers.forEach(container => {
+                    container.style.cssText = 'font-size:0; line-height:0;';
+                    container.className = '';
+                    const tags = container.querySelectorAll('[class*="tag-item"], span');
+                    tags.forEach(tag => {
+                        const tagText = tag.textContent.trim();
+                        tag.innerHTML = `<span style="position:relative;top:-5px;display:block;height:28px;line-height:28px;">${tagText}</span>`;
+                        tag.style.cssText = 'display:inline-block; vertical-align:top; height:28px; background:rgba(14, 165, 233,0.1); color:#0EA5E9; padding:0 12px; border-radius:9999px; font-size:13px; font-weight:500; margin-right:8px; margin-bottom:8px; box-sizing:border-box; overflow:hidden;';
+                        tag.className = '';
+                    });
+                });
+
+                contentArea.appendChild(clone);
+            });
+
+            wrapper.appendChild(contentArea);
+
+            const footer = document.createElement('div');
+            footer.className = 'screenshot-footer';
+            footer.innerHTML = `
+                <div class="screenshot-footer-text">
+                    <div class="screenshot-footer-title">扫码查看完整日报</div>
+                    <div class="screenshot-footer-url">${publicUrl}</div>
+                </div>
+                <div class="screenshot-footer-qr-cell">
+                    <div class="screenshot-footer-qr" aria-label="扫码打开日报"></div>
+                </div>
+            `;
+            wrapper.appendChild(footer);
+
+            document.body.appendChild(wrapper);
+
+            await renderReportQr(footer.querySelector('.screenshot-footer-qr'), publicUrl);
+            const qrTargetForDraw = footer.querySelector('.screenshot-footer-qr');
+
+            // 将 QR canvas 转换为 img，解决 html2canvas 无法渲染嵌套 canvas 的问题
+            const qrCanvas = qrTargetForDraw ? qrTargetForDraw.querySelector('canvas') : null;
+            if (qrCanvas) {
+                const qrImg = document.createElement('img');
+                const qrDataUrl = qrCanvas.toDataURL('image/png');
+                qrImg.style.display = 'block';
+                qrImg.style.width = '94px';
+                qrImg.style.height = '94px';
+                qrImg.width = 94;
+                qrImg.height = 94;
+                // 等待 img 加载完成
+                await new Promise((resolve) => {
+                    qrImg.onload = resolve;
+                    qrImg.onerror = resolve;
+                    qrImg.src = qrDataUrl;
+                });
+                // 清空容器后只放我们的 img（QRCode.js 会同时生成 canvas + img）
+                qrTargetForDraw.innerHTML = '';
+                qrTargetForDraw.appendChild(qrImg);
+                console.log('[截图] QR canvas 已转换为 img，src长度:', qrDataUrl.length);
+            } else {
+                // 如果是 table 模式生成的 QR，尝试用 table 转 canvas 再转 img
+                const qrTable = qrTargetForDraw ? qrTargetForDraw.querySelector('table') : null;
+                if (qrTable) {
+                    console.log('[截图] QR 为 table 模式，使用 html2canvas 转换');
+                }
+            }
+
+            // 等待渲染
+            await new Promise(resolve => setTimeout(resolve, 350));
+
+            // 检测环境
+            const ua = navigator.userAgent;
+            const isMobile = /iPhone|iPad|iPod|Android|Mobile/i.test(ua);
+
+            // 使用 html2canvas 生成图片
+            const canvas = await html2canvas(wrapper, {
+                scale: 2,
+                useCORS: true,
+                backgroundColor: null,
+                logging: false,
+                width: 560,
+                windowWidth: 560
+            });
+
+            // 清理临时容器
+            document.body.removeChild(wrapper);
+
+            // 恢复收起状态
+            expandedBtns.forEach(btn => btn.click());
+
+            const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+            if (!blob) throw new Error('图片生成失败');
+
+            // 移动端（含微信）直接走浮层，桌面端尝试 clipboard
+            let copied = false;
+            if (!isMobile) {
+                try {
+                    if (navigator.clipboard && navigator.clipboard.write) {
+                        await navigator.clipboard.write([
+                            new ClipboardItem({ 'image/png': blob })
+                        ]);
+                        copied = true;
+                    }
+                } catch (clipErr) {
+                    console.warn('[截图] clipboard.write 失败:', clipErr.message);
+                }
+            }
+
+            if (copied) {
+                // 成功：按钮变绿✓
+                btnElement.innerHTML = '<i class="fas fa-check"></i>';
+                btnElement.style.color = '#10b981';
+                setTimeout(() => {
+                    btnElement.innerHTML = originalIcon;
+                    btnElement.style.color = '';
+                }, 1500);
+            } else {
+                // 移动端或 clipboard 失败：弹出图片浮层让用户长按保存
+                btnElement.innerHTML = originalIcon;
+                btnElement.style.color = '';
+                showFallbackOverlay(blob, topicTitle);
+            }
+
+        } catch (error) {
+            console.error('截图失败:', error);
+            alert('截图失败，请重试');
+            btnElement.innerHTML = originalIcon;
+            btnElement.style.color = '';
+        } finally {
+            // 恢复按钮状态
+            btnElement.classList.remove('capturing');
+        }
+    }
+    </script>
+
+    <!-- HTML注释: 原群ICP/公安备案信息已整体移除（含下方公安备案块）。日后若部署到自有备案域名，再按实际备案号重新添加。 -->
+    
+<script>
+(function(config) {
+ const first=config.first,base=config.base,prefix=config.prefix,dateEl=document.getElementById('report-date'),trigger=document.querySelector('.report-date-trigger');
+ if(!dateEl||!trigger)return;
+ const pad=n=>String(n).padStart(2,'0'),iso=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+ const url=d=>base+encodeURIComponent(prefix+d+'.html'),m=dateEl.textContent.match(/(\d{4})\s*[年-]\s*(\d{1,2})\s*[月-]\s*(\d{1,2})/),current=m?m[1]+'-'+pad(m[2])+'-'+pad(m[3]):'';
+ const overlay=document.createElement('div');overlay.className='report-calendar-overlay';overlay.hidden=true;
+ overlay.innerHTML='<div class="report-calendar" role="dialog" aria-modal="true" aria-label="选择日报日期"><div class="report-calendar-top"><strong>选择日期</strong><button type="button" class="report-calendar-close" aria-label="关闭"><i class="fas fa-times" aria-hidden="true"></i></button></div><div class="report-calendar-controls"><button type="button" class="report-calendar-nav prev" aria-label="上个月">‹</button><select class="year" aria-label="年份"></select><select class="month" aria-label="月份"></select><button type="button" class="report-calendar-nav next" aria-label="下个月">›</button></div><div class="report-calendar-grid week" aria-hidden="true"></div><div class="report-calendar-grid days"></div></div>';
+ document.body.appendChild(overlay);
+ const year=overlay.querySelector('.year'),month=overlay.querySelector('.month'),days=overlay.querySelector('.days'),prev=overlay.querySelector('.prev'),next=overlay.querySelector('.next');
+ overlay.querySelector('.week').innerHTML=['日','一','二','三','四','五','六'].map(x=>'<span class="report-calendar-week">'+x+'</span>').join('');
+ let view,today,state,version=0,savedScroll=0,savedBodyStyle;
+ function close(){overlay.hidden=true;trigger.setAttribute('aria-expanded','false');Object.assign(document.body.style,savedBodyStyle);window.scrollTo(0,savedScroll);trigger.focus({preventScroll:true});}
+ function render(){
+  year.innerHTML='';for(let y=Number(first.slice(0,4));y<=today.getFullYear();y++)year.add(new Option(y+'年',y,false,y===view.getFullYear()));
+  month.innerHTML='';for(let n=0;n<12;n++){const o=new Option((n+1)+'月',n,false,n===view.getMonth()),key=view.getFullYear()+'-'+pad(n+1);o.disabled=key<first.slice(0,7)||key>iso(today).slice(0,7);month.add(o);}
+  const key=iso(view).slice(0,7);prev.disabled=key<=first.slice(0,7);next.disabled=key>=iso(today).slice(0,7);
+  days.innerHTML='';for(let i=0;i<view.getDay();i++)days.appendChild(document.createElement('span'));
+  for(let n=1;n<=new Date(view.getFullYear(),view.getMonth()+1,0).getDate();n++){
+   const date=iso(new Date(view.getFullYear(),view.getMonth(),n)),b=document.createElement('button');b.type='button';b.className='report-calendar-day';b.textContent=n;
+   b.setAttribute('aria-label',view.getFullYear()+'年'+(view.getMonth()+1)+'月'+n+'日');
+   if(date===current){b.classList.add('current');b.setAttribute('aria-current','date');}if(date===iso(today))b.classList.add('today');
+   b.disabled=date<first||date>iso(today);
+   if(date===iso(today)&&state!=='available'){
+    b.setAttribute('aria-disabled','true');
+    if(state!=='loading'){
+     const tip='今日日报将于次日更新';
+     b.setAttribute('data-tip',tip);b.setAttribute('aria-label',b.getAttribute('aria-label')+'，'+tip);
+    }
+   }
+   b.addEventListener('click',()=>{if(b.getAttribute('aria-disabled')!=='true')window.location.href=url(date)});days.appendChild(b);
+  }
+ }
+ prev.addEventListener('click',()=>{view=new Date(view.getFullYear(),view.getMonth()-1,1);render()});
+ next.addEventListener('click',()=>{view=new Date(view.getFullYear(),view.getMonth()+1,1);render()});
+ year.addEventListener('change',()=>{view=new Date(Number(year.value),view.getMonth(),1);if(iso(view).slice(0,7)<first.slice(0,7))view=new Date(Number(first.slice(0,4)),Number(first.slice(5,7))-1,1);if(iso(view).slice(0,7)>iso(today).slice(0,7))view=new Date(today.getFullYear(),today.getMonth(),1);render()});
+ month.addEventListener('change',()=>{view=new Date(view.getFullYear(),Number(month.value),1);render()});
+ overlay.querySelector('.report-calendar-close').addEventListener('click',close);overlay.addEventListener('click',e=>{if(e.target===overlay)close()});document.addEventListener('keydown',e=>{if(!overlay.hidden&&e.key==='Escape')close()});
+ trigger.addEventListener('click',async()=>{
+  today=new Date();today.setHours(0,0,0,0);const t=iso(today),initial=current&&current>=first&&current<=t?current:t;
+  view=new Date(Number(initial.slice(0,4)),Number(initial.slice(5,7))-1,1);state='loading';const v=++version;savedScroll=window.scrollY;savedBodyStyle={};['position','top','left','right','width','overflow'].forEach(k=>savedBodyStyle[k]=document.body.style[k]);Object.assign(document.body.style,{position:'fixed',top:'-'+savedScroll+'px',left:'0',right:'0',width:'100%',overflow:'hidden'});overlay.hidden=false;trigger.setAttribute('aria-expanded','true');render();overlay.querySelector('.report-calendar-close').focus();
+  try{const r=await fetch(url(t),{method:'HEAD',cache:'no-store',signal:AbortSignal.timeout(8000)});if(v!==version)return;state=r.ok&&!r.redirected?'available':r.status===404?'missing':'unknown'}catch(e){if(v!==version)return;state='unknown'}render();
+ });
+})({"first": "2026-11-06", "base": "https://sihai-zy.github.io/four-seas/", "prefix": "fourseas_daily_"});
+</script><!-- === 金句换一句：全库精选随机（assets/public_quotes.js），无库时回退当日候选池 === -->
+<script src="assets/public_quotes.js"></script>
+<script>
+(function () {
+    var pool = [
+        {
+                "text": "安全第一，未来这十年还是先别去东南亚，他们没有逆周期的能力，只能吃人。",
+                "author": "AA昍",
+                "date": "2026-11-26 · 热点话题"
+        },
+        {
+                "text": "当事情不得不跳火坑的时候，一定要加速。",
+                "author": "AA昍",
+                "date": "2026-11-26 · 热点话题"
+        },
+        {
+                "text": "作为一门生意，你最容易进货的渠道，当然是骗中国人了。所以并不是中国人骗中国人，而是所有的诈骗都是倾向于本国人骗本国人。",
+                "author": "AA昍",
+                "date": "2026-11-26 · 热点话题"
+        },
+        {
+                "text": "种族歧视是你打破沟通障碍之后仍然存在的东西",
+                "author": "杰",
+                "date": "2026-11-26 · 热点话题"
+        },
+        {
+                "text": "共产主义者有义务发财，在和平年代。和平年代，钞票=选票。",
+                "author": "AA昍",
+                "date": "2026-11-26 · 热点话题"
+        },
+        {
+                "text": "人脱离实际创作就容易得精神病。",
+                "author": "AA昍",
+                "date": "2026-11-26 · 热点话题"
+        },
+        {
+                "text": "长期的创作者，写文章，每一个字都有目的。",
+                "author": "如意如意随我心意",
+                "date": "2026-11-26 · 热点话题"
+        },
+        {
+                "text": "用时间换钱的话，手停口停。健康第一。",
+                "author": "AA昍",
+                "date": "2026-11-26 · 有问必答"
+        },
+        {
+                "text": "敢分手的人，说不定最后就不用分手，因为对方也吓醒了，开始一起进步了，多好啊。",
+                "author": "AA昍",
+                "date": "2026-11-26 · 有问必答"
+        },
+        {
+                "text": "确实，没啥关系，3w以上才需要机遇，以下只需要勤奋。",
+                "author": "AA昍",
+                "date": "2026-11-26 · 有问必答"
+        }
+];
+    var allQ = window.PUBLIC_QUOTES || [];
+    var el = document.getElementById("fortune-text");
+    var au = document.getElementById("fortune-author");
+    var dt = document.getElementById("fortune-date");
+    var btn = document.getElementById("fortune-shuffle");
+    if (!el || !au || !btn) return;
+    var src = allQ.length > 1 ? allQ : pool;
+    if (!src || src.length < 1) return;
+    var idx = Math.floor(Math.random() * src.length);
+    function paint() {
+        el.textContent = src[idx].text;
+        au.textContent = src[idx].author;
+        var dstr = (src[idx].date || "");
+        if (dt && dstr) {
+            var md = dstr.match(/^(\d{4}-\d{2}-\d{2})/);
+            if (md) {
+                dt.innerHTML = '<a href="fourseas_daily_' + md[1] + '.html" target="_blank" rel="noopener" style="color:#0369A1;font-weight:600;text-decoration:none;">' + md[1] + '<i class="fas fa-arrow-right" style="font-size:10px;margin-left:2px;"></i></a>';
+            } else {
+                dt.textContent = dstr;
+            }
+        }
+    }
+    paint();
+    if (src.length < 2) return;
+    btn.addEventListener("click", function () {
+        var next = idx;
+        while (next === idx) { next = Math.floor(Math.random() * src.length); }
+        idx = next;
+        paint();
+    });
+})();
+</script>
+</body>
+</html>
